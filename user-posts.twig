@@ -1,0 +1,70 @@
+{% extends "layouts/main.twig" %}
+
+{% block content %}
+
+	{# First, grab the username from the URI #}
+	{% set username = craft.request.segment(2) %}
+
+	{# Then, grab the user based on the username %}#}
+	{% set user = craft.users.username(username).first() %}
+	{% if user %}
+		<div class="profile">
+
+			<div class="profile__section">
+				<div class="profile-sidebar">
+					<div class="profile-sidebar__picture" style="background-image: url('{{ user.photoUrl }}');"></div>
+					<div class="profile-sidebar__name">{{ user.firstName }} {{ user.lastName }}</div>
+					<div class="profile-sidebar__location">BRISBANE AUSTRALIA</div>
+					<span class="profile-sidebar__description">{{ user.authorBio }}</span>
+					<a href="#" class="button button__profile-follow">Follow</a>
+					<div class="social-icon_wrap--white">
+						<i class="fa fa-google-plus"></i>
+						<i class="fa fa-facebook"></i>
+						<i class="fa fa-twitter"></i>
+					</div>
+				</div>
+				<div class="profile__activity">
+					<div class="profile__contributions-title">
+						<img class="profile__title_icon" src="/static/images/icons/pencil.svg" alt="pencil icon">
+						<span class="profile__title">CONTRIBUTES TO:</span>
+					</div>
+					<div class="profile__dark-separator"></div>
+					<div class="profile__contributions">
+						{% set channels = craft.categories.group('channels') %}
+						{% for channel in channels|slice(0, 2) %}
+							<div class="col-third">
+								{% include '/_elements/channel-card.twig' with {channel: channel} %}
+							</div>
+						{% endfor %}
+					</div>
+					<div class="profile__light-separator"></div>
+					<div class="profile__following-title">
+						<img class="profile__title_icon" src="/static/images/icons/channels.svg" alt="pencil icon">
+						<span class="profile__title">FOLLOWING:</span>
+					</div>
+					<div class="profile__light-separator"></div>
+					<div class="profile__following">
+						{% set channels = craft.categories.group('channels') %}
+						{% for channel in channels|slice(3, 7) %}
+							<div class="col-third">
+								{% include '/_elements/channel-card.twig' with {channel: channel} %}
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+
+			<h1 class="profile__heading">{{user}}'s Articles</h1>
+
+			{% set articles = craft.entries.section('posts').type('article').authorId(user.id).find() %}
+
+			<div class="card-container">
+				{% if articles|length > 0 %}
+					{% include '/_elements/_card-layout-quarters.twig' with {articles: articles} %}
+				{% endif %}
+			</div>
+		</div>
+
+	{% endif %}
+
+{% endblock %}

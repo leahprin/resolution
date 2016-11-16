@@ -1,0 +1,68 @@
+{% extends '_helpers/variables' %}
+
+{% block content %}
+
+	{% set channels = craft.categories.group('channels') %}
+
+	{% set channelObject = [] %}
+
+	{% for channel in channels %}
+		{% set channelObject = channelObject|merge({(channel|lower ~ ''): ('channel-' ~ loop.index)})  %}
+	{% endfor %}
+
+	<button type="button" class="close close__lg-modal" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+				<title>Close</title>
+				<g stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="round">
+					<path d="M17.803 2L2 17.803M2.08 2.08l15.803 15.803"/>
+				</g>
+			</svg>
+            <div class="close__text">esc</div>
+        </span>
+	</button>
+	<div class="social-modal__content {{ channelObject[channel|lower] }} {% if image == '' and hasVideo == '' %}no_image{% endif %}">
+		<button type="button" class="close close__sm-modal" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">
+								<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Close</title><g stroke="#FFF" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="round"><path d="M17.803 2L2 17.803M2.08 2.08l15.803 15.803"/></g></svg>
+	            </span>
+		</button>
+		<div class="social-modal__channel social-modal__channel--technology ">{{ channel }}</div>
+		<div class="social-modal__overflow">
+			<div class="social-modal__text">“<br>{{ text|striptags }}</div>
+		</div>
+		<div class="article__profile">
+			<span class="profile__user_image" style="background-image: url('{{ authorImage }}'); height: 56px; width: 56px; background-size: cover; display: inline-block; border-radius: 50%;"></span>
+			<div class="profile__author_wrap">
+				<span class="article__author">By {{ author }}</span>
+				<div class="profile__button-wrap">
+					<a href="/user-posts/dev" class="button button-sm button__follow">Follow</a>
+					<a href="javascript:void(0)" class="button button-sm button__share">Share
+						{% include '_elements/share-popup.twig' %}
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% if image == true or hasVideo == true %}
+		<div class="social-modal__image_container">
+			<div class="social-modal__image_wrap">
+				{% if hasVideo == 'y' %}
+					<div class="social-modal__video-wrap">
+						<div>
+							{{ embed|raw }}
+						</div>
+					</div>
+				{% elseif image %}
+					<div class="social-modal__image" style="background-image: url('{{ image }}');" >
+						<img class="social-modal__image_image" src="{{ image }}" alt="" />
+					</div>
+				{% endif %}
+			</div>
+		</div>
+		{#<p>#}
+		{#<span style="background-image: url('{{ authorImage }}'); height: 50px; width: 50px; background-size: cover; display: inline-block; border-radius: 50%;"></span>#}
+		{#<a href="{{ socialLink }}">{{ network }} @{{ author }}</a></p>#}
+		{#<p>{{ date }}</p>#}
+	{% endif %}
+{% endblock %}

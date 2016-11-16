@@ -1,0 +1,76 @@
+{% extends "layouts/main.twig" %}
+
+{% block content %}
+
+    {# First, grab the username from the URI #}
+    {% set username = craft.request.segment(2) %}
+
+    {# Then, grab the user based on the username %}#}
+    {% set user = craft.users.username(username).first() %}
+    {% if user %}
+        <div class="blog">
+
+            <div class="blog__header">
+                <div class="blog__background" {% if image is defined %}style="background-image: url('{{ image }}'); background-size: cover;"{% endif %}>
+                    <div class="blog__user-header">
+                        <div class="blog__user-header__display">
+                            <span class="blog__user-header__image" style="background-image: url('{{ user.photoUrl }}'); background-size: cover; display: inline-block; border-radius: 50%;"></span>
+                            <div class="blog__user-header__name">{{user}}</div>
+                            <div class="button-container">
+                                <a href="javascript:void(0)" class="button header_actions header_actions__share article__header-item">Share
+                                    {% include '/_elements/share-popup.twig' %}
+                                </a>
+                                <a href="#" class="button button__follow--reverse blog__user-header__share">Follow</a>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="blog__title">
+                        <h1 class="blog__heading">{{user}} Posts</h1>
+                        <span class="blog__description">{{ user.authorBio }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="social-bar__container">
+                <div class="social-bar">
+                    <div class="social-bar__button-wrap">
+                        <a href="#" class="social-bar__button--twitter">
+                            <i class="fa fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="#" class="social-bar__button--twitter">
+                            <i class="fa fa-linkedin"></i>
+                            <span>Linkedin</span>
+                        </a>
+                    </div>
+                    <div class="blog__data">
+                        <div class="blog__followers">
+                            <strong>10</strong>
+                            <span>Followers</span>
+                        </div>
+                        <div class="blog__following">
+                            <strong>10</strong>
+                            <span>Following</span>
+                        </div>
+                        <div class="blog__articles">
+                            <strong>15</strong>
+                            <span>Articles</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {% set articles = craft.entries.section('posts').type('article').authorId(user.id).find() %}
+
+            <div class="card-container">
+                {% if articles|length > 0 %}
+                    {% include '_elements/_card-layout-thirds.twig' with {articles: articles} %}
+                {% endif %}
+            </div>
+        </div>
+
+    {% endif %}
+
+{% endblock %}

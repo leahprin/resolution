@@ -1,0 +1,15 @@
+<div class="share-popup">
+    <div class="share-popup__title-wrap">
+        <span class="share-popup__title">Share:</span>
+        <img class="share-popup__close" src="/static/images/icons/close-small.svg" alt="">
+    </div>
+    <input type="text" name="share-link" value="{{ craft.request.getPath }}" readonly class="share-popup__share-link share-link">
+    <div class="share-popup__social-wrap">
+        <div class="social-icon_wrap--colored">
+            <i class="fa fa-google-plus"></i>
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+        </div>
+        <span class="share-popup__copy-text">Copy Link</span>
+    </div>
+</div>

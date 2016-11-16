@@ -1,0 +1,29 @@
+{% block content  %}
+
+{% set image = channel.displayImage.first() %}
+
+{% set channelThumb = {
+    mode: 'crop',
+    width: 400,
+    height: 400,
+    quality: 60,
+    position: 'center-center'
+} %}
+
+<a href="{{channel.url}}" class="channel-card channel-card__{{ channel.title|lower }} {{ channelObject[channel|lower] }} {% if image is not defined %}channel__no-image{% endif %}">
+    <div class="channel-card__overlay">
+        <div class="channel-card__content_wrap">
+            {% if image is defined %}
+                <div class="channel-card__image" style="background-image: url('{{ image.url(channelThumb) }}');"></div>
+            {% endif %}
+            <div class="channel-card__content">
+                <div class="channel-card__channel-wrap">
+                    <div class="channel-card__channel">{{ channel.title }}</div>
+                </div>
+                <div class="channel-card__headline">{{ channel.channelIntro }}</div>
+            </div>
+        </div>
+    </div>
+</a>
+
+{% endblock %}

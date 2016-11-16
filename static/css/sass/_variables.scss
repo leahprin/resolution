@@ -1,0 +1,103 @@
+$light-color:       #fff;
+$gray-color:        #ebebeb;
+$dark-color:        #000000;
+$grey:			    #808080;
+$body-text:         #2D2D2D;
+$header-background: #fff;
+$body-color:        rgb(255, 255, 255);
+$icon-color:        #575757;
+
+$highlight-color:   #D0EDF5;
+$quote-color:       #662d91;
+$hover-color:       $highlight-color;
+$follow-color:      #00a651;
+$hashtag-color:     #55acee;
+$slide-color:       #0076a3;
+$blue:              #46a5fc;
+$transparent:       rgba(0,0,0,0);
+$border-color:      #e0e0e0;
+$placeholder:       rgba(45, 45, 45, 0.8);
+
+$error-color:       #e73d4a;
+$success-color:     #4FE8C4;
+$warning:           #fecd50;
+$black:             #000000;
+$white:             #ffffff;
+
+$sections: (
+        0:    (
+                color: #E2F0D5,
+        ),
+        1: (
+                color: #FCF8B9,
+        ),
+        2:        (
+                color: #DAE0E9,
+        ),
+        3:         (
+                color: #D0EDF5,
+        ),
+        4:     (
+                color: #FDC3C2,
+        ),
+        5:    (
+                color: #E2F0D5,
+        ),
+        6: (
+                color: #FCF8B9,
+        ),
+        7:        (
+                color: #DAE0E9,
+        ),
+        8:         (
+                color: #D0EDF5,
+        ),
+        9:     (
+                color: #FDC3C2,
+        ),
+        10:    (
+                color: #E2F0D5,
+        ),
+        11: (
+                color: #FCF8B9,
+        ),
+        12:        (
+                color: #DAE0E9,
+        ),
+        13:         (
+                color: #D0EDF5,
+        ),
+        14:     (
+                color: #FDC3C2,
+        )
+);
+
+$social-colors: (
+        facebook:    #3b5998,
+        featured:    #15b999,
+        google-plus: #e04a32,
+        instagram:   #9f6fc0,
+        linkedin:    #123e65,
+        twitter:     #55acee,
+        youtube:     #cc181e,
+        vimeo:       #00b3ec,
+);
+
+// Grids
+$grid-gutter-width: 20px;
+
+// Dimensions
+$screen-xs: 480px;  // Mobile
+$screen-sm: 768px;  // Tablet
+$screen-md: 1200px; // Desktop
+$screen-lg: 1600px; // Large desktop
+
+// Font
+$heading-font-family: "Open Sans", Helvetica, Arial, sans-serif !default;
+$base-font-family:  	"Open Sans", Helvetica, Arial, sans-serif !default;
+$text-font-family: 	"Open Sans", Helvetica, Arial, sans-serif !default;
+$iconfont:				FontAwesome !default;
+
+// Font Size
+$baseFontSize:			18px; /* ($baseFontSize * 1) + 0px; */
+$center:				center;

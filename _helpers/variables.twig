@@ -1,0 +1,65 @@
+
+{# Need to set all of the variables for them to be avaialle outside the IF loops below.
+More info: http://twig.sensiolabs.org/doc/tags/set.html #}
+
+{% if article is not defined and entry is defined %}
+	{% set article = entry %}
+{% endif %}
+
+
+{% set cardType = '' %}
+{% set postText = '' %}
+{% set author = '' %}
+{% set authorBio = '' %}
+{% set network = '' %}
+{% set headline = '' %}
+{% set socialLink = '' %}
+{% set articleBody = '' %}
+{% set hasVideo = '' %}
+{% set thumbnail = '' %}
+{% set image = '' %}
+{% set imageCrop = { mode: 'crop', width: 1000, height: 1000, quality: 60, position: 'center-center'} %}
+{% set text = article.text %}
+{% set channel = article.channel.first() %}
+{% set link = article.url %}
+{% set date = article.postDate | date("d M, Y") %}
+{% set slug = article.slug %}
+
+{% if article.image.first() %}
+	{% set thumbnail = article.image.first().url(imageCrop) %}
+	{% set image = article.image.first().url() %}
+{% endif %}
+
+{% if article.author.photoUrl %}
+	{% set authorImage = article.author.photoUrl %}
+{% endif %}
+
+
+{# ===============
+   SOCIAL
+   =============== #}
+{% if article.type == "social" %}
+	{% set cardType = 'social' %}
+	{% set author = article.socialAuthor %}
+	{% set network = article.socialNetwork %}
+	{% set socialLink = article.socialLink %}
+
+	{% if network == 'youtube' %}
+		{% set hasVideo = 'y' %}
+		{% set thumbnail = '//img.youtube.com/vi/' ~ article.socialLink ~ '/maxresdefault.jpg' %}
+		{% set embed = '<iframe src="https://www.youtube.com/embed/' ~ article.socialLink ~ '" frameborder="0" allowfullscreen></iframe>' %}
+	{% endif %}
+
+
+	{# ===============
+       ARTICLES
+       =============== #}
+{% elseif article.type == "article" %}
+	{% set cardType = 'article' %}
+	{% set headline = article.title %}
+	{% set author = article.author.fullName %}
+	{% set authorBio = article.author.authorBio %}
+	{% set articleBody = article.articleBody %}
+{% endif %}
+{% block content %}
+{% endblock %}

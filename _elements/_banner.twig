@@ -1,0 +1,24 @@
+{% set articles = craft.entries.relatedTo(channel) %}
+
+<header class="banner">
+    <div class="banner__scroll-container">
+        <div class="banner__container">
+            <div class="banner__button-wrap">
+                <div class="banner__button">
+                    <img class="banner__button-icon" src="/images/icons/follow.svg" alt="follow {{ channel }} icon">
+                    <span>Follow {{ channel|capitalize }}</span>
+                </div>
+            </div>
+            {% for article in articles %}
+                {% if article.type == 'article' %}
+                    <a class="article-thumb" href="{{ article.url() }}">
+                        {% if article.image.first().url is defined %}
+                            <img class="article-thumb__image" src="{{ article.image.first().url }}" alt="{{ article.image.first().title }}">
+                        {% endif %}
+                        <div class="article-thumb__headline">{{ article.title|striptags[:50] ~ '...' }}</div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</header>

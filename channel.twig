@@ -1,0 +1,34 @@
+{% extends "layouts/main.twig" %}
+
+{% block content %}
+
+    {% set articles = craft.entries.relatedTo(category) %}
+
+    <div class="channel">
+        <div class="col-full">
+            <article class="card--channel {{ channelObject[category|lower] }}">
+                <a href="#" class="card card__no-image">
+                    <div class="card__overlay">
+                        <div class="card__content_wrap">
+                            <div class="card__content">
+                                <h3 class="card__headline">{{ category }}</h3>
+                                <p class="card__text">Vivamus mattis justo eget est molestie, tincidunt bibendum eros cursus. Nam convallis vulputate neque et rhoncus.</p>
+                                <div class="card__button-wrap">
+                                    <button class="button button__follow button__follow">Follow</button>
+                                    <button class="button header_actions header_actions__share article__header-item">Share
+                                        {% include '/_elements/share-popup.twig' %}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        </div>
+
+        {% if articles|length > 0 %}
+            {% include '_elements/_card-layout-thirds.twig' with {articles: articles} %}
+        {% endif %}
+    </div>
+
+{% endblock %}

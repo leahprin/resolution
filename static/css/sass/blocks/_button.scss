@@ -1,0 +1,74 @@
+.button {
+  background: $white;
+  border: 1px solid #C6D5B8;
+  border-radius: 2px;
+  padding: 7px 16px 8px 16px;
+  display: inline-block;
+  @include text-sm;
+  @include transition(all 0.4s ease);
+  &-sm {
+    padding: 3px 10px 4px;
+    max-width: 62px;
+    &.button__share {
+      max-width: none;
+      background-position: 10px 5px;
+      padding-left: 30px;
+    }
+  }
+  &:hover, &:active {
+    background-color: #D0EDF5;
+    color: $body-text;
+  }
+  &__follow {
+    &--reverse {
+      color: $body-text;
+      background-color: #D0EDF5;
+      border: 1px solid #D0EDF5;
+      &:hover, &:active {
+        color: $white;
+      }
+    }
+  }
+  &__comments, &__share {
+    padding-left: 35px;
+    background-repeat: no-repeat;
+    background-position: 13px 8px;
+  }
+  &__comments {
+    background-image: url(/static/images/icons/comment-icon.svg);
+  }
+  &__share {
+    @extend .button__follow;
+    position: relative;
+    background-image: url(/static/images/icons/share-icon.svg);
+    .share-popup .share-popup__close {
+      width: auto;
+      margin: 0;
+    }
+  }
+  &__profile-follow {
+    margin-bottom: 22px;
+    border-radius: 100px;
+    border: none;
+    background-color: #576b74;
+    color: white;
+    padding: 8px 40px 10px;
+    &:hover {
+      color: #576b74;
+      background-color: $white;
+    }
+  }
+}
+
+.button-container {
+  a:first-child {
+    margin-right: 15px;
+  }
+}
+
+.profile__button-wrap {
+  display: flex;
+  > a:first-child {
+    margin-right: 5px;
+  }
+}

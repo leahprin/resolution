@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+	<link rel="home" href="{{ siteUrl }}" />
+
+	<link rel="stylesheet" href="/static/css/index.css" type="text/css" media="all">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+
+	<style>
+		body, .body, p {
+			font-family: "Open Sans", sans-serif;
+		}
+		h1, h2, h3, h4, h5 {
+			font-family: "Open Sans", serif !important;
+		}
+	</style>
+</head>
+
+<body>
+<div id="container">
+	{% set channels = craft.categories.group('channels') %}
+
+	{% set channelObject = [] %}
+
+	{% for channel in channels %}
+		{% set channelObject = channelObject|merge({(channel|lower ~ ''): ('channel-' ~ loop.index)})  %}
+	{% endfor %}
+
+	{% include '_elements/_header' %}
+
+	<main id="content" role="main">
+		{% block content %}
+			<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+			<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+		{% endblock %}
+	</main>
+
+	<div class="modal" role="dialog">
+		<div class="modal-dialog modal-extlg" role="document">
+			<div class="modal-content social-modal">
+			</div>
+		</div>
+	</div>
+
+	{% include '_elements/_footer' %}
+</div>
+
+{% include '_elements/_javascript' %}
+</body>
+</html>

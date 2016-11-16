@@ -1,0 +1,26 @@
+{% extends "layouts/main.twig" %}
+
+{% block content %}
+	{% set query = craft.request.getParam('s') %}
+	{% set entries = craft.entries.section('posts').search(query).order('score') %}
+
+	<div class="search__form-big">
+		<form action="{{ url('search') }}">
+			<input type="text" class="header__search-text" placeholder="Search" name="s" value="{{ query }}">
+			<button class="header__search-btn"></button>
+		</form>
+	</div>
+	<div class="search__heading">{{ entries|length }} Search result</div>
+
+	<div class="search">
+		{% if entries|length %}
+			{% for entry in entries %}
+				<div class="col-quarter">
+					{% include '_elements/card' %}
+				</div>
+			{% endfor %}
+		{% else %}
+			<p>Your search for “{{ query }}” didn’t return any results.</p>
+		{% endif %}
+	</div>
+{% endblock %}

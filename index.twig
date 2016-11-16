@@ -1,0 +1,25 @@
+{% extends "layouts/main.twig" %}
+
+{% block content %}
+
+    {% set limit = 20 %}
+    {% set articles = craft.entries.section('posts').find() %}
+
+
+    <div class="layout-container">
+        <div class="home">
+            {% if articles|length > 0 %}
+                {% include '_elements/_card-layout.twig' with {articles: articles} %}
+            {% endif %}
+        </div>
+    </div>
+
+
+    <div class="row ajaxArticles" data-existing-nonpinned-count="{#{{articlesArr.existingNonPinnedCount}}#}"></div>
+    <div class="row text-center has-margin-bottom-20">
+        {% if articles|length >= limit %}
+            <a href="javascript:void(0)" class="button loadMoreArticles"><i class="fa fa-arrow-down"></i>Load More</a>
+        {% endif %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends "layouts/main.twig" %}
+
+{% block content %}
+    <div class="auth">
+        <ul class="auth__tabs" role="tablist">
+            <li role="presentation" class="active"><a class="" href="#signIn" aria-controls="signIn" role="tab" data-toggle="tab">Login</a></li>
+            <li role="presentation"><a class="" href="#signUp" aria-controls="signUp" role="tab" data-toggle="tab">Sign Up</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane login active" id="signIn">
+                <div class="login__o-login_button-wrap">
+                    <a href="#" class="login__button facebook-login">
+                        <i class="fa fa-facebook"></i>
+                        <span class="login__button-text">Login with facebook</span>
+                    </a>
+                    <a href="#" class="login__button twitter-login">
+                        <i class="fa fa-twitter"></i>
+                        <span class="login__button-text">Login with twitter</span>
+                    </a>
+                </div>
+                {# <div class="login__no-account">
+                    Don't have an account? <a href="#signUp" aria-controls="signUp" role="tab" data-toggle="tab">Sign Up</a>
+                </div> #}
+
+                <form name="loginForm" id="loginForm" class="login-form" action="/auth/login" method="post" autocomplete="off" novalidate="novalidate" _lpchecked="1">
+
+                    {#<input type="hidden" name="_csrf" value="MVN5Zm0wQ2NXNxYrPAEnL3YpCi4hVwE5RxErXxhkHAJ.MBssP2oHIQ==">#}
+										<div class="login__form-title">Login with email</div>
+										<p class="form__error">Incorrect username or password.</p>
+                    <input type="text" class="form-control" name="username" value="" placeholder="Username or email" autocomplete="off">
+                    <input type="password" class="form-control" name="password" value="" placeholder="Password" autocomplete="off">
+
+                    <div class="button-set">
+                        <label class="button-set__left">
+                            <input type="checkbox" name="rememberMe" value="1" checked="checked">
+                            <span><!-- fake checkbox --></span>Remember Me
+                        </label>
+                        <div class="button-set__left">
+                            <a href="forgot-password" class="button-set__forgot"><span class="green">Forgot Password?</span></a>
+                            <button type="submit" class="button-set__submit" name="submitLoginForm">Submit</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div role="tabpanel" class="tab-pane sign-up" id="signUp">
+                <div class="sign-up__o-login_button-wrap">
+                    <a href="#" class="sign-up__button facebook-sign-up">
+                        <i class="fa fa-facebook"></i>
+                        <span class="sign-up__button-text">Sign up with facebook</span>
+                    </a>
+                    <a href="#" class="sign-up__button twitter-sign-up">
+                        <i class="fa fa-twitter"></i>
+                        <span class="sign-up__button-text">Sign up with twitter</span>
+                    </a>
+                </div>
+                {# <div class="sign-up__no-account">
+                    Already have an account? <a href="#signUp" aria-controls="signUp" role="tab" data-toggle="tab">Login</a>
+                </div> #}
+                <div class="sign-up__form-title">
+                    Sign up with email
+                </div>
+                <form name="signupForm" id="signupForm" class="sign-up-form" action="/auth/signup" method="post" autocomplete="off" novalidate="novalidate">
+                    {#<input type="hidden" name="_csrf" value="MVN5Zm0wQ2NXNxYrPAEnL3YpCi4hVwE5RxErXxhkHAJ.MBssP2oHIQ==">#}
+
+
+                    <div class="form__input-wrap">
+                        <input type="text" class="form-control" name="firstname" value="" placeholder="Firstname">
+                        <input type="text" class="form-control" name="lastname" value="" placeholder="Lastname">
+                    </div>
+
+                    <input type="text" class="form-control" name="email" value="" placeholder="Email" id="email">
+                    <input type="password" id="password" class="form-control" name="password" value="" placeholder="Password">
+                    <input type="password" class="form-control" name="verifypassword" value="" placeholder="Verify Password">
+                    <input type="text" class="form-control" name="username" value="" placeholder="Username">
+
+                    <div class="controls-full captcha">
+                        {# <span class="help-block">This is how you'll be known on The Resolution</span> #}
+                        <img id="w0-image" src="/static/images/captcha-test.jpg" alt=""> <input type="text" id="w0" class="form-control" name="captcha" placeholder="Please enter tha captcha text above">
+                    </div>
+
+                    <div class="button-set">
+                        <label class="button-set__left">
+                            <input type="checkbox" id="AcceptTerms" name="acceptterms" value="1"><span></span>
+                            I agree to the terms &amp; conditions
+                        </label>
+                        <div class="button-set__right">
+                            <button type="submit" class="button" name="submitSignupForm">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

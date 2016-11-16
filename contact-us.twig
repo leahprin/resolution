@@ -1,0 +1,40 @@
+{% extends "layouts/main.twig" %}
+
+{% block content %}
+	<div class="contact">
+		<div class="contact__container">
+			<div class="contact__form">
+				<form action="/">
+					<input type="text" placeholder="Name" class="contact__form--control">
+					<input type="text" placeholder="Email" class="contact__form--control">
+					<input type="text" placeholder="Phone" class="contact__form--control">
+					<textarea type="text" placeholder="Message" class="contact__form--control" id="contactMessage"></textarea>
+					<button type="submit" href="#" class="contact__submit">Submit</button>
+				</form>
+			</div>
+			<div class="contact__content_wrap">
+				<div class="contact__content">
+					<h1 class="contact__headline">{{ entry.title }}</h1>
+					<div class="contact__text">{{ entry.contactText }}</div>
+					<div class="contact__number">{{ entry.contactNumber }}</div>
+					<div class="contact__address">{{ entry.contactAddress }}</div>
+					<div class="contact__social-links">
+						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="#"><i class="fa fa-youtube-play"></i></a>
+						<a href="#"><i class="fa fa-google-plus"></i></a>
+						<a href="#"><i class="fa fa-facebook-f"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<iframe
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.3123352246353!2d144.96117351622297!3d-37.80615254138251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642ccfaee951f%3A0xcee769415c9d7fda!2sFramework+Melbourne!5e0!3m2!1sen!2sau!4v1475725511486"
+				width="1580"
+				height="470"
+				frameborder="0"
+				style="border:0"
+				class="contact__map"
+				allowfullscreen>
+		</iframe>
+	</div>
+{% endblock %}

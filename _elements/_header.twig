@@ -1,0 +1,146 @@
+<header class="header">
+    <div class="header__heading header__container">
+        <div class="header__heading-highlight"></div>
+
+        {#<!--{% if not  _User.isGuest() %}-->#}
+        {#<!--{% set user = _User.getUser() %}-->#}
+        <div id="header__menu">
+            <div class="user-dropdown__container">
+                <div class="user-dropdown__menu">
+                    <div class="user-dropdown__menu-profile">
+                        <div class="user-dropdown__menu-image" style="background-image:url('https://unsplash.it/80');background-position: 50% 50%;"></div>
+                        <div class="user-dropdown__menu-content">
+                            <div class="user-dropdown__menu-name">Amos Whitewolf</div>
+                            <div class="user-dropdown__menu-email">amoswhitewolf@gmail.com</div>
+                        </div>
+                    </div>
+                    <ul class="user-dropdown__menu-navigation">
+                        <li><a href="#" class="user-dropdown__menu-navigation-link">My News</a></li>
+                        <li><a class="user-dropdown__menu-navigation-link" href="#/profile/#">Profile</a></li>
+                        <li><a class="user-dropdown__menu-navigation-link" href="http://#/user/edit-profile">Settings</a></li>
+                        <li><a class="user-dropdown__menu-navigation-link sign-out" href="#">Sign Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {#<!--{% else %}-->#}
+        {#<!--<div id="header__menu">-->#}
+        {#<!--<div class="profile__menu">-->#}
+        {#<!--<ul class="profile__menu-navigation">-->#}
+        {#<!--<li><a class="profile__menu-navigation-link" href="{{_AppHelper.getLoginUrl()}}">Sign up/Login</a></li>-->#}
+        {#<!--</ul>-->#}
+        {#<!--</div>-->#}
+        {#<!--</div>-->#}
+        {#<!--{% endif %}-->#}
+
+        <div class="header__heading-container">
+            <div class="header__heading--left">
+                {#<!--{% if networkData.logoMedia | length > 0 %}-->#}
+                <a class="header__heading-logo" href="/">
+                    <img src="/static/images/logo.svg"/>
+                </a>
+                {#<!--{% endif %}-->#}
+            </div>
+            <div class="header__heading--right">
+                <div class="header__heading-link" id="login"><a href="/auth#login" class="login__link">Login</a> | <a href="/auth#sign-up" class="sign-up__link">Sign Up</a></div>
+                <div class="header__heading-icons">
+                    {#<!--{% set profileImage = ''%}-->#}
+                    {#<!--{% if not _User.isGuest()%}-->#}
+                    {#<!--{% set user = _User.getUser()%}-->#}
+                    {#<!--{% if user.profileMedia | length > 0 and user.profileMedia.id != '' %}-->#}
+                    {#<!--{% set profileImage = _Media.getMediaUrl(user.profileMedia, 150, 150, {radius: 'max', gravity: 'face', 'crop': 'thumb'})%}-->#}
+                    {#<!--{% endif %}-->#}
+                    {#<!--{% endif %}-->#}
+
+                    <a href="javascript:void(0)"
+                       class="header__heading-link header__heading-link--profile"
+                       id="profile">
+                        {% include '/static/images/icons/cog.svg' %}
+
+                        {#<!--{% if profileImage != ''%} style="background-image:url({{profileImage}})" {% endif %}-->#}
+                        {#<!--{% if _User.isGuest()%} style="background-image: none;" {% endif %}>-->#}
+                        {#<!--{% if _User.isGuest()%} Signup / Login {% endif %}-->#}
+                        <!--Signup / Login-->
+                    </a>
+
+                    <a href="javascript:void(0)" class="header__heading-link header__heading-link--responsive">
+                        {% include '/static/images/icons/menu.svg' %}
+                    </a>
+                </div>
+
+                <div class="header__heading--visible_desktop">
+                    <div class="header__search">
+                        <form action="{{ url('search') }}">
+                            <input type="text" class="header__search-text" placeholder="Search" name="s" value="">
+                            <button class="header__search-btn">
+                                {% include '/static/images/icons/search-magnifying-glass.svg' %}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header__navigation">
+        <div class="container">
+            <div class="header__navigation-row">
+                <ul class="header__navigation-list">
+                    {% set entries = craft.categories.group('channels') %}
+                    {% for i in 0..4 %}
+                        {% set entry = entries[i] %}
+
+                        <li class="header__navigation-item header__navigation-item--{{ entry.title|lower }} {{ channelObject[entry.title|lower] }}">
+                            <a href="{{ entry.url }}" class="header__navigation-link">
+                                {{ entry.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                    {% if entries[5] is defined %}
+                        <li class="header__navigation-item dropdown">
+                            <a href="#" class="header__navigation-link dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                                More Channels <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown">
+                                {% for i in 5..(entries|length - 1)%}
+                                    {% set entry = entries[i] %}
+                                    <li class="header__navigation-item--{{ entry.title|lower }} {{ channelObject[entry.title|lower] }}"><a href="{{ entry.url }}" class="">{{ entry.title }}</a></li>
+                                {% endfor %}
+                                <li class="header__navigation-item"><a href="/blog/dev" class="">Dev blog</a></li>
+                            </ul>
+                        </li>
+                    {% endif %}
+                </ul>
+                <ul class="header__navigation-list header__navigation-list--right">
+                    {% set singles = craft.entries('singles') %}
+                    {% for single in singles if single.displayInNav %}
+                        <li class="header__navigation-item"><a href="{{ single.url }}" class="header__navigation-link">{{ single.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="side-navigation">
+        <form method="get">
+            <input type="text" class="side-navigation__search" placeholder="Search" name="s">
+        </form>
+        <ul class="side-navigation__list">
+            {% set entries = craft.categories.group('channels') %}
+            {% for i in 0..4 %}
+                {% set entry = entries[i] %}
+                <li class="side-navigation__item">
+                    <a href="{{ entry.url }}" class="side-navigation__link {{ channelObject[entry.title|lower] }}">
+                        {{ entry.title }}
+                    </a>
+                </li>
+            {% endfor %}
+            {% set singles = craft.entries('singles') %}
+            {% for single in singles if single.displayInNav %}
+                <li class="side-navigation__item">
+                    <a href="{{ single.url }}" class="side-navigation__link">
+                        {{ single.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</header>

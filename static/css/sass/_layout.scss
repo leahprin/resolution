@@ -1,0 +1,117 @@
+// Base layout classes
+.container {
+    @include container-fixed($grid-gutter-width);
+    display: block;
+    padding: 0;
+    @include tablet {
+        width:100%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    @include desktop {
+        width:$screen-md;
+    }
+    @include desktop-lg {
+        width:$screen-lg;
+    }
+    &::before {
+        display: none;
+    }
+    &::after {
+        display: none;
+    }
+}
+
+.layout-container {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+div.home, div.channel, div.profile, div.search, div.channels {
+    @extend .container;
+    display: flex;
+    flex-wrap: wrap;
+    @include tablet {
+        padding:0 20px;
+    }
+    @include desktop-sm {
+        padding:0;
+    }
+}
+
+div.home, div.channels {
+    margin-bottom: 20px;
+    @include tablet-lg {
+        margin-bottom: 20px;
+    }
+    @include desktop-lg {
+        margin-bottom: 30px;
+    }
+    @media (max-width: 1190px) {
+        padding: 0;
+        width:100%;
+    }
+}
+
+div.home.additional-articles__wrap {
+    @include desktop-sm {
+        width: 1200px;
+    }
+    @include desktop-lg {
+        width: 1600px;
+    }
+    article {
+        margin: 15px;
+    }
+}
+
+.col {
+    &-quarter,
+    &-quarter-short {
+        flex: 1 0 308px;
+        @include desktop-sm {
+            flex: 1 0 calc(25% - 30px);
+        }
+
+    }
+    &-third,
+    &-third-short {
+        flex: 1 0 calc(100% - 30px);
+        @include tablet-lg {
+            flex: 1 0 calc(33.3333% - 30px);
+        }
+    }
+    &-third-container {
+        flex: 1 0 calc(100% - 30px);
+        flex-wrap: wrap;
+        display: flex;
+        @include tablet-lg {
+            flex: 1 0 calc(33.3333% - 30px);
+            flex-wrap: nowrap;
+            display: block;
+            flex-direction: column;
+        }
+        .col-third {
+            flex: 1 0 100%;
+            @include tablet {
+                flex: 1 0 33.3333%;
+            }
+        }
+    }
+    &-half {
+        flex: 1 0 308px;
+        @include tablet-lg {
+            flex: 1 0 calc(50% - 30px);
+        }
+    }
+    &-two-thirds,
+    &-two-thirds-short {
+        flex: 1 0 calc(66.6666% - 30px);
+    }
+    &-three-quarters {
+        flex: 1 0 75%;
+    }
+    &-full {
+        flex: 1 0 calc(100% - 30px);
+    }
+}

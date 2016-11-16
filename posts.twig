@@ -1,0 +1,9 @@
+{% extends '_helpers/variables' %}
+
+{% block content %}
+	{% if entry.type == 'social' %}
+		{% include "_elements/social-modal.twig" %}
+	{% else %}
+		{% include "article" %}
+	{% endif %}
+{% endblock %}
