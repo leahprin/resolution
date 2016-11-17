@@ -85,36 +85,45 @@
         <div class="container">
             <div class="header__navigation-row">
                 <ul class="header__navigation-list">
-                    {% set entries = craft.categories.group('channels') %}
+                    {% set blogs = craft.categories.group('blogs') %}
                     {% for i in 0..4 %}
-                        {% set entry = entries[i] %}
-
-                        <li class="header__navigation-item header__navigation-item--{{ entry.title|lower }} {{ channelObject[entry.title|lower] }}">
-                            <a href="{{ entry.url }}" class="header__navigation-link">
-                                {{ entry.title }}
+                        {% set blog = blogs[i] %}
+                        <li class="header__navigation-item header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }}">
+                            <a href="{{ blog.url }}" class="header__navigation_blog-link">
+                                <img src="{{ blog.authorImage.first().url }}" alt="" class="header__navigation-image">
+                                <div class="header__navigation-name">
+                                    <div class="header__navigation_first-name">{{ blog.authorFirstName }}</div>
+                                    <div class="header__navigation_last-name">{{ blog.authorLastName }}</div>
+                                </div>
                             </a>
                         </li>
                     {% endfor %}
-                    {% if entries[5] is defined %}
-                        <li class="header__navigation-item dropdown">
-                            <a href="#" class="header__navigation-link dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
-                                More Channels <i class="fa fa-angle-down"></i>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdown">
-                                {% for i in 5..(entries|length - 1)%}
-                                    {% set entry = entries[i] %}
-                                    <li class="header__navigation-item--{{ entry.title|lower }} {{ channelObject[entry.title|lower] }}"><a href="{{ entry.url }}" class="">{{ entry.title }}</a></li>
-                                {% endfor %}
-                                <li class="header__navigation-item"><a href="/blog/dev" class="">Dev blog</a></li>
-                            </ul>
-                        </li>
-                    {% endif %}
                 </ul>
                 <ul class="header__navigation-list header__navigation-list--right">
-                    {% set singles = craft.entries('singles') %}
-                    {% for single in singles if single.displayInNav %}
-                        <li class="header__navigation-item"><a href="{{ single.url }}" class="header__navigation-link">{{ single.title }}</a></li>
-                    {% endfor %}
+                    <li class="header__navigation-item dropdown">
+                        <a href="#" class="header__navigation-link dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                            Authors {% include '/static/images/icons/arrow-down.svg' %}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown">
+                            {% for blog in blogs %}
+                                <li class="header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }}"><a href="{{ blog.url }}" class="">{{ blog.title }}</a></li>
+                            {% endfor %}
+                            <li class="header__navigation-item"><a href="/blog/dev" class="">Dev blog</a></li>
+                        </ul>
+                    </li>
+                    <li class="header__navigation-item dropdown">
+                        <a href="#" class="header__navigation-link dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                            Topics {% include '/static/images/icons/arrow-down.svg' %}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown">
+                            {% set channels = craft.categories.group('channels') %}
+
+                            {% for channel in channels %}
+                                <li class="header__navigation-item--{{ channel.title|lower }} {{ channelObject[channel.title|lower] }}"><a href="{{ channel.url }}" class="">{{ channel.title }}</a></li>
+                            {% endfor %}
+                            <li class="header__navigation-item"><a href="/blog/dev" class="">Dev blog</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

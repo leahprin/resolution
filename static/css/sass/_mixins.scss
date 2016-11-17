@@ -132,7 +132,7 @@
 	letter-spacing:0.5px;
 }
 
-@mixin text-sm($letter-spacing: 0px, $color: $body-text, $font-weight: 600, $line-height: 1.38, $font-multiplier: 0.72) {
+@mixin text-sm($letter-spacing: 0px, $color: $body-text, $font-weight: 600, $line-height: 1.38, $font-multiplier: 0.81) {
 	font-size: ($baseFontSize * $font-multiplier);
 	font-weight: $font-weight;
 	line-height: $line-height;
@@ -141,7 +141,7 @@
 }
 
 // Lovely mixins for making all your font needs delightful
-@mixin text-md($letter-spacing: -0.0138em, $color: $body-text, $font-weight: 400, $line-height: 1.44, $font-multiplier: 1) {
+@mixin text-md($letter-spacing: -0.0125em, $color: $body-text, $font-weight: 600, $line-height: 1.40, $font-multiplier: 1) {
 	font-size: ($baseFontSize * $font-multiplier);
 	font-weight: $font-weight;
 	line-height: $line-height;

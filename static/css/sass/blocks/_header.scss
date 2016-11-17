@@ -57,9 +57,12 @@
     }
     &-link {
       &, &:link, &:visited, &:active {
-        color: $body-text;
+        color: $header-text;
         display: flex;
         text-transform: uppercase;
+      }
+      a, a:hover {
+        color: $header-text;
       }
       &#login {
         display: none;
@@ -74,28 +77,22 @@
         line-height: 0.7;
         letter-spacing: 0.01em;
         color: #4A4A4A;
-        opacity: 0.8;
       }
 
       &--sign-in {
       }
       &--profile {
         &, &:link, &:visited, &:active {
-          height: 35px;
-          width: 35px;
+          height: 37px;
+          width: 37px;
           margin-right: 15px;
           background-size: 20px;
           justify-content: center;
           align-items: center;
           fill: $icon-color;
-          border: solid 1px #2D2D2D;
+          border: solid 1px #fff;
           border-radius: 50%;
           @include transition(border 0.4s ease);
-          @include tablet {
-            background-size: 25px;
-            height: 47px;
-            width: 47px;
-          }
           @include desktop-sm {
             margin-right: 0;
           }
@@ -159,15 +156,41 @@
   }
 
   &__navigation {
-    background-color: white;
+    background-color: $header-background;
     display: none;
     @include desktop-sm {
       display: flex;
     }
+    &_blog-link {
+      display: flex;
+      align-items: center;
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 4px;
+        background-color: white;
+        border-radius: 100px;
+        bottom: -10px;
+        left:5px;
+      }
+    }
+    &-image {
+      width: 32px;
+      height: 32px;
+      border-radius: 100%;
+    }
+    &-name {
+      @include text-sm($color: $header-text);
+      margin: 0 40px 0 15px ;
+    }
+    &_last-name {
+      @include text-sm($color: $header-text, $font-weight: 900);
+    }
     &-row {
       display: flex;
-      padding-left: 15px;
-      padding-right: 15px;
+      padding: 0 15px 30px;
       justify-content: space-between;
     }
     &-list {
@@ -175,7 +198,8 @@
       //padding: 0px;
       display: none;
       @include desktop-sm {
-        display: inline-block;
+        display: flex;
+        align-items: flex-end;
       }
       > li:first-child a {
         padding-left: 0;
@@ -187,14 +211,22 @@
     &-item {
       display: inline-block;
       //margin-right: -3px;
+      &--blog {
+        padding-bottom: 10px;
+      }
     }
     &-link {
       display: inline-block;
-      @include text-sm($color: $body-text, $font-multiplier: 1, $line-height: 1.42);
-      padding: 25px 15px 27px 15px;
+      @include text-sm($color: $header-text, $font-multiplier: 1, $line-height: 1.42);
+      padding: 5px 22px 6px 22px;
       @include transition(all 0.5s ease);
       &:hover, &.active {
         //background: #E5F8FC;
+      }
+      svg {
+        margin-left: 6px;
+        position: relative;
+        bottom: 2px;
       }
       &#login {
         display: block;
@@ -202,7 +234,6 @@
         right: 0;
         top: 40px;
         @include text-sm($font-multiplier: 0.7, $line-height: 0.7, $letter-spacing: 0.01em);
-        opacity: 0.8;
       }
     }
     &-selected {
@@ -218,15 +249,15 @@
     &-text, &-btn {
       border: none;
       display: inline-block;
-      height: 47px;
+      height: 38px;
     }
     &-text {
       @include text-md($font-weight: 600, $color: $icon-color, $font-multiplier: 0.78, $line-height: 1.73);
-      width: 300px;
+      width: 256px;
       margin: 0px;
-      padding: 4px 0 7px 19px;
-      background-color: transparent;
-      border: 1px solid #2D2D2D;
+      padding: 4px 0 4px 19px;
+      border-radius: 100px;
+      background-color: rgba(255, 255, 255, 0.14);
       &:focus {
         //background-color: #FBE1AC;
       }
@@ -235,14 +266,14 @@
       background:none;
       width: 39px;
       position: absolute;
-      top: 5px;
+      top: 0;
       right: 5px;
       border-radius: 30px;
       height: 39px;
-      opacity: 1;
+      opacity: 0.8;
       @include transition(opacity 0.4s ease);
       &:hover {
-        opacity: 0.5;
+        opacity: 0.4;
         //background-color: rgba(0,0,0,0.08);
       }
       svg {

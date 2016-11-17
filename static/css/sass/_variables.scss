@@ -3,11 +3,12 @@ $gray-color:        #ebebeb;
 $dark-color:        #000000;
 $grey:			    #808080;
 $body-text:         #2D2D2D;
-$header-background: #fff;
+$header-background: #181818;
+$header-text:       #fff;
 $body-color:        rgb(255, 255, 255);
-$icon-color:        #575757;
+$icon-color:        #fff;
 
-$highlight-color:   #D0EDF5;
+$highlight-color:   #fed084;
 $quote-color:       #662d91;
 $hover-color:       $highlight-color;
 $follow-color:      #00a651;
@@ -16,7 +17,7 @@ $slide-color:       #0076a3;
 $blue:              #46a5fc;
 $transparent:       rgba(0,0,0,0);
 $border-color:      #e0e0e0;
-$placeholder:       rgba(45, 45, 45, 0.8);
+$placeholder:       rgba(255, 255, 255, 0.8);
 
 $error-color:       #e73d4a;
 $success-color:     #4FE8C4;
@@ -26,46 +27,46 @@ $white:             #ffffff;
 
 $sections: (
         0:    (
-                color: #E2F0D5,
+                color: #7bc7a0,
         ),
         1: (
-                color: #FCF8B9,
+                color: #f8978e,
         ),
         2:        (
-                color: #DAE0E9,
+                color: #55acee,
         ),
         3:         (
-                color: #D0EDF5,
+                color: #fed084,
         ),
         4:     (
                 color: #FDC3C2,
         ),
         5:    (
-                color: #E2F0D5,
+                color: #7bc7a0,
         ),
         6: (
-                color: #FCF8B9,
+                color: #f8978e,
         ),
         7:        (
-                color: #DAE0E9,
+                color: #55acee,
         ),
         8:         (
-                color: #D0EDF5,
+                color: #fed084,
         ),
         9:     (
                 color: #FDC3C2,
         ),
         10:    (
-                color: #E2F0D5,
+                color: #7bc7a0,
         ),
         11: (
-                color: #FCF8B9,
+                color: #f8978e,
         ),
         12:        (
-                color: #DAE0E9,
+                color: #55acee,
         ),
         13:         (
-                color: #D0EDF5,
+                color: #fed084,
         ),
         14:     (
                 color: #FDC3C2,
@@ -93,11 +94,11 @@ $screen-md: 1200px; // Desktop
 $screen-lg: 1600px; // Large desktop
 
 // Font
-$heading-font-family: "Open Sans", Helvetica, Arial, sans-serif !default;
-$base-font-family:  	"Open Sans", Helvetica, Arial, sans-serif !default;
-$text-font-family: 	"Open Sans", Helvetica, Arial, sans-serif !default;
+$heading-font-family: "Playfair", Helvetica, Arial, sans-serif !default;
+$base-font-family:  	"Raleway", Helvetica, Arial, sans-serif !default;
+$text-font-family: 	"Raleway", Helvetica, Arial, sans-serif !default;
 $iconfont:				FontAwesome !default;
 
 // Font Size
-$baseFontSize:			18px; /* ($baseFontSize * 1) + 0px; */
+$baseFontSize:			16px; /* ($baseFontSize * 1) + 0px; */
 $center:				center;
