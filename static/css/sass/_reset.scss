@@ -42,11 +42,16 @@ body {
   font-family: $base-font-family;
   font-size: 14px;
   line-height: 24px;
-  //background: -webkit-linear-gradient(rgba(217,234,241,0.44) 0, rgba(138,170,184,0) 630px);
-  //background-position-y: 200px;
-  // background: -o-linear-gradient(rgba(138,170,184,0) 0%, rgba(217,234,241,0.44) 100%);
-  // background: linear-gradient(rgba(138,170,184,0) 0%, rgba(217,234,241,0.44) 100%);
-
+  &::before {
+    height: 700px;
+    width: 100%;
+    display: block;
+    content: '';
+    opacity: 0.2;
+    position: absolute;
+    top: 586px;
+    background-image: linear-gradient(to bottom, rgba(237, 237, 237, 0.0), #d8d8d8 40%, #989fa3 56%, #d8d8d8 69%, rgba(215, 215, 215, 0.0));
+  }
 }
 
 h1 {
@@ -116,8 +121,4 @@ caption, th {
 svg {
   max-width: 100%;
   max-height: 100%;
-}
-
-#content {
-  overflow: hidden;
 }

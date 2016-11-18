@@ -2,7 +2,8 @@
   background-color: $header-background;
   padding-top: 70px;
   padding-bottom: 80px;
-
+  position: relative;
+  top: -2px;
   &__container {
     @extend .container;
     padding-left: 15px;
@@ -30,7 +31,7 @@
 
   &__logo {
     display: inline-block;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     height: 65px;
     max-height: 35px;
     max-width:180px;
@@ -51,6 +52,7 @@
 
   &__social-links {
     margin-bottom: 18px!important;
+    display: none;
     .fa {
       color: white;
       width: 30px;
@@ -76,8 +78,7 @@
       width: 100%;
     }
     .header__navigation-row {
-      padding-left: 0;
-      padding-right: 0;
+      padding: 0 0 30px 0;
     }
     .header__navigation-list {
 			margin: 0;
@@ -91,12 +92,8 @@
   }
 
   &__copyright {
-    @include text-sm($color: $body-text, $font-multiplier: 0.78, $line-height: 1.73);
-    @include desktop-sm {
-      text-align: left;
-      //margin-top: 35px;
-      width: 100%;
-    }
+    @include text-sm($font-weight: 600, $color: $body-text, $font-multiplier: 0.78, $line-height: 1.73);
+    opacity: 0.8;
   }
 
   &__right {
@@ -104,22 +101,36 @@
       display: flex;
       align-items: center;
       width: 20%;
-      justify-content: flex-end;
+      justify-content: center;
+      flex-direction: column;
+      .footer__sponsor-title {
+        @include text-sm($color: $white, $font-weight: 800, $font-multiplier: 0.72);
+        margin-bottom: 22px;
+      }
+      .footer__sponsor-wrap {
+        img:first-child {
+          margin-right: 35px;
+        }
+      }
     }
   }
 
   &__additional-links {
     @include transition(color 0.5s ease);
-    @include text-sm($color: $body-text, $font-multiplier: 0.78, $line-height: 1.73);
+    @include text-sm($font-weight: 600, $color: #fff, $font-multiplier: 0.78, $line-height: 1.73);
+    &_separator {
+      margin-left: 10px;
+      margin-right: 10px;
+      display: inline-block;
+    }
+    > a:first-child {
+      margin-left: 10px;
+    }
     @include desktop-sm {
-      text-align: right;
       display: flex;
-      flex-wrap: wrap;
-      margin-bottom: 8px;
-      flex-direction: column;
       > * {
         display: inline-block;
-        @include text-sm($color: $body-text, $font-multiplier: 0.78, $line-height: 1.73);
+        @include text-sm($font-weight: 600, $color: #fff, $font-multiplier: 0.78, $line-height: 1.73);
       }
       > a:last-child {
         margin-bottom: 0;

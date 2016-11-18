@@ -36,6 +36,7 @@
     &-icons {
       order: 2;
       display: flex;
+      align-items: center;
     }
     &-logo {
       display: inline-block;
@@ -57,12 +58,12 @@
     }
     &-link {
       &, &:link, &:visited, &:active {
-        color: $header-text;
+        color: $nav-text;
         display: flex;
         text-transform: uppercase;
       }
       a, a:hover {
-        color: $header-text;
+        color: $nav-text;
       }
       &#login {
         display: none;
@@ -157,6 +158,7 @@
 
   &__navigation {
     background-color: $header-background;
+    padding-bottom: 112px;
     display: none;
     @include desktop-sm {
       display: flex;
@@ -182,15 +184,15 @@
       border-radius: 100%;
     }
     &-name {
-      @include text-sm($color: $header-text);
+      @include text-sm($color: $nav-text);
       margin: 0 40px 0 15px ;
     }
     &_last-name {
-      @include text-sm($color: $header-text, $font-weight: 900);
+      @include text-sm($color: $nav-text, $font-weight: 900);
     }
     &-row {
       display: flex;
-      padding: 0 15px 30px;
+      padding: 0 15px 40px;
       justify-content: space-between;
     }
     &-list {
@@ -217,7 +219,7 @@
     }
     &-link {
       display: inline-block;
-      @include text-sm($color: $header-text, $font-multiplier: 1, $line-height: 1.42);
+      @include text-sm($color: $nav-text, $font-multiplier: 1, $line-height: 1.42);
       padding: 5px 22px 6px 22px;
       @include transition(all 0.5s ease);
       &:hover, &.active {

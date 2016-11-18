@@ -32,14 +32,14 @@
 
   .channel-#{$name} {
     .card {
-      background-color: $color;
+      //background-color: $color;
       .card {
-        &__channel {
-          color: $color;
-          &::after {
-            background-color: $color;
-          }
-        }
+        //&__channel {
+        //  color: $color;
+        //  &::after {
+        //    background-color: $color;
+        //  }
+        //}
         &__overlay {
           //background: $background-color;
           //background-image: $gradient!important;

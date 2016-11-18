@@ -57,7 +57,9 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 {% elseif article.type == "article" %}
 	{% set cardType = 'article' %}
 	{% set headline = article.title %}
-	{% set author = article.author.fullName %}
+	{% set authorImage = article.author.photoUrl %}
+	{% set authorFirstName = article.author.firstName %}
+	{% set authorLastName = article.author.lastName %}
 	{% set authorBio = article.author.authorBio %}
 	{% set articleBody = article.articleBody %}
 {% endif %}

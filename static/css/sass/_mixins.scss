@@ -132,7 +132,7 @@
 	letter-spacing:0.5px;
 }
 
-@mixin text-sm($letter-spacing: 0px, $color: $body-text, $font-weight: 600, $line-height: 1.38, $font-multiplier: 0.81) {
+@mixin text-sm($letter-spacing: 0px, $color: $heading-text, $font-weight: 700, $line-height: 1.38, $font-multiplier: 0.81) {
 	font-size: ($baseFontSize * $font-multiplier);
 	font-weight: $font-weight;
 	line-height: $line-height;
@@ -149,7 +149,7 @@
 	color: $color;
 }
 
-@mixin text-lg($letter-spacing: -0.0138em, $color: $white, $font-weight: 700, $line-height: 1.22,$font-multiplier-sm: 1.4, $font-multiplier: 2.5) {
+@mixin text-lg($letter-spacing: -0.0138em, $color: $heading-text, $font-weight: 700, $line-height: 1.22,$font-multiplier-sm: 2.12, $font-multiplier: 2.75) {
 	font-size: ($baseFontSize * $font-multiplier-sm);
 	@include tablet {
 		font-size: ($baseFontSize * $font-multiplier);
