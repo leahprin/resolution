@@ -1,0 +1,66 @@
+.deloitte-banner {
+  background-image: url(/static/images/delloite-banner.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  text-align: center;
+  position: relative;
+  bottom: 2px;
+  margin-bottom: -1px;
+  top: -15px;
+  &__overlay {
+    background-image: linear-gradient(95deg, rgba(20, 86, 128, 0.8), rgba(8, 43, 73, 0.48));
+
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 30px;
+    flex-direction: column;
+    height:100%;
+    @include tablet {
+      flex-direction: row;
+      padding: 95px 30px 120px;
+    }
+    @include desktop-sm {
+      padding: 95px 15px 120px;
+    }
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    span {
+      @include text-md($font-multiplier: 1.12, $color: $white);
+      margin: 20px auto 0;
+      display: inline-block;
+      max-width: 388px;
+      @include tablet {
+        text-align: right;
+      }
+    }
+  }
+  &__left {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      text-align: left;
+    }
+  }
+  &__small-text {
+    @include text-sm ($font-weight: 600, $line-height: 1.3, $font-multiplier: 0.85, $letter-spacing: -0.2px, $color: $white);
+    opacity: 0.55;
+    margin-bottom: 20px;
+
+  }
+  img {
+    width: 278px;
+    height: 52px;
+    margin: 0 auto 13px;
+    @include tablet {
+      margin: 0 0 13px;
+    }
+  }
+  &__slogan {
+    @include text-sm($color: $white, $font-multiplier: 1.26, $line-height: 1.3, $letter-spacing: -0.3px);
+  }
+}

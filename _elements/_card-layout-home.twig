@@ -73,7 +73,7 @@
                 </div>
             {% endif %}
         </div>
-        <div class="card__outset-wrap--top card-container">
+        <div class="card__outset-wrap--top card-container card__outset-wrap--special">
             {% if articles[4] is defined %}
                 <div class="col-half">
                     {% include '_elements/card' with {article: articles[5]} %}
@@ -87,4 +87,5 @@
         </div>
         <div class="card__outset-wrap--bottom"></div>
     </div>
+    {% include '_elements/deloit-banner' %}
 {% endblock  %}

@@ -6,9 +6,18 @@
   display: inline-block;
   @include text-sm;
   @include transition(all 0.4s ease);
+  &-blue {
+    color: #0d88f1!important;
+    border-radius: 100px;
+    border: solid 1px #0d88f2!important;
+    background-color: transparent!important;
+  }
   &-sm {
-    padding: 3px 10px 4px;
-    max-width: 62px;
+    padding: 5px 8px 4px;
+    max-width: none ;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
     &.button__share {
       max-width: none;
       background-position: 10px 5px;

@@ -117,8 +117,12 @@
     }
   }
   &__outset-wrap {
+    &--special {
+      background-color: white;
+    }
     &--top {
       position: relative;
+      z-index: 2;
       @media (min-width: 992px) and (max-width: 1199px) {
         border-top: 2px solid $heading-text;
       }
@@ -130,7 +134,9 @@
         padding-right: 10px;
         .col-half,
         .col-third {
-          border-top: 1px solid $heading-text;
+          @media (max-width: 1199px) {
+            border-top: 1px solid $heading-text;
+          }
         }
         &::before {
           content: '';
@@ -160,6 +166,7 @@
     }
     &--bottom {
       position: relative;
+      z-index: 2;
       @media (min-width: 992px) and (max-width: 1199px) {
         border-bottom: 2px solid $heading-text;
       }
@@ -205,6 +212,14 @@
   > div:last-child {
     @media (max-width: 1199px) {
       border-bottom: none;
+    }
+  }
+  .card__outset-wrap--top {
+    > div:last-child {
+      border-right: none;
+    }
+    > div:first-child {
+      border-left: none;
     }
   }
 }
