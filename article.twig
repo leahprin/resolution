@@ -17,8 +17,8 @@
 					</div>
 				</div>
 				<div class="article__header_actions">
-					<a href="#comments" class="button header_actions header_actions__comments article__header-item">Comments</a>
-					<a href="javascript:void(0)" class="button header_actions header_actions__share article__header-item">Share
+					<a href="#comments" class="button button__comments header_actions header_actions__comments article__header-item">16 Comments</a>
+					<a href="javascript:void(0)" class="button button__share header_actions header_actions__share article__header-item">Share Article
 						{% include '/_elements/share-popup.twig' %}
 					</a>
 				</div>
@@ -33,6 +33,58 @@
 				<div class="article__date">{{ date }}</div>
 				<div class="article__intro">{{ text }}</div>
 
+			</div>
+			<div class="article__container--full-width">
+				<div class="article__banner-container">
+					<div class="article__banner_left">
+						<h3 class="article__banner_heading">Get an unfair advantage</h3>
+						<div class="article__banner_sub-heading">The best from The Resolution, delivered to your inbox every month.</div>
+					</div>
+					<div class="article__banner_right">
+						<form class="newsletter-form" action="">
+							<input type="text" class="newsletter-form-text" placeholder="Email" name="s" value="">
+							<button class="newsletter-form__form-btn">Sign Up <i class="fa fa-envelope"></i></button>
+						</form>
+					</div>
+				</div>
+
+				<div class="slides">
+					{% for image in article.image %}
+						{% set embed = craft.embeddedAssets.fromAsset(image) %}
+						{% if embed is not null %}
+							{% set image = embed %}
+							{% set thumbnail = '//img.youtube.com/vi/' ~ embed.url|replace('/.+watch\\?v=(.+)/', '$1') ~ '/maxresdefault.jpg' %}
+						{% else %}
+							{% set thumbnail = image.url %}
+						{% endif %}
+
+						<div class="slide" itemprop="image" itemscope itemtype="https://schema.org/ImageObject"  data-thumbnail="{{thumbnail}}" style='background-image: url({{ thumbnail }})'>
+							<meta itemprop="url" content="{{image.url}}">
+							<meta itemprop="height" content="{{image.height}}">
+							<meta itemprop="width" content="{{image.width}}">
+							{% if embed %}
+								<a href="javascript:void(0)" itemprop="video" class="video-overlay playVideo" data-type="{{embed.url}}" data-media="{{embed | json_encode}}"  data-videoid="" data-title="{{embed.title | raw}}">
+									{% set videoId = embed.url|replace("/.+watch\\?v=(.+)/", "$1") %}
+									{% set embed = '<iframe class="slick-video" src="https://www.youtube.com/embed/' ~ videoId ~ '" frameborder="0" allowfullscreen></iframe>' %}
+									{{ embed|raw }}
+									{#<div class="slick-video__overlay">#}
+									{#</div>#}
+								</a>
+							{% endif %}
+							{#{% if image | length %}#}
+							{#<div class="slide__content">#}
+							{#<p class="slide__caption">{{media.caption | raw}}</p>#}
+							{#</div>#}
+							{#{% endif %}#}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+
+
+			<div class="article__container">
+
 				{{ articleBody|raw }}
 
 				<h2 class="comments-header" id="comments"><span class="disqus-comment-count" data-disqus-url="{{link}}"></span>Comments</h2>
@@ -43,9 +95,8 @@
 		</div>
 
 	</div>
-	<h2 class="text-center additional-articles__header">You may also like ...</h2>
-
-	{% set articles = craft.entries.section('posts').find() %}
+	{% include '_elements/deloit-banner' %}
+	{% set articles = craft.entries.section('posts').limit(3).find() %}
 	<div class="card-container">
 		{% if articles|length > 0 %}
 			{% include '/_elements/_card-layout-thirds.twig' with {articles: articles} %}

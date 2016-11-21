@@ -4,9 +4,15 @@
   }
   &__body {
     background-color: white;
+    margin-bottom: 30px;
     @include desktop-sm {
       padding-left: 15px!important;
       padding-right: 15px!important;
+    }
+    + div {
+      top: 0;
+      position: relative;
+      z-index: 2;
     }
   }
   bottom: 0px;
@@ -41,7 +47,7 @@
     margin-bottom: 23px;
   }
   p {
-    @include text-md($line-height: 1.66, $color: #4a4a4a);
+    @include text-md($line-height: 1.7, $color: $article-body-text, $font-multiplier: 1.125);
     margin-bottom: 23px;
   }
   p + ol, p + ul {
@@ -51,7 +57,7 @@
     margin-bottom: 15px;
     margin-left: 15px;
     li {
-      @include text-md($font-multiplier: 1.11, $color: #4a4a4a);
+      @include text-md($font-multiplier: 1.125, $color: $article-body-text, $line-height: 1.7);
       list-style-position: inside;
     }
   }
@@ -91,29 +97,42 @@
     }
   }
   &__container {
-    max-width: 750px;
+    max-width: 770px;
     margin: 0 auto 0;
     text-align: left;
     @include desktop-lg {
-      max-width: 1080px;
+      max-width: 1030px;
+    }
+    &--full-width {
+      margin-left: -20px;
+      margin-right: -20px;
+      @include tablet {
+        margin-left: -30px;
+        margin-right: -30px;
+      }
+      @include desktop-sm {
+        margin-left: -50px;
+        margin-right: -50px;
+      }
     }
   }
   &__channel_wrap {
-    text-align: left;
+    text-align: center;
     width: 100%;
     position: relative;
   }
   &__channel {
-    margin-bottom: 22px;
+    margin-bottom: 25px;
     display: inline-block;
     padding-bottom: 12px;
     position: relative;
-    @include text-sm($letter-spacing: 0.21px, $font-multiplier: 0.68, $color: $heading-text);
+    @include text-sm($letter-spacing: 0.21px, $font-multiplier: 0.81, $color: $heading-text);
     &::after {
       content: "";
       position: absolute;
       bottom: 0;
-      left: 0;
+      left: 50%;
+      margin-left: -10px;
       width: 20px;
       height: 4px;
       border-radius: 100px;
@@ -143,9 +162,7 @@
       @include tablet {
         margin-top: 0;
         text-align: left;
-      }
-      a:first-child {
-        margin-right: 10px;
+        flex-direction: column;
       }
     }
   }
@@ -161,16 +178,18 @@
     }
   }
   &__headline {
-    text-align: left;
+    text-align: center;
+    margin-bottom: 20px;
   }
   &__date {
-    @include text-sm($font-multiplier:0.72, $color: $body-text);
-    text-align: left;
-    margin-bottom: 22px;
+    @include text-sm($font-multiplier:0.75, $color: $body-text, $font-weight: 500);
+    text-align: center;
+    margin-bottom: 35px;
   }
   &__intro, &__intro p {
-    @include text-md($font-multiplier:1.34, $line-height: 1.41);
-    margin-bottom: 30px;
+    @include text-md($font-multiplier:1.5, $line-height: 1.4, $color: #4a4a4a);
+    margin-bottom: 60px;
+    text-align: center;
   }
   .header_actions__share .share-popup {
     @media (max-width: 767px) {
@@ -178,8 +197,46 @@
       bottom: 42px;
     }
   }
+  &__header_actions {
+    .button {
+      width: 100%;
+      text-align: center;
+    }
+    .button__comments {
+      margin-right: 10px;
+      @include tablet {
+        margin: 0 0 5px;
+      }
+    }
+  }
   .button-blue {
     margin-left: 5px;
+  }
+  &__banner {
+    &-container {
+      padding: 15px 20px;
+      background-color: black;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      @include tablet {
+        flex-direction: row;
+        text-align: left;
+      }
+    }
+    &_heading {
+      @include text-md($font-multiplier: 1.625, $color: $nav-text);
+    }
+    &_sub-heading {
+      @include text-sm($color: $nav-text, $letter-spacing: -0.2px);
+      opacity: 0.71;
+      margin-bottom: 10px;
+      @include tablet {
+        margin-bottom: 0;
+      }
+    }
   }
 }
 
@@ -214,6 +271,7 @@
   background-size: cover;
   display: inline-block;
   border-radius: 50%;
+  flex: 0 0 70px;
 }
 
 .profile__author_wrap {
@@ -231,7 +289,7 @@
 }
 
 .profile__author-bio {
-
+  max-width: 401px;
 }
 
 .heading {

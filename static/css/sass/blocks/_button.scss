@@ -4,7 +4,7 @@
   border-radius: 2px;
   padding: 7px 16px 8px 16px;
   display: inline-block;
-  @include text-sm;
+  @include text-sm($color: $article-body-text);
   @include transition(all 0.4s ease);
   &-blue {
     color: #0d88f1!important;

@@ -1,0 +1,27 @@
+.newsletter-form {
+  position: relative;
+  input {
+    border-radius: 100px;
+    background-color: #ffffff;
+    border: solid 1px #ffffff;
+    height: 33px;
+    width: 320px;
+    @include text-sm($font-multiplier: 0.875, $color: rgba(0, 0, 0, 0.36));
+    padding: 3px 0 4px 15px;
+    @include placeholder($color: rgba(0, 0, 0, 0.36));
+  }
+  &__form-btn {
+    border-radius: 0px 100px 100px 0px;
+    background-color: #2a6faa;
+    position: absolute;
+    right: -1px;
+    top: 0;
+    width: 112px;
+    height: 33px;
+    color: white;
+    border: none;
+    i {
+      margin-left: 8px;
+    }
+  }
+}
