@@ -4,23 +4,27 @@
 	{% set query = craft.request.getParam('s') %}
 	{% set entries = craft.entries.section('posts').search(query).order('score') %}
 
-	<div class="search__form-big">
-		<form action="{{ url('search') }}">
-			<input type="text" class="header__search-text" placeholder="Search" name="s" value="{{ query }}">
-			<button class="header__search-btn"></button>
-		</form>
-	</div>
-	<div class="search__heading">{{ entries|length }} Search result</div>
+	<div class="search__container">
+		<h1 class="search__heading">{{ entries|length }} Search results for:</h1>
 
-	<div class="search">
-		{% if entries|length %}
-			{% for entry in entries %}
-				<div class="col-quarter">
-					{% include '_elements/card' %}
-				</div>
-			{% endfor %}
-		{% else %}
-			<p>Your search for “{{ query }}” didn’t return any results.</p>
-		{% endif %}
+		<div class="search__form-big">
+			<form action="{{ url('search') }}">
+				<input type="text" class="header__search-text" placeholder="{{ entries|length }} Search results for " name="s" value="{{ query }}">
+				<button class="header__search-btn">{% include '/static/images/icons/search-magnifying-glass.svg' %}</button>
+			</form>
+		</div>
+
+		<div class="search">
+			{% if entries|length %}
+				{% for entry in entries %}
+					<div class="col-third">
+						{% include '_elements/card' %}
+					</div>
+				{% endfor %}
+			{% else %}
+				<p>Your search for “{{ query }}” didn’t return any results.</p>
+			{% endif %}
+		</div>
 	</div>
+
 {% endblock %}

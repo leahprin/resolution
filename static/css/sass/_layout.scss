@@ -30,6 +30,10 @@
     margin-bottom: -126px;
 }
 
+.search__container {
+    @extend .container;
+}
+
 .layout-container {
 
 }
