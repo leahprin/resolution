@@ -23,4 +23,12 @@ return array(
 		'password' => 'root',
 	),
 
+	// Staging
+	'.xyz' => array(
+		'user' => 'resolution',
+		'database' => 'resolution',
+		'password' => '2d7a880e02006b74',
+	),
+
+
 );
