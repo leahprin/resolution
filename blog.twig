@@ -11,26 +11,33 @@
         <div class="blog">
 
             <div class="blog__header">
-                <div class="blog__background" {% if image is defined %}style="background-image: url('{{ image }}'); background-size: cover;"{% endif %}>
+                <div class="blog__background" style="background-image: url('/static/craft-media/russell-yardly-blog-bg.png');" {% if image is defined %}style="background-image: url('{{ image }}'); background-size: cover;"{% endif %}>
                     <div class="blog__user-header">
                         <div class="blog__user-header__display">
-                            <span class="blog__user-header__image" style="background-image: url('{{ user.photoUrl }}'); background-size: cover; display: inline-block; border-radius: 50%;"></span>
+                            <span class="blog__user-header__image" style="background-image: url('{{ user.photoUrl }}');"></span>
                             <div class="blog__user-header__name">{{user}}</div>
-                            <div class="button-container">
-                                <a href="javascript:void(0)" class="button header_actions header_actions__share article__header-item">Share
-                                    {% include '/_elements/share-popup.twig' %}
+														<div class="button-container">
+                                <a href="javascript:void(0)" class="button button__share">Share
+                                {% include '/_elements/share-popup.twig' %}
                                 </a>
-                                <a href="#" class="button button__follow--reverse blog__user-header__share">Follow</a>
+                                <span class="button button__connect">
+																	Connect <a href="#" class="button__linkedin"></a><a href="#" class="button__twitter"></a>
+																</span>
                             </div>
+														<div class="blog__user-header__about">
+															<p>Russell is a pioneer in multimedia and the internet industries. Has a science degree and studied law at the University of Melbourne. IBM gave him a sound knowledge of computer technology, management.</p>
+															<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+														</div>
+
                         </div>
                     </div>
                     <div class="blog__title">
-                        <h1 class="blog__heading">{{user}} Posts</h1>
-                        <span class="blog__description">{{ user.authorBio }}</span>
+                        <h1 class="blog__heading">Tech & Leadership</h1>
+                        <span class="blog__description">Blog Building a better technology leadership culture for companies and boards.</span>
                     </div>
                 </div>
             </div>
-            <div class="social-bar__container">
+            {# <div class="social-bar__container">
                 <div class="social-bar">
                     <div class="social-bar__button-wrap">
                         <a href="#" class="social-bar__button--twitter">
@@ -57,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> #}
 
 
             {% set articles = craft.entries.section('posts').type('article').authorId(user.id).find() %}

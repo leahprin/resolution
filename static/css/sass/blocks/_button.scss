@@ -46,6 +46,39 @@
       margin: 0;
     }
   }
+	&__connect {
+		@extend .button__follow;
+		position: relative;
+		text-align: left;
+		width: 140px;
+		// &:hover {
+		//
+		// }
+		a {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			background-size: 12px;
+			background-position: 50%;
+			background-repeat: no-repeat;
+			border-radius: 50%;
+			margin-right: 0!important;
+			position: absolute;
+			top: 5px;
+		}
+		.button__twitter {
+			background-image: url(/static/images/icons/twitter-white.svg);
+			background-color: #1da0f2;
+			right: 10px;
+		}
+		.button__linkedin {
+			background-image: url(/static/images/icons/linkedin-white.svg);
+			background-color: #0177b5;
+			margin-left: 10px;
+			margin-right: 4px!important;
+			right: 34px;
+		}
+	}
   &__profile-follow {
     margin-bottom: 22px;
     border-radius: 100px;
