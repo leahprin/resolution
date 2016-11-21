@@ -7,23 +7,6 @@
   @media (max-width: 991px) {
     border-bottom: 2px solid $heading-text;
   }
-  //&__no-image {
-  //  .card__channel {
-  //    //background-color: $white;
-  //  }
-  //  .card__read-more, .card__author {
-  //    @include text-sm($letter-spacing: 0.21px);
-  //  }
-  //  .card__text {
-  //    color: $body-text!important;
-  //  }
-  //  .card__content {
-  //    flex: 0 1 auto!important;
-  //  }
-  //  .card__content_wrap {
-  //    flex-direction: row!important;
-  //  }
-  //}
   &__channel-wrap {
     margin-bottom: auto;
   }

@@ -1,0 +1,14 @@
+.channel {
+  &__header {
+    .card {
+      height: 471px;
+    }
+    .card__headline {
+      color: $white;
+      margin-bottom: 28px;
+    }
+    .card__text {
+      color: $white;
+    }
+  }
+}

@@ -16,10 +16,14 @@
                     <meta itemprop="url" content="{{image.url}}">
                     <meta itemprop="height" content="{{image.height}}">
                     <meta itemprop="width" content="{{image.width}}">
-                    {% if embed %}$1')}} ~ '" frameborder="0" allowfullscree
-                        {% set embed = '<iframe src="https://www.youtube.com/embed/' ~ {{embed.url|replace('/.+watch\\?v=(.+)/', 'n></iframe>' %}
-
-                        {#{{ embed|raw }}#}
+                    {% if embed %}
+                        <a href="javascript:void(0)" itemprop="video" class="video-overlay playVideo" data-type="{{embed.url}}" data-media="{{embed | json_encode}}"  data-videoid="" data-title="{{embed.title | raw}}">
+                            {% set videoId = embed.url|replace("/.+watch\\?v=(.+)/", "$1") %}
+                            {% set embed = '<iframe class="slick-video" src="https://www.youtube.com/embed/' ~ videoId ~ '" frameborder="0" allowfullscreen></iframe>' %}
+                            {{ embed|raw }}
+                            {#<div class="slick-video__overlay">#}
+                            {#</div>#}
+                        </a>
                     {% endif %}
                     {#{% if image | length %}#}
                     {#<div class="slide__content">#}

@@ -22,7 +22,7 @@
   background-color: $white;
   position: relative;
   @include transition(all 0.4s ease);
-  @include tablet {
+  @include desktop-sm {
     padding: 0 30px;
     bottom: 112px;
   }
