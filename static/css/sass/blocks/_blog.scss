@@ -7,8 +7,9 @@
     @include desktop-sm {
       margin-top: -112px;
       position: relative;
-      //margin-bottom: 0;
+      margin-bottom: 0;
     }
+  }
     &__container {
       @extend .container;
       display: flex;
@@ -167,7 +168,7 @@
       }
     }
   }
-}
+
 
 .blog__data {
 	display: flex;

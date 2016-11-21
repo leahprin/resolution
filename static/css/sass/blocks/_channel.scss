@@ -2,13 +2,18 @@
   &__header {
     .card {
       height: 471px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
     }
     .card__headline {
       color: $white;
       margin-bottom: 28px;
     }
     .card__text {
+      font-weight: 600;
       color: $white;
+      font-size: 24px;
     }
   }
 }

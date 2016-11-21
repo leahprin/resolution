@@ -314,6 +314,14 @@
       margin-right: 52px;
     }
     &__no-image {
+      .card__headline {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .card__text {
+        margin-right: auto;
+        margin-left: auto;
+      }
       .card__content {
         margin: auto;
         text-align: center;
