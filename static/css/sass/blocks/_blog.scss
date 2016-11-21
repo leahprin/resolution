@@ -1,10 +1,10 @@
 .blog {
 	&__header {
-		@include tablet-lg {
-			margin-bottom: 262px;
-			bottom: 112px;
+		margin-top: 0;
+		@include desktop-sm {
+			margin-top: -112px;
 			position: relative;
-			margin-bottom: 0;
+			//margin-bottom: 0;
 		}
 	}
 
