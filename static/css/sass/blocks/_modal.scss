@@ -71,7 +71,7 @@
 	}
 	&__content {
 		padding: 30px 30px 36px;
-		background: #D0EDF5;
+		background: $black;
 		box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.16);
 		text-align: left;
 		z-index: 1;
@@ -105,7 +105,7 @@
 		}
 	}
 	&__text {
-		@include text-sm($font-multiplier: 1.4, $letter-spacing: -0000.35px, $line-height: 35px);
+		@include text-sm($font-multiplier: 1.4, $letter-spacing: -0000.35px, $line-height: 35px, $color: $white);
 		margin-bottom: 28px;
 		text-align: left;
 		word-break: break-word;
@@ -125,11 +125,12 @@
 		}
 	}
 	&__channel {
-		@include text-sm($letter-spacing: 0.21px, $font-multiplier: 0.68, $color: $body-text);
+		@include text-sm($letter-spacing: 0.21px, $font-multiplier: 0.68, $color: $white);
 		margin-bottom: 22px;
 		display: inline-block;
 		padding-bottom: 12px;
 		position: relative;
+		text-transform: uppercase;
 		&::after {
 			content: "";
 			position: absolute;

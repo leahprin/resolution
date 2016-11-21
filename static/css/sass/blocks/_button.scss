@@ -20,7 +20,8 @@
     line-height: 1;
     &.button__share {
       max-width: none;
-      background-position: 10px 5px;
+			background-size: 10px;
+	    background-position: 8px 5px;
       padding-left: 30px;
     }
   }
@@ -113,4 +114,7 @@
   > a:first-child {
     margin-right: 5px;
   }
+	.button {
+		border: none;
+	}
 }
