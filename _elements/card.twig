@@ -47,7 +47,16 @@
 							<p class="card__author"><i class="card__network-icon fa {% if network == 'youtube' %}fa-youtube-play{% elseif network|lower == 'facebookpages' %}fa-facebook{% else %}fa-{{ network|lower }}{% endif %}"></i> @{{ author }}</p>
 							<p class="card__read-more">By {{ author }}</p>
 						{% elseif cardType == 'article' %}
-							<h3 class="card__headline">{{ headline }}</h3>
+							<div class="card__text-wrap">
+								<h3 class="card__headline">{{ headline }}</h3>
+								{% if thumbnail != '' %}
+									<div class="card__image" style="background-image: url('{{ thumbnail }}');background-size: cover;background-position:center center;">
+										{% if hasVideo == 'y' %}
+											<img class="card__play-button" src="/static/images/icons/play-white.svg" alt="Play video button">
+										{% endif %}
+									</div>
+								{% endif %}
+							</div>
 							<p class="card__text">{{ text|striptags[:240] ~ '...' }}</p>
 							<div class="author-profile">
 								<img src="{{ authorImage }}" alt="" class="author-profile__image">
@@ -58,6 +67,13 @@
 							</div>
 						{% endif %}
 					</div>
+					{% if thumbnail != '' %}
+						<div class="card__big-image" style="background-image: url('{{ thumbnail }}');background-size: cover;background-position:center center;">
+							{% if hasVideo == 'y' %}
+								<img class="card__play-button" src="/static/images/icons/play-white.svg" alt="Play video button">
+							{% endif %}
+						</div>
+					{% endif %}
 				</div>
 			</div>
 		</a>

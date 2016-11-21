@@ -27,7 +27,10 @@
 }
 
 .home .deloitte-banner {
-    margin-bottom: -126px;
+    margin-bottom: -15px;
+    @include desktop-sm {
+        margin-bottom: -126px;
+    }
 }
 
 .search__container {
