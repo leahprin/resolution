@@ -1,48 +1,25 @@
 .contact {
   @extend .container;
   padding: 0 15px;
-  @include tablet {
-    padding: 0 10px;
-    //padding-top: 60px;
-  }
-  @include desktop-sm {
-    padding:0;
-    //padding-top: 80px;
-  }
   text-align: center;
-  &__body {
-    background-color: white;
-  }
   &__container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     flex-direction: column;
     padding-bottom: 60px;
-    //margin-top: 30px;
     padding-top: 20px;
+    position: relative;
+    background-color: white;
     @include desktop-sm {
-      padding-top: 60px;
-
+      bottom: 112px;
+      margin-bottom: -112px;
     }
   }
   &__form {
     text-align: center;
-    order: 1;
-    padding-top: 30px;
-    @media (min-width: 1036px) {
-      order: 1;
-      flex:1 0 500px;
-
-    }
-    @include desktop-sm {
-      margin-left: 0;
-      margin-right: 0;
-
-    }
-    form {
-      text-align: left;
-    }
+    max-width: 430px;
+    margin: auto;
+    width: 100%;
     #contactMessage {
       min-height: 100px;
       height:100px;
@@ -50,95 +27,58 @@
     &--control {
       background: #FFFFFF;
       font-size: 20px;
-      color: #A9B0BC;
       line-height: 30px;
       padding: 13px 17px 14px;
       display: block;
-      border: none;
       margin: 10px 0;
       width: 100%;
       letter-spacing: 0px;
-      color: #6b7a80;
       border-radius: 4px;
-      border: 1px solid rgba(129, 148, 158, 0.5);
-      @include text-sm($font-multiplier:0.9,$font-weight: 400, $color: #6b7a80);
-      // @include tablet {
-      //   width:100%;
-      // }
+      border: solid 1px #979797;
+      @include placeholder($color: #a9b0bc);
+      @include text-sm($font-multiplier:1.06,$font-weight: 600, $color: #6b7a80);
     }
   }
   &__submit {
-    // background: #81949e;
-    // border: none;
-    // font-size: 20px;
-    // color: #fff;
-    // letter-spacing: 1.66px;
-    // font-weight: 600;
-    // padding: 16px 72px;
-    // margin-top: 28px;
-    @include text-sm($font-multiplier:0.9,$font-weight: 600, $color: #fff);
-    background: #81949e;
+    @include text-sm($font-multiplier:1.06,$font-weight: 600, $color: #fff);
+    border-radius: 2px;
+    background-color: #1d70b7;
     border: none;
-    padding: 16px 38px;
-    margin-top: 28px;
+    padding: 14px 25px 15px;
+    margin-top: 5px;
     line-height: 0.68;
-    border-radius: 30px;
+    cursor: pointer;
+    @include transition(background-color 0.4s ease);
+    &:hover {
+      color: rgba(29, 112, 183, 0.8);
+    }
   }
   &__content_wrap {
-    flex: 1 1 500px;
     align-self: flex-start;
     display: flex;
     justify-content: center;
     text-align: center;
-    @media (min-width: 1036px) {
-      flex:1 0 500px;
-      text-align: left;
-      padding-right: 20px;
-      justify-content: flex-start;
-    }
+    margin: auto;
   }
   &__content {
     align-self: center;
     padding-top: 30px;
   }
   &__headline {
-    margin-bottom:25px;
+    margin-bottom:35px;
+    color: #181818;
   }
   &__text {
-    margin-bottom:25px;
     font-weight:600;
     font-size: 24px;
     color: #4A4A4A;
     letter-spacing: -0.33px;
     line-height: 34px;
+    max-width: 770px;
+    margin: 0 auto 68px;
   }
-  &__number {
-    font-weight:400;
-    font-size: 18px;
-    color: #4A4A4A;
-    letter-spacing: 0px;
-    line-height: 30px;
-  }
-  &__address {
-    @extend .contact__number;
-    margin-bottom: 25px;
-  }
-  &__social-links {
-    .fa {
-      color: $white;
-      width: 30px;
-      display: inline-block;
-      height: 30px;
-      border-radius: 100px;
-      background-color: #4A4A4A;
-      padding-top: 8px;
-      margin: auto 5px auto auto;
-      text-align:center;
-      @include transition(color 0.5s ease);
-    }
-  }
-  &__map {
-    width: 100%;
-    margin-bottom: 26px;
+  &__form-title {
+    margin-bottom: 18px;
+    @include text-md($font-multiplier: 1.18, $line-height: 1.8, $letter-spacing: -0.3px, $color: #000);
   }
 }

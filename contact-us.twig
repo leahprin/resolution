@@ -7,9 +7,15 @@
 				<div class="contact__content">
 					<h1 class="contact__headline">{{ entry.title }}</h1>
 					<div class="contact__text">{{ entry.contactText }}</div>
-					<div class="contact__number">{{ entry.contactNumber }}</div>
 				</div>
 			</div>
+			<div class="blogger__wrap">
+				{% set blogs = craft.categories.group('blogs') %}
+				{% for blog in blogs %}
+					<img src="{{ blog.authorImage.first().url }}" alt="">
+				{% endfor %}
+			</div>
+			<div class="contact__form-title">{{ entry.contactNumber }}</div>
 			<div class="contact__form">
 				<form action="/">
 					<input type="text" placeholder="Name" class="contact__form--control">

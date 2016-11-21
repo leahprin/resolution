@@ -25,3 +25,15 @@
     }
   }
 }
+
+.blogger__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto 48px;
+  max-width: 600px;
+  width: 100%;
+  img {
+    height: 92px;
+    flex: 0 1 112px;
+  }
+}
