@@ -106,7 +106,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown">
                             {% for blog in blogs %}
-                                <li class="header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }}"><a href="{{ blog.url }}" class="">{{ blog.title }}</a></li>
+                                <li class="header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }}"><a href="/blog/dev{# {{ blog.url }} #}" class="">{{ blog.title }}</a></li>
                             {% endfor %}
                             <li class="header__navigation-item"><a href="/blog/dev" class="">Dev blog</a></li>
                         </ul>
