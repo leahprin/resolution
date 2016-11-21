@@ -89,7 +89,7 @@
                     {% for i in 0..4 %}
                         {% set blog = blogs[i] %}
                         <li class="header__navigation-item header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }}">
-                            <a href="{{ blog.url }}" class="header__navigation_blog-link">
+                            <a href="/blog/dev" class="header__navigation_blog-link">
                                 <img src="{{ blog.authorImage.first().url }}" alt="" class="header__navigation-image">
                                 <div class="header__navigation-name">
                                     <div class="header__navigation_first-name">{{ blog.authorFirstName }}</div>
