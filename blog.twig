@@ -12,6 +12,7 @@
 
             <div class="blog__header">
                 <div class="blog__background" style="background-image: url('/static/craft-media/russell-yardly-blog-bg.png');" {% if image is defined %}style="background-image: url('{{ image }}'); background-size: cover;"{% endif %}>
+									<div class="blog__container">
                     <div class="blog__user-header">
                         <div class="blog__user-header__display">
                             <span class="blog__user-header__image" style="background-image: url('{{ user.photoUrl }}');"></span>
@@ -35,6 +36,7 @@
                         <h1 class="blog__heading">Tech & Leadership</h1>
                         <span class="blog__description">Blog Building a better technology leadership culture for companies and boards.</span>
                     </div>
+									</div>
                 </div>
             </div>
             {# <div class="social-bar__container">
