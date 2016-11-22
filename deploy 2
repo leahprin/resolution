@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#
+echo "$(tput setaf 2)$(tput bold)==============================================$(tput sgr0)";
+echo "$(tput setaf 2)$(tput bold) Deploying another minor change :-("
+echo "$(tput setaf 2)$(tput bold)==============================================$(tput sgr0)";
+#
+
+git status
+git add -A
+git commit -m "Add minor frontend change"
+git push origin master
