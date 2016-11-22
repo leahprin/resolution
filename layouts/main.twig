@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{# <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
 	<meta charset="utf-8" />
@@ -20,7 +20,7 @@
 
 <body>
 <div id="container">
-	{# {% set channels = craft.categories.group('channels') %}
+	{% set channels = craft.categories.group('channels') %}
 
 	{% set channelObject = [] %}
 
@@ -34,7 +34,7 @@
 
 	{% for blog in blogs %}
 		{% set blogObject = blogObject|merge({(blog.slug|lower ~ ''): ('blog-' ~ loop.index)})  %}
-	{% endfor %} #}
+	{% endfor %}
 
 	{% include '_elements/_header.twig' %}
 
@@ -55,3 +55,5 @@
 {% include '_elements/_javascript.twig' %}
 </body>
 </html>
+#}
+hello world
