@@ -1,70 +1,70 @@
 {% block content  %}
     {% if articles[0] is defined %}
         <div class="col-full">
-            {% include '_elements/card' with {article: articles[0]} %}
+            {% include '_elements/card.twig' with {article: articles[0]} %}
         </div>
     {% endif %}
     {% if articles[1] is defined %}
         <div class="col-third">
-            {% include '_elements/card' with {article: articles[1]} %}
+            {% include '_elements/card.twig' with {article: articles[1]} %}
         </div>
     {% endif %}
     {% if articles[2] is defined %}
         <div class="col-third">
-            {% include '_elements/card' with {article: articles[2]} %}
+            {% include '_elements/card.twig' with {article: articles[2]} %}
         </div>
     {% endif %}
     {% if articles[3] is defined and articles[4] is defined and articles[5] is defined %}
         <div class="col-third-container">
             <div class="col-third">
-                {% include '_elements/card' with {article: articles[3]} %}
+                {% include '_elements/card.twig' with {article: articles[3]} %}
             </div>
             <div class="col-third">
-                {% include '_elements/card' with {article: articles[4]} %}
+                {% include '_elements/card.twig' with {article: articles[4]} %}
             </div>
             <div class="col-third">
-                {% include '_elements/card' with {article: articles[5]} %}
+                {% include '_elements/card.twig' with {article: articles[5]} %}
             </div>
         </div>
     {% endif %}
     {% if articles[6] is defined %}
         <div class="col-third">
-            {% include '_elements/card' with {article: articles[6]} %}
+            {% include '_elements/card.twig' with {article: articles[6]} %}
         </div>
     {% endif %}
     {% if articles[7] is defined %}
         <div class="col-third">
-            {% include '_elements/card' with {article: articles[7]} %}
+            {% include '_elements/card.twig' with {article: articles[7]} %}
         </div>
     {% endif %}
     {% if articles[8] is defined and articles[9] is defined and articles[10] is defined %}
         <div class="col-third-container">
             <div class="col-third">
-                {% include '_elements/card' with {article: articles[8]} %}
+                {% include '_elements/card.twig' with {article: articles[8]} %}
             </div>
             <div class="col-third">
-                {% include '_elements/card' with {article: articles[9]} %}
+                {% include '_elements/card.twig' with {article: articles[9]} %}
             </div>
             <div class="col-third">
-                {% include '_elements/card' with {article: articles[10]} %}
+                {% include '_elements/card.twig' with {article: articles[10]} %}
             </div>
         </div>
     {% endif %}
     {% if articles[11] is defined %}
         <div class="col-full">
-            {% include '_elements/card' with {article: articles[11]} %}
+            {% include '_elements/card.twig' with {article: articles[11]} %}
         </div>
     {% endif %}
     {% if articles[12] is defined and articles[13] is defined and articles[14] is defined %}
         <div class="col-third-container">
             <div class="col-third">
-                {% include '_elements/card' with {article: articles[12]} %}
+                {% include '_elements/card.twig' with {article: articles[12]} %}
             </div>
             <div class="col-third">
-                {% include '_elements/card' with {article: articles[13]} %}
+                {% include '_elements/card.twig' with {article: articles[13]} %}
             </div>
             <div class="col-third">
-                {% include '_elements/card' with {article: articles[14]} %}
+                {% include '_elements/card.twig' with {article: articles[14]} %}
             </div>
         </div>
     {% endif %}

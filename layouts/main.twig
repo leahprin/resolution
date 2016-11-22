@@ -36,7 +36,7 @@
 		{% set blogObject = blogObject|merge({(blog.slug|lower ~ ''): ('blog-' ~ loop.index)})  %}
 	{% endfor %}
 
-	{% include '_elements/_header' %}
+	{% include '_elements/_header.twig' %}
 
 	<main id="content" role="main">
 		{{ this.blocks['content'] }}
@@ -49,9 +49,9 @@
 		</div>
 	</div>
 
-	{% include '_elements/_footer' %}
+	{% include '_elements/_footer.twig' %}
 </div>
 
-{% include '_elements/_javascript' %}
+{% include '_elements/_javascript.twig' %}
 </body>
 </html>

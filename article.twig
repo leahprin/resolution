@@ -88,14 +88,14 @@
 				{{ articleBody|raw }}
 
 				<h2 class="comments-header" id="comments"><span class="disqus-comment-count" data-disqus-url="{{link}}"></span>Comments</h2>
-				{% include "_elements/disqus" %}
+				{% include "_elements/disqus.twig" %}
 			</div>
 
 
 		</div>
 
 	</div>
-	{% include '_elements/deloit-banner' %}
+	{% include '_elements/deloit-banner.twig' %}
 	{% set articles = craft.entries.section('posts').limit(3).find() %}
 	<div class="card-container">
 		{% if articles|length > 0 %}
