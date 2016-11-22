@@ -62,7 +62,8 @@
 
 {% include 'elements/_javascript.twig' %}#}
 {{ this.beginBody() }}
-{{ this.render('elements/_javascript.twig', {network: networkData, blogData: blogData}) | raw }}
+{# {{ this.render('elements/_javascript.twig', {network: networkData, blogData: blogData}) | raw }} #}
+{{ content | raw}}
 {{ this.endBody() }}
 </body>
 {{ this.endPage() }}
