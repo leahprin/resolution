@@ -10,7 +10,9 @@
 
  blah
 
- {{this.render('layouts/elements/_card-layout-home.twig') | raw}}
+ {# {{this.render('layouts/elements/_card-layout-home.twig') | raw}} #}
+
+ {% include 'layouts/elements/_card-layout-home.twig' with {articles: articles} %}
 
     {# <div class="layout-container">
         <div class="home">

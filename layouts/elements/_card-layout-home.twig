@@ -4,7 +4,7 @@ card layout home
         {% if articles[0] is defined %}
             <div class="card__outset-wrap--bottom card-container">
                 <div class="col-full">
-                    {% include '_elements/card.twig' with {article: articles[0]} %}
+                    {% include 'layouts/elements/card.twig' with {article: articles[0]} %}
                 </div>
             </div>
         {% endif %}
