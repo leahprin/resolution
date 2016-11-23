@@ -17,7 +17,7 @@
 				<div class="article__header_actions">
 					<a href="#comments" class="button button__comments header_actions header_actions__comments article__header-item">16 Comments</a>
 					<a href="javascript:void(0)" class="button button__share header_actions header_actions__share article__header-item">Share Article
-						{% include '/_elements/share-popup.twig' %}
+						{% include 'elements/share-popup.twig' | raw %}
 					</a>
 				</div>
 			</div>
@@ -86,18 +86,18 @@
 				{{ articleBody|raw }}
 
 				<h2 class="comments-header" id="comments"><span class="disqus-comment-count" data-disqus-url="{{link}}"></span>Comments</h2>
-				{% include "_elements/disqus.twig" %}
+				{% include "elements/disqus.twig" | raw %}
 			</div>
 
 
 		</div>
 
 	</div>
-	{% include '_elements/deloit-banner.twig' %}
+	{# {% include '_elements/deloit-banner.twig' %}
 	{% set articles = craft.entries.section('posts').limit(3).find() %}
 	<div class="card-container">
 		{% if articles|length > 0 %}
-			{% include '/_elements/_card-layout-thirds.twig' with {articles: articles} %}
+			{% include 'elements/_card-layout-thirds.twig' with {articles: articles} %}
 		{% endif %}
-	</div>
+	</div> #}
 {{ void(this.endBlock()) }}
