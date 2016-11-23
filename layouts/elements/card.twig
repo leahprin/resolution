@@ -27,7 +27,7 @@
 									<h3 class="card__headline">
 										{{ text|striptags[:220] ~ '...' }}
 									</h3>
-									<img class="card__play-button" src="/static/images/icons/play-white.svg" alt="Play video button">
+									<img class="card__play-button" src="{{networkData.templatePath}}/static/images/icons/play-white.svg" alt="Play video button">
 								</div>
 							{% else %}
 								<div class="card__text-wrap">
@@ -37,7 +37,7 @@
 									{% if thumbnail != '' %}
 										<div class="card__image" style="background-image: url('{{ thumbnail }}');background-size: cover;background-position:center center;">
 											{% if hasVideo == 'y' %}
-												<img class="card__play-button" src="/static/images/icons/play-white.svg" alt="Play video button">
+												<img class="card__play-button" src="{{networkData.templatePath}}/static/images/icons/play-white.svg" alt="Play video button">
 											{% endif %}
 										</div>
 									{% endif %}
@@ -52,7 +52,7 @@
 								{% if thumbnail != '' %}
 									<div class="card__image" style="background-image: url('{{ thumbnail }}');background-size: cover;background-position:center center;">
 										{% if hasVideo == 'y' %}
-											<img class="card__play-button" src="/static/images/icons/play-white.svg" alt="Play video button">
+											<img class="card__play-button" src="{{networkData.templatePath}}/static/images/icons/play-white.svg" alt="Play video button">
 										{% endif %}
 									</div>
 								{% endif %}
@@ -70,7 +70,7 @@
 					{% if thumbnail != '' %}
 						<div class="card__big-image" style="background-image: url('{{ thumbnail }}');background-size: cover;background-position:center center;">
 							{% if hasVideo == 'y' %}
-								<img class="card__play-button" src="/static/images/icons/play-white.svg" alt="Play video button">
+								<img class="card__play-button" src="{{networkData.templatePath}}/static/images/icons/play-white.svg" alt="Play video button">
 							{% endif %}
 						</div>
 					{% endif %}
