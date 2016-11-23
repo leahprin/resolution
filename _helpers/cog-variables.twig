@@ -5,7 +5,7 @@
 {% set text = article.title %}
 {% set channel = article.blog['title'] %}
 {% set image = social.media['path'] %}
-{% set link = entry.url %}
+{% set link = article.url %}
 {% set authorImage = entry.author.photoUrl %}
 {% set date = entry.postDate | date("d M, Y") %}
 
@@ -29,6 +29,12 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 	{% set text = article.excerpt %}
 	{% set author = entry.author.fullName %}
 	{% set articleBody = entry.articleBody %}
+	{% set link = article.url %}
+	{% set imgWidth = 373 %}
+
+	{% set imgHeight = 180 %}
+	{% set articleImg = _Media.getMediaUrl(article.featuredMedia,imgWidth, imgHeight, {'crop': 'fill', 'gravity': 'north'} ) %}
+	{% set image = articleImg %}
 {# SOCIAL Variables #}
 {% else %}
 	{% set cardType = 'social' %}
