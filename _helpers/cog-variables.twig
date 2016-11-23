@@ -1,0 +1,40 @@
+{# ===============
+   VARIABLES
+	 - TODO: set these with cogs specific code
+   =============== #}
+{% set text = article.title %}
+{% set channel = article.blog['title'] %}
+{% set image = social.media['path'] %}
+{% set link = entry.url %}
+{% set authorImage = entry.author.photoUrl %}
+{% set date = entry.postDate | date("d M, Y") %}
+
+{# Need to set all of the variables for them to be avaialle outside the IF loops below.
+More info: http://twig.sensiolabs.org/doc/tags/set.html #}
+{% set cardType = '' %}
+{% set postText = '' %}
+{% set author = '' %}
+{% set network = '' %}
+{% set headline = '' %}
+{% set author = '' %}
+{% set socialLink = '' %}
+{% set articleBody = '' %}
+
+
+{# ARTICLE Variables #}
+{% if article.articleId > 0 %}
+	{% set cardType = 'article' %}
+	{% set headline = entry.title %}
+	{% set author = entry.author.fullName %}
+	{% set articleBody = entry.articleBody %}
+{# SOCIAL Variables #}
+{% else %}
+	{% set cardType = 'social' %}
+	{% set author = entry.socialAuthor %}
+	{% set network = entry.socialNetwork %}
+	{% set socialLink = entry.socialLink %}
+{% endif %}
+
+
+{% block content %}
+{% endblock %}
