@@ -1,6 +1,6 @@
-{{ void(this.beginBlock('content')) }}
+
 card layout home
-    {# <div class="card-container">
+    <div class="card-container">
         {% if articles[0] is defined %}
             <div class="card__outset-wrap--bottom card-container">
                 <div class="col-full">
@@ -8,6 +8,7 @@ card layout home
                 </div>
             </div>
         {% endif %}
+				{#
         <div class="card__inset-wrap card-container">
             {% if articles[1] is defined %}
                 <div class="col-third">
@@ -89,4 +90,3 @@ card layout home
         <div class="card__outset-wrap--bottom"></div>
     </div>
     {% include '_elements/deloit-banner' %} #}
-{{ void(this.endBlock()) }}
