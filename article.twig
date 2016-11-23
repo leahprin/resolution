@@ -1,6 +1,4 @@
-{% extends "layouts/main.twig" %}
-
-{% block content %}
+{{ void(this.beginBlock('content')) }}
 
 	<div class="article__body">
 		<div class="article article--{{ channel|lower }} {{ channelObject[channel|lower] }}">
@@ -102,4 +100,4 @@
 			{% include '/_elements/_card-layout-thirds.twig' with {articles: articles} %}
 		{% endif %}
 	</div>
-{% endblock %}
+{{ void(this.endBlock()) }}
