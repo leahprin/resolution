@@ -1,5 +1,6 @@
-{% block content  %}
-    {% if articles[0] is defined %}
+{{ void(this.beginBlock('content')) }}
+card lauyout
+    {# {% if articles[0] is defined %}
         <div class="col-full">
             {% include '_elements/card.twig' with {article: articles[0]} %}
         </div>
@@ -67,5 +68,5 @@
                 {% include '_elements/card.twig' with {article: articles[14]} %}
             </div>
         </div>
-    {% endif %}
-{% endblock  %}
+    {% endif %} #}
+{{ void(this.endBlock()) }}
