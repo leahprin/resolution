@@ -8,7 +8,7 @@
     <div class="layout-container">
         <div class="home">
             {% if articles|length > 0 %}
-                {% include '_elements/_card-layout-home.twig' with {articles: articles} %}
+                {% include 'layouts/elements/_card-layout-home.twig' with {articles: articles} %}
             {% endif %}
         </div>
     </div>
