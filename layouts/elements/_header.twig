@@ -1,4 +1,5 @@
 {% set networkData = _Network.getNetworkData() %}
+{% set blogData = _Blog.getBlog() %}
 <header class="header">
     <div class="header__heading header__container">
         <div class="header__heading-highlight"></div>
@@ -89,7 +90,7 @@
                     {# {% set blogs = craft.categories.group('blogs') %}
                     {% for i in 0..4 %}
                         {% set blog = blogs[i] %} #}
-
+												<li>blah</li>
 												{% set menuItems = blogData.blogMenu %}
 												{% for menuItem in menuItems %}
 													{% set activeClass = (menuItem.link == _AppHelper.getServerUrl()) ? 'active' : ''%}
