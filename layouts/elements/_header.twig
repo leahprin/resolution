@@ -94,7 +94,14 @@
 												{% set menuItems = blogData.blogMenu %}
 												{% for menuItem in menuItems %}
 													{% set activeClass = (menuItem.link == _AppHelper.getServerUrl()) ? 'active' : ''%}
-													<li class="header__navigation-item header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }} {{activeClass}}">
+													<li>
+														{% if menuItem.pageTitle == "" %}
+																{{menuItem.blogTitle}}
+														{% else %}
+																{{menuItem.pageTitle}}
+														{% endif %}
+													</li>
+													{# <li class="header__navigation-item header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }} {{activeClass}}">
 	                            <a href="{{menuItem.link |raw}}" class="header__navigation_blog-link">
 	                                <img src="{{ blog.authorImage.first().url }}" alt="" class="header__navigation-image">
 	                                <div class="header__navigation-name">
@@ -105,7 +112,7 @@
                                     {% endif %}
 	                                </div>
 	                            </a>
-	                        </li>
+	                        </li> #}
 												{% endfor %}
 
 
