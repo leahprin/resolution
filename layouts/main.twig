@@ -66,7 +66,7 @@
 {{ this.blocks['content'] | raw }}
 {{ this.endBody() }}
 
-{% include 'elements/_javascript.twig' %}
+{% include 'elements/_javascript.twig' | raw %}
 </body>
 {{ this.endPage() }}
 </html>
