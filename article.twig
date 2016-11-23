@@ -1,6 +1,7 @@
-{{ set(this, 'title', article.title) }}
-
 {{ void(this.beginBlock('content')) }}
+ {% set articles = articlesArr.articles %}
+ {{ set(this, 'title', article.title) }}
+
 	{% extends '_helpers/cog-variables.twig' %}
 	<div class="article__body">
 		<div class="article article--{{ channel|lower }} {{ channelObject[channel|lower] }}">
