@@ -9,7 +9,8 @@
  {% set articles = articlesArr.articles %}
 
  blah
- {% include 'elements/_card-layout-home.twig'%}
+
+ {{this.render('elements/_card-layout-home.twig' | raw}}
 
     {# <div class="layout-container">
         <div class="home">
