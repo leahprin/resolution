@@ -8,7 +8,7 @@ card layout home
                 </div>
             </div>
         {% endif %}
-				{#
+
         <div class="card__inset-wrap card-container">
             {% if articles[1] is defined %}
                 <div class="col-third">
@@ -89,4 +89,4 @@ card layout home
         </div>
         <div class="card__outset-wrap--bottom"></div>
     </div>
-    {% include '_elements/deloit-banner' %} #}
+    {% include 'layouts/elements/deloit-banner.twig' | raw %} 
