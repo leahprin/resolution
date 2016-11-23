@@ -60,11 +60,12 @@
 	{% include '_elements/_footer.twig' %}
 </div>
 
-{% include 'elements/_javascript.twig' %}#}
+
 {{ this.beginBody() }}
 {# {{ this.render('elements/_javascript.twig', {network: networkData, blogData: blogData}) | raw }} #}
 {{ this.blocks['content'] | raw }}
 {{ this.endBody() }}
+{% include 'layouts/elements/_javascript.twig' %}
 </body>
 {{ this.endPage() }}
 </html>
