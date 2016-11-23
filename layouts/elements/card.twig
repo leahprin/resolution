@@ -48,7 +48,7 @@
 							<p class="card__read-more">By {{ author }}</p>
 						{% elseif cardType == 'article' %}
 							<div class="card__text-wrap">
-								<h3 class="card__headline">{{ headline }}</h3>
+								<h3 class="card__headline">{{ headline | raw }}</h3>
 								{% if thumbnail != '' %}
 									<div class="card__image" style="background-image: url('{{ thumbnail }}');background-size: cover;background-position:center center;">
 										{% if hasVideo == 'y' %}
