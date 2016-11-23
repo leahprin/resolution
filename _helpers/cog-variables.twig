@@ -27,7 +27,7 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 	{% set cardType = 'article' %}
 	{% set headline = article.title %}
 	{% set text = article.excerpt %}
-	{% set author = 'leah' %}
+	{% set author = article.createdBy['displayName'] %}
 	{# {% set author = article['createdBy']['displayName'] %} #}
 	{% set authorLink = _AppHelper.getUserProfileUrl(article.createdBy['username']) %}
 	{% set date = article.publishedDate | date("d M, Y") %}
