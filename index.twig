@@ -1,14 +1,17 @@
 
 {{ void(this.beginBlock('content')) }}
 
-    {% set limit = 20 %}
+    {# {% set limit = 20 %}
     {% set articles = craft.entries.section('posts').find() %}
+ #}
 
-
+ {% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
+ {% set articles = articlesArr.articles %}
+ 
     <div class="layout-container">
         <div class="home">
             {% if articles|length > 0 %}
-                {% include 'layouts/elements/_card-layout-home.twig' with {articles: articles} %}
+                {% include 'elements/_card-layout-home.twig' with {articles: articles} %}
             {% endif %}
         </div>
     </div>
