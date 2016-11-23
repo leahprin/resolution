@@ -7,7 +7,7 @@
 
  {% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
  {% set articles = articlesArr.articles %}
- {{ set(this, 'title', article.title) }}
+ {# {{ set(this, 'title', article.title) }} #}
 
 
  {# {{this.render('layouts/elements/_card-layout-home.twig') | raw}} #}
