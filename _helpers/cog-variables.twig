@@ -27,7 +27,7 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 	{% set cardType = 'article' %}
 	{% set headline = article.title %}
 	{% set text = article.excerpt %}
-	{% set author = Helper.shortStr(article.createdBy['displayName'], displayNameLen) %}
+	{% set author = article.createdBy['displayName'] %}
 	{% set articleBody = entry.articleBody %}
 	{% set link = article.url %}
 	{% set authorImage = _Media.getMediaUrl(article.createdBy['media'],104,104,{crop:'thumb', gravity:'face', radius:'max'} ) %}
