@@ -7,14 +7,16 @@
 
  {% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
  {% set articles = articlesArr.articles %}
- 
-    <div class="layout-container">
+
+ blah
+
+    {# <div class="layout-container">
         <div class="home">
             {% if articles|length > 0 %}
                 {% include 'elements/_card-layout-home.twig' with {articles: articles} %}
             {% endif %}
         </div>
-    </div>
+    </div> #}
 
 
     <div class="row ajaxArticles" data-existing-nonpinned-count="{#{{articlesArr.existingNonPinnedCount}}#}"></div>
