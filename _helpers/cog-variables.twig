@@ -30,8 +30,8 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 	{% set author = entry.author.fullName %}
 	{% set articleBody = entry.articleBody %}
 	{% set link = article.url %}
-
-	{% set thumbnail = _Media.getMediaUrl(article.createdBy['media'],100,100,{crop:'thumb', gravity:'face', radius:'max'} ) %}
+	{% set authorImage = _Media.getMediaUrl(article.createdBy['media'],100,100,{crop:'thumb', gravity:'face', radius:'max'} ) %}
+	{% set thumbnail = '' %}
 {# SOCIAL Variables #}
 {% else %}
 	{% set cardType = 'social' %}
