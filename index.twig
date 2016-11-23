@@ -1,26 +1,17 @@
 
 {{ void(this.beginBlock('content')) }}
 
-    {# {% set limit = 20 %}
-    {% set articles = craft.entries.section('posts').find() %}
- #}
+	{{ set(this, 'title', _Blog.getBlogTitle()) }}
+	{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
+	{% set articles = articlesArr.articles %}
 
- {% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
- {% set articles = articlesArr.articles %}
- {# {{ set(this, 'title', article.title) }} #}
-
-
- {# {{this.render('layouts/elements/_card-layout-home.twig') | raw}} #}
-
- {% include 'layouts/elements/_card-layout-home.twig' with {articles: articles} %}
-
-    {# <div class="layout-container">
+    <div class="layout-container">
         <div class="home">
             {% if articles|length > 0 %}
-                {% include 'elements/_card-layout-home.twig' with {articles: articles} %}
+                 {% include 'layouts/elements/_card-layout-home.twig' with {articles: articles} %}
             {% endif %}
         </div>
-    </div> #}
+    </div>
 
 
     <div class="row ajaxArticles" data-existing-nonpinned-count="{#{{articlesArr.existingNonPinnedCount}}#}"></div>
