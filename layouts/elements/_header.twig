@@ -89,6 +89,7 @@
                     {% set blogs = craft.categories.group('blogs') %}
                     {% for i in 0..4 %}
                         {% set blog = blogs[i] %}
+												<li>BLAH</li>
                         <li class="header__navigation-item header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }}">
                             <a href="/blog/dev" class="header__navigation_blog-link">
                                 <img src="{{ blog.authorImage.first().url }}" alt="" class="header__navigation-image">
