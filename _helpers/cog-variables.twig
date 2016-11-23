@@ -25,7 +25,8 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 {# ARTICLE Variables #}
 {% if article.articleId > 0 %}
 	{% set cardType = 'article' %}
-	{% set headline = article.excerpt %}
+	{% set headline = article.title %}
+	{% set text = article.excerpt %}
 	{% set author = entry.author.fullName %}
 	{% set articleBody = entry.articleBody %}
 {# SOCIAL Variables #}
