@@ -89,16 +89,24 @@
                     {% set blogs = craft.categories.group('blogs') %}
                     {% for i in 0..4 %}
                         {% set blog = blogs[i] %}
-												<li>BLAH</li>
-                        <li class="header__navigation-item header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }}">
-                            <a href="/blog/dev" class="header__navigation_blog-link">
-                                <img src="{{ blog.authorImage.first().url }}" alt="" class="header__navigation-image">
-                                <div class="header__navigation-name">
-                                    <div class="header__navigation_first-name">{{ blog.authorFirstName }}</div>
-                                    <div class="header__navigation_last-name">{{ blog.authorLastName }}</div>
-                                </div>
-                            </a>
-                        </li>
+
+												{% set menuItems = blogData.blogMenu %}
+												{% for menuItem in menuItems %}
+													{% set activeClass = (menuItem.link == _AppHelper.getServerUrl()) ? 'active' : ''%}
+													<li class="header__navigation-item header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }} {{activeClass}}">
+	                            <a href="{{menuItem.link |raw}}" class="header__navigation_blog-link">
+	                                <img src="{{ blog.authorImage.first().url }}" alt="" class="header__navigation-image">
+	                                <div class="header__navigation-name">
+																		{% if menuItem.pageTitle == "" %}
+                                        {{menuItem.blogTitle}}
+                                    {% else %}
+                                        {{menuItem.pageTitle}}
+                                    {% endif %}
+	                                </div>
+	                            </a>
+	                        </li>
+												{% endfor %}
+
                     {% endfor %}
                 </ul>
                 <ul class="header__navigation-list header__navigation-list--right">
