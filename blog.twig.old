@@ -1,0 +1,83 @@
+{% extends "layouts/main.twig" %}
+
+{% block content %}
+
+    {# First, grab the username from the URI #}
+    {% set username = craft.request.segment(2) %}
+
+    {# Then, grab the user based on the username %}#}
+    {% set user = craft.users.username(username).first() %}
+    {% if user %}
+        <div class="blog">
+
+            <div class="blog__header">
+                <div class="blog__background" style="background-image: url('/static/craft-media/russell-yardly-blog-bg.png');" {% if image is defined %}style="background-image: url('{{ image }}'); background-size: cover;"{% endif %}>
+                    <div class="blog__container">
+                        <div class="blog__user-header">
+                            <div class="blog__user-header__display">
+                                <span class="blog__user-header__image" style="background-image: url('{{ user.photoUrl }}');"></span>
+                                <div class="blog__user-header__name">{{user}}</div>
+                                <div class="button-container">
+                                    <a href="javascript:void(0)" class="button button__share">Share
+                                    {% include '/_elements/share-popup.twig' %}
+                                    </a>
+                                    <span class="button button__connect">
+                                        Connect <a href="#" class="button__linkedin"></a><a href="#" class="button__twitter"></a>
+                                    </span>
+                                </div>
+                                                            <div class="blog__user-header__about">
+                                                                <p>Russell is a pioneer in multimedia and the internet industries. Has a science degree and studied law at the University of Melbourne. IBM gave him a sound knowledge of computer technology, management.</p>
+                                                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                                                            </div>
+
+                            </div>
+                        </div>
+                        <div class="blog__title">
+                            <h1 class="blog__heading">Tech & Leadership</h1>
+                            <span class="blog__description">Blog Building a better technology leadership culture for companies and boards.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {# <div class="social-bar__container">
+                <div class="social-bar">
+                    <div class="social-bar__button-wrap">
+                        <a href="#" class="social-bar__button--twitter">
+                            <i class="fa fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="#" class="social-bar__button--twitter">
+                            <i class="fa fa-linkedin"></i>
+                            <span>Linkedin</span>
+                        </a>
+                    </div>
+                    <div class="blog__data">
+                        <div class="blog__followers">
+                            <strong>10</strong>
+                            <span>Followers</span>
+                        </div>
+                        <div class="blog__following">
+                            <strong>10</strong>
+                            <span>Following</span>
+                        </div>
+                        <div class="blog__articles">
+                            <strong>15</strong>
+                            <span>Articles</span>
+                        </div>
+                    </div>
+                </div>
+            </div> #}
+
+
+            {% set articles = craft.entries.section('posts').type('article').authorId(user.id).find() %}
+
+            <div class="card-container">
+                {% if articles|length > 0 %}
+                    {% include '_elements/_card-layout-blog.twig' with {articles: articles} %}
+                {% endif %}
+            </div>
+        </div>
+
+    {% endif %}
+
+{% endblock %}
