@@ -75,7 +75,7 @@
 							<meta itemprop="url" content="{{image.path}}">
 							<meta itemprop="height" content="{{image.height}}">
 							<meta itemprop="width" content="{{image.width}}">
-							{% if media.type == 'video' %}
+							{% if image.type == 'video' %}
 								<a href="javascript:void(0)" itemprop="video" class="video-overlay playVideo" data-type="{{embed.url}}" data-media="{{embed | json_encode}}"  data-videoid="" data-title="{{embed.title | raw}}">
 									{% set embed = '<iframe class="slick-video" src="https://www.youtube.com/embed/' ~ image.videoId ~ '" frameborder="0" allowfullscreen></iframe>' %}
 									{{ embed|raw }}
