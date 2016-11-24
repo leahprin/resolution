@@ -63,7 +63,7 @@
 
 				<div class="slides">
 					{% for image in article.media %}
-						{% set embed = media.path %}
+						{% set embed = media %}
 						{% if embed is not null %}
 							{% set image = embed %}
 							{% set thumbnail = '//img.youtube.com/vi/' ~ embed.url|replace('/.+watch\\?v=(.+)/', '$1') ~ '/maxresdefault.jpg' %}
@@ -72,7 +72,7 @@
 						{% endif %}
 
 						<div class="slide" itemprop="image" itemscope itemtype="https://schema.org/ImageObject"  data-thumbnail="{{thumbnail}}" style='background-image: url({{ thumbnail }})'>
-							<meta itemprop="url" content="{{image.url}}">
+							<meta itemprop="url" content="{{image.path}}">
 							<meta itemprop="height" content="{{image.height}}">
 							<meta itemprop="width" content="{{image.width}}">
 							{% if media.type == 'video' %}
