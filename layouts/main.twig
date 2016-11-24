@@ -45,7 +45,7 @@
 	{% endfor %} #}
 
 	{# {% include 'elements/_header.twig' | raw %} #}
-	{{ this.render('layouts/elements/_header.twig', {network : networkData, blog: blogData}) | raw }}
+	{{ this.render('elements/_header.twig', {network : networkData, blog: blogData}) | raw }}
 
 	<main id="content" role="main">
 		{{ this.blocks['content'] | raw }}
@@ -58,7 +58,7 @@
 		</div>
 	</div>
 
-	{{ this.render('layouts/elements/_footer.twig', {network : networkData, blog: blogData}) | raw }}
+	{{ this.render('elements/_footer.twig', {network : networkData, blog: blogData}) | raw }}
 </div>
 
 
