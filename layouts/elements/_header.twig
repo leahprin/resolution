@@ -90,7 +90,7 @@
                     {# {% set blogs = craft.categories.group('blogs') %}
                     {% for i in 0..4 %}
                         {% set blog = blogs[i] %} #}
-												<li>blah</li>
+												<li>blahz</li>
 												{% set menuItems = blogData.blogMenu %}
 												{% for menuItem in menuItems %}
 													{% set activeClass = (menuItem.link == _AppHelper.getServerUrl()) ? 'active' : ''%}
@@ -113,6 +113,7 @@
 	                                </div>
 	                            </a>
 	                        </li> #}
+													<div style"color: red;">{{ dump(menuItems) }}</div>
 												{% endfor %}
 
 
