@@ -66,7 +66,7 @@
                     </a>
 
                     <a href="javascript:void(0)" class="header__heading-link header__heading-link--responsive">
-                        {% include 'elements/svg/menu.svg' | raw %}
+												{{ this.render('svg/menu.svg') | raw }}
                     </a>
                 </div>
 
@@ -75,7 +75,7 @@
                         <form action="{{ url('search') }}">
                             <input type="text" class="header__search-text" placeholder="Search" name="s" value="">
                             <button class="header__search-btn">
-                                {% include 'elements/svg/search-magnifying-glass.svg' | raw %}
+																{{ this.render('svg/search-magnifying-glass.svg') | raw }}
                             </button>
                         </form>
                     </div>
