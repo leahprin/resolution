@@ -108,12 +108,13 @@
 		</div>
 
 	</div>
-	{# {% include '_elements/deloit-banner.twig' %}
-	{% set articles = craft.entries.section('posts').limit(3).find() %}
+	{% include 'elements/deloit-banner.twig' %}
+
+	{% set articles = _Article.getPopularArticles({ limit: 5, excludeArticleId : articleId }) %}
 	<div class="card-container">
 		{% if articles|length > 0 %}
 			{% include 'layouts/elements/_card-layout-thirds.twig' with {articles: articles} %}
 		{% endif %}
-	</div> #}
+	</div>
 	{{dump(article)}}
 {{ void(this.endBlock()) }}
