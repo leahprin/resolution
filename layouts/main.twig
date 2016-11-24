@@ -44,8 +44,8 @@
 		{% set blogObject = blogObject|merge({(blog.slug|lower ~ ''): ('blog-' ~ loop.index)})  %}
 	{% endfor %} #}
 
-	{% include 'layouts/elements/header.twig' | raw %}
-	{# {{ this.render('elements/header.twig', {network : networkData, blog: blogData}) | raw }} #}
+	{# {% include 'layouts/elements/header.twig' | raw %} #}
+	{{ this.render('elements/header.twig' | raw }}
 
 	<main id="content" role="main">
 		{{ this.blocks['content'] | raw }}
