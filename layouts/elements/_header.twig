@@ -124,7 +124,7 @@
                 <ul class="header__navigation-list header__navigation-list--right">
                     <li class="header__navigation-item dropdown">
                         <a href="#" class="header__navigation-link dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
-                            Authors {% include 'elements/svg/arrow-down.svg' %}
+                            Authors {{ this.render('svg/arrow-down.svg') | raw }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown">
                             {% for blog in blogs %}
@@ -135,7 +135,7 @@
                     </li>
                     <li class="header__navigation-item dropdown">
                         <a href="#" class="header__navigation-link dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
-                            Topics {% include 'elements/svg/arrow-down.svg' %}
+                            Topics {{ this.render('svg/arrow-down.svg') | raw }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown">
                             {% set channels = craft.categories.group('channels') %}
