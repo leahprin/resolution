@@ -93,8 +93,8 @@
 												<li>test</li>
 													{% set blogData = _Blog.getBlog() %}
 													{% set menuItems = blogData.blogHeaderMenu %}
-													<div style"color: red;">DUMP: {{ dump(menuItems) }}</div>
-													{% for menuItem in menuItems %}
+													<div style="color: red;">DUMP: {{ dump(menuItems) }}</div>
+
 													<li>
 														{% if menuItem.pageTitle == "" %}
 																{{menuItem.blogTitle}}
@@ -102,9 +102,9 @@
 																{{menuItem.pageTitle}}
 														{% endif %}
 													</li>
-													{% endfor %}
 
-													{# <li class="header__navigation-item header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }} {{activeClass}}">
+													{% for menuItem in menuItems %}
+													<li class="header__navigation-item header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }} {{activeClass}}">
 	                            <a href="{{menuItem.link |raw}}" class="header__navigation_blog-link">
 	                                <img src="{{ blog.authorImage.first().url }}" alt="" class="header__navigation-image">
 	                                <div class="header__navigation-name">
@@ -115,7 +115,8 @@
                                     {% endif %}
 	                                </div>
 	                            </a>
-	                        </li> #}
+	                        </li>
+													{% endfor %}
 
                 </ul>
                 <ul class="header__navigation-list header__navigation-list--right">
