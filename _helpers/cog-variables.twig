@@ -24,18 +24,18 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 
 {# ARTICLE Variables #}
 {% if article.articleId > 0 %}
-	{% set cardType = 'article' %}
-	{% set headline = article.title %}
-	{% set text = article.excerpt %}
-	{% set author = article.createdBy['displayName'] %}
-	{# {% set author = article['createdBy']['displayName'] %} #}
-	{% set authorLink = _AppHelper.getUserProfileUrl(article.createdBy['username']) %}
-	{% set date = article.publishedDate | date("d M, Y") %}
-
-	{% set articleBody = entry.articleBody %}
-	{% set link = article.url %}
-	{% set authorImage = _Media.getMediaUrl(article.createdBy['media'],104,104,{crop:'thumb', gravity:'face', radius:'max'} ) %}
-	{% set thumbnail = _Media.getMediaUrl(article.featuredMedia,1000,1000,{crop:'thumb', gravity:'face' } ) %}
+	{% set channel = article.blog['title'] %}
+  {% set cardType = 'article' %}
+  {% set headline = article.title %}
+  {% set text = article.excerpt %}
+  {% set author = article.createdBy['displayName'] %}
+  {% set authorLink = _AppHelper.getUserProfileUrl(article.createdBy['username']) %}
+  {% set authorBio = _User.getUser().bio %}
+  {% set date = article.publishedDate | date("d M, Y") %}
+  {% set articleBody = entry.articleBody %}
+  {% set link = article.url %}
+  {% set authorImage = _Media.getMediaUrl(article.createdBy['media'],104,104,{crop:'thumb', gravity:'face', radius:'max'} ) %}
+  {% set thumbnail = _Media.getMediaUrl(article.featuredMedia,1000,1000,{crop:'thumb', gravity:'face' } ) %}
 
 
 {# SOCIAL Variables #}

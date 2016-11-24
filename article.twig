@@ -5,18 +5,6 @@
  {{ set(this, 'title', article.title) }}
 
  {# Need to move this to _helpers/cog-variables.twig #}
- {% set channel = article.blog['title'] %}
- {% set cardType = 'article' %}
- {% set headline = article.title %}
- {% set text = article.excerpt %}
- {% set author = article.createdBy['displayName'] %}
- {% set authorLink = _AppHelper.getUserProfileUrl(article.createdBy['username']) %}
- {% set authorBio = _User.getUser().bio %}
- {% set date = article.publishedDate | date("d M, Y") %}
- {% set articleBody = entry.articleBody %}
- {% set link = article.url %}
- {% set authorImage = _Media.getMediaUrl(article.createdBy['media'],104,104,{crop:'thumb', gravity:'face', radius:'max'} ) %}
- {% set thumbnail = _Media.getMediaUrl(article.featuredMedia,1000,1000,{crop:'thumb', gravity:'face' } ) %}
 
 	<div class="article__body">
 		<div class="article article--{{ channel|lower }} {{ channelObject[channel|lower] }}">
