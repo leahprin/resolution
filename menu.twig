@@ -1,0 +1,13 @@
+
+<ul>
+	{% set menuItems = blogData.blogMenu %}
+	{% for menuItem in menuItems %}
+	<li>
+		{% if menuItem.pageTitle == "" %}
+				{{menuItem.blogTitle}}
+		{% else %}
+				{{menuItem.pageTitle}}
+		{% endif %}
+	</li>
+	{% endfor %}
+</ul>
