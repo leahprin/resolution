@@ -62,8 +62,8 @@
 				</div>
 
 				<div class="slides">
-					{% for image in article.image %}
-						{% set embed = craft.embeddedAssets.fromAsset(image) %}
+					{% for image in article.media %}
+						{% set embed = media.path %}
 						{% if embed is not null %}
 							{% set image = embed %}
 							{% set thumbnail = '//img.youtube.com/vi/' ~ embed.url|replace('/.+watch\\?v=(.+)/', '$1') ~ '/maxresdefault.jpg' %}
@@ -75,7 +75,7 @@
 							<meta itemprop="url" content="{{image.url}}">
 							<meta itemprop="height" content="{{image.height}}">
 							<meta itemprop="width" content="{{image.width}}">
-							{% if embed %}
+							{% if media.type == 'video' %}
 								<a href="javascript:void(0)" itemprop="video" class="video-overlay playVideo" data-type="{{embed.url}}" data-media="{{embed | json_encode}}"  data-videoid="" data-title="{{embed.title | raw}}">
 									{% set videoId = embed.url|replace("/.+watch\\?v=(.+)/", "$1") %}
 									{% set embed = '<iframe class="slick-video" src="https://www.youtube.com/embed/' ~ videoId ~ '" frameborder="0" allowfullscreen></iframe>' %}
@@ -110,7 +110,7 @@
 	</div>
 	{% include 'layouts/elements/deloit-banner.twig' %}
 
-	{% set articles = _Article.getPopularArticles({ limit: 5 }) %}
+	{% set articles = _Article.getPopularArticles({ limit: 5, excludeArticleId : articleId }) %}
 	<div class="card-container">
 		{% if articles|length > 0 %}
 			{% include 'layouts/elements/_card-layout-thirds.twig' with {articles: articles} %}
