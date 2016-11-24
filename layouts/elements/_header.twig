@@ -93,10 +93,11 @@
 
 
 
-													<div style="color: red;">DUMP: {{ dump(menuItems) }}</div>
+
 
 
 													{% set menuItems = blogData.blogHeaderMenu %}
+													<div style="color: red;">DUMP: {{ dump(menuItems) }}</div>
 													{% for menuItem in menuItems %}
 													<li class="header__navigation-item header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }} {{activeClass}}">
 	                            <a href="{{menuItem.link |raw}}" class="header__navigation_blog-link">
