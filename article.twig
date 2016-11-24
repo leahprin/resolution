@@ -40,11 +40,11 @@
 
 
 				<div class="article__channel_wrap">
-					<div class="article__channel">{{ channel }}</div>
+					<div class="article__channel">{{ channel | raw }}</div>
 				</div>
-				<h1 class="article__headline">{{ headline }}</h1>
-				<div class="article__date">{{ date }}</div>
-				<div class="article__intro">{{ text }}</div>
+				<h1 class="article__headline">{{ headline | raw }}</h1>
+				<div class="article__date">{{ date | raw }}</div>
+				<div class="article__intro">{{ text | raw }}</div>
 
 			</div>
 			<div class="article__container--full-width">
