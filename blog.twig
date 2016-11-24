@@ -1,9 +1,9 @@
 {% extends "layouts/main.twig" %}
 
 {% block content %}
-
-    {% set articles = craft.entries.relatedTo(category) %}
-
+{{ void(this.beginBlock('content')) }}
+	{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
+	{% set articles = articlesArr.articles %}
     <div class="channel__container">
         <div class="col-full channel__header">
             <article class="card--channel {{ channelObject[category|lower] }}">
@@ -27,5 +27,5 @@
     </div>
 
 
-
+		{{ void(this.endBlock()) }}
 {% endblock %}
