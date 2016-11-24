@@ -15,11 +15,11 @@
     </div>
 
 
-    <div class="row ajaxArticles" data-existing-nonpinned-count="{#{{articlesArr.existingNonPinnedCount}}#}"></div>
-    <div class="row text-center has-margin-bottom-20">
-        {% if articles|length >= limit %}
-            <a href="javascript:void(0)" class="button loadMoreArticles"><i class="fa fa-arrow-down"></i>Load More</a>
-        {% endif %}
-    </div>
+		{% if articles|length >= limit %}
+        <div class="section__content">
+            <div class="row ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}"></div>
+            <a class="section__link loadMoreArticles" href="#">Load more <i class="fa fa-refresh"></i></a>
+        </div>
+    {% endif %}
 		{{dump(articles)}}
 {{ void(this.endBlock()) }}
