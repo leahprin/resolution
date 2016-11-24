@@ -9,6 +9,7 @@
  {% set text = article.excerpt %}
  {% set author = article.createdBy['displayName'] %}
  {% set authorLink = _AppHelper.getUserProfileUrl(article.createdBy['username']) %}
+ {% set authorBio = _User.getUser().bio %}
  {% set date = article.publishedDate | date("d M, Y") %}
  {% set articleBody = entry.articleBody %}
  {% set link = article.url %}
@@ -26,7 +27,7 @@
 							<span class="article__author">By {{ author }}</span>
 							<a href="{{authorLink}}}" class="button button-sm button-blue">View profile</a>
 						</div>
-						<div class="profile__author-bio">{{ entry.author.authorBio }}</div>
+						<div class="profile__author-bio">{{ authorBio }}</div>
 					</div>
 				</div>
 				<div class="article__header_actions">
