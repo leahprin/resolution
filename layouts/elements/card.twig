@@ -65,6 +65,7 @@
 									<div class="author-profile__last-name">{{ date }}</div>
 								</div>
 							</div>
+
 						{% endif %}
 					</div>
 					{% if thumbnail != '' %}
@@ -74,9 +75,10 @@
 							{% endif %}
 						</div>
 					{% endif %}
-					<textarea style="width: 100%; height: 50px;">{{dump(article)}}</textarea>
+
 				</div>
 			</div>
+			<textarea style="width: 100%; height: 50px;">{{dump(article)}}</textarea>
 		</a>
 	</article>
 
