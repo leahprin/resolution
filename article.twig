@@ -108,7 +108,7 @@
 		</div>
 
 	</div>
-	{% include 'elements/deloit-banner.twig' %}
+	{% include 'layouts/elements/deloit-banner.twig' %}
 
 	{% set articles = _Article.getPopularArticles({ limit: 5, excludeArticleId : articleId }) %}
 	<div class="card-container">
