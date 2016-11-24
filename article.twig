@@ -3,6 +3,7 @@
  {{ set(this, 'title', article.title) }}
 
  {# Need to move this to _helpers/cog-variables.twig #}
+ {% set channel = article.blog['title'] %}
  {% set cardType = 'article' %}
  {% set headline = article.title %}
  {% set text = article.excerpt %}
