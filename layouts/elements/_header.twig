@@ -92,7 +92,7 @@
                         {% set blog = blogs[i] %} #}
 												<li>test</li>
 													{% set blogData = _Blog.getBlog() %}
-													{% set menuItems = blog.blogHeaderMenu %}
+													{% set menuItems = blogData.blogHeaderMenu %}
 													<div style"color: red;">DUMP: {{ dump(menuItems) }}</div>
 													{% for menuItem in menuItems %}
 													<li>
