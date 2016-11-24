@@ -1,3 +1,4 @@
+{% extends '_helpers/cog-variables.twig' %}
 {{ void(this.beginBlock('content')) }}
  {% set articles = articlesArr.articles %}
  {{ set(this, 'title', article.title) }}
