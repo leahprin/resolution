@@ -12,7 +12,7 @@
  {% set date = article.publishedDate | date("d M, Y") %}
  {% set articleBody = entry.articleBody %}
  {% set link = article.url %}
- {% set authorImage = _Media.getMediaUrl(userDetails.media, 500, 500, {crop: 'thumb', gravity: 'face', type:'user'} ) %}
+ {% set authorImage = _Media.getMediaUrl(article.createdBy['media'],104,104,{crop:'thumb', gravity:'face', radius:'max'} ) %}
  {% set thumbnail = _Media.getMediaUrl(article.featuredMedia,1000,1000,{crop:'thumb', gravity:'face' } ) %}
 
 	<div class="article__body">
