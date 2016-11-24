@@ -63,7 +63,7 @@
 
 				<div class="slides">
 					{% for image in article.media %}
-						{% set embed = article.media %}
+						{% set embed = media %}
 						{% if embed is not null %}
 							{% set image = embed %}
 							{% set thumbnail = '//img.youtube.com/vi/' ~ embed.url|replace('/.+watch\\?v=(.+)/', '$1') ~ '/maxresdefault.jpg' %}
@@ -90,6 +90,7 @@
 							{#</div>#}
 							{#{% endif %}#}
 						</div>
+						{{dump(image)}}
 					{% endfor %}
 				</div>
 			</div>
