@@ -1,71 +1,13 @@
-{{ use('yii/web/JqueryAsset') }}
-{{ register_jquery_asset() }}
-
-{% set networkData = _Network.getNetworkData() %}
 {% set blogData = _Blog.getBlog() %}
-
-{{ this.beginPage() }}
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
-<head>
-	<meta charset="utf-8" />
-	<title>{{Html.encode(this.title)}}</title>
-	{{ Html.csrfMetaTags | raw }}
-	<link rel="home" href="{{ siteUrl }}" />
-
-	<link rel="stylesheet" href="{{networkData.templatePath}}/static/css/index.css" type="text/css" media="all">
-	<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,900|Playfair:700" rel="stylesheet">
-
-	<style>
-		body, .body, p {
-			font-family: "Raleway", sans-serif;
-		}
-		h1, h2, h3, h4, h5 {
-			font-family: "Playfair", serif !important;
-		}
-	</style>
-</head>
-
-<body>
-<div id="container">
-	{# {% set channels = craft.categories.group('channels') %}
-
-	{% set channelObject = [] %}
-
-	{% for channel in channels %}
-		{% set channelObject = channelObject|merge({(channel|lower ~ ''): ('channel-' ~ loop.index)})  %}
+<ul>
+	{% set menuItems = blogData.blogMenu %}
+	{% for menuItem in menuItems %}
+	<li>
+		{% if menuItem.pageTitle == "" %}
+				{{menuItem.blogTitle}}
+		{% else %}
+				{{menuItem.pageTitle}}
+		{% endif %}
+	</li>
 	{% endfor %}
-
-	{% set blogs = craft.categories.group('blogs') %}
-
-	{% set blogObject = [] %}
-
-	{% for blog in blogs %}
-		{% set blogObject = blogObject|merge({(blog.slug|lower ~ ''): ('blog-' ~ loop.index)})  %}
-	{% endfor %} #}
-
-	{% include 'elements/_header.twig' | raw %}
-
-	<main id="content" role="main">
-		{{ this.blocks['content'] | raw }}
-	</main>
-
-	<div class="modal" role="dialog">
-		<div class="modal-dialog modal-extlg" role="document">
-			<div class="modal-content social-modal">
-			</div>
-		</div>
-	</div>
-
-	{% include 'elements/_footer.twig' | raw %}
-</div>
-
-
-
-
-{{ this.endBody() }}
-
-{# {% include 'elements/_javascript.twig' | raw %} #}
-</body>
-{{ this.endPage() }}
-</html>
+</ul>
