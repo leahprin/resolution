@@ -90,10 +90,11 @@
                     {# {% set blogs = craft.categories.group('blogs') %}
                     {% for i in 0..4 %}
                         {% set blog = blogs[i] %} #}
-												<li>blahzaA</li>
-												{% set menuItems = blog.blogHeaderMenu %}
-												{% for menuItem in menuItems %}
-													{% set activeClass = (menuItem.link == _AppHelper.getServerUrl()) ? 'active' : ''%}
+												<li>test</li>
+													{% set blogData = _Blog.getBlog() %}
+													{% set menuItems = blog.blogHeaderMenu %}
+													<div style"color: red;">DUMP: {{ dump(menuItems) }}</div>
+													{% for menuItem in menuItems %}
 													<li>
 														{% if menuItem.pageTitle == "" %}
 																{{menuItem.blogTitle}}
@@ -101,7 +102,8 @@
 																{{menuItem.pageTitle}}
 														{% endif %}
 													</li>
-													<div style"color: red;">DUMP: {{ dump(menuItems) }}</div>
+													{% endfor %}
+
 													{# <li class="header__navigation-item header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }} {{activeClass}}">
 	                            <a href="{{menuItem.link |raw}}" class="header__navigation_blog-link">
 	                                <img src="{{ blog.authorImage.first().url }}" alt="" class="header__navigation-image">
