@@ -2,6 +2,7 @@
 {{ void(this.beginBlock('content')) }}
 
 	{{ set(this, 'title', _Blog.getBlogTitle()) }}
+	{% set limit = 20 %}
 	{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
 	{% set articles = articlesArr.articles %}
 
