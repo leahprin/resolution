@@ -1,4 +1,5 @@
 {% extends '_helpers/cog-variables.twig' %}
+{% block content %}
 {{ void(this.beginBlock('content')) }}
  {% set articles = articlesArr.articles %}
  {{ set(this, 'title', article.title) }}
@@ -120,3 +121,4 @@
 	</div>
 	{{dump(article)}}
 {{ void(this.endBlock()) }}
+{% endblock %}
