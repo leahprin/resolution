@@ -45,7 +45,7 @@
 	{% endfor %} #}
 
 	{# {% include 'layouts/elements/header.twig' | raw %} #}
-	{{ this.render('layouts/../layouts/elements/header.twig')| raw }}
+	{{ this.render('elements/header.twig')| raw }}
 
 	<main id="content" role="main">
 		{{ this.blocks['content'] | raw }}
@@ -58,7 +58,7 @@
 		</div>
 	</div>
 
-	{{ this.render('layouts/../layouts/elements/_footer.twig') | raw }}
+	{{ this.render('elements/_footer.twig') | raw }}
 </div>
 
 
