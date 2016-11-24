@@ -97,7 +97,7 @@
 
 
 													{% set menuItems = blogData.blogHeaderMenu %}
-													<div style="color: green;">DUMP: {{ dump(menuItems) }}</div>
+													<textarea style="color: green;">DUMP: {{ dump(menuItems) }}</textarea>
 													{% for menuItem in menuItems %}
 													<li class="header__navigation-item header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }} {{activeClass}}">
 	                            <a href="{{menuItem.link |raw}}" class="header__navigation_blog-link {{menuItem.blogTitle|replace(' ', '_')|lower}}">
