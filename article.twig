@@ -68,7 +68,7 @@
 							{% set image = embed %}
 							{% set thumbnail = '//img.youtube.com/vi/' ~ embed.url|replace('/.+watch\\?v=(.+)/', '$1') ~ '/maxresdefault.jpg' %}
 						{% else %}
-							{% set thumbnail = image.url %}
+							{% set thumbnail = image.path %}
 						{% endif %}
 
 						<div class="slide" itemprop="image" itemscope itemtype="https://schema.org/ImageObject"  data-thumbnail="{{thumbnail}}" style='background-image: url({{ thumbnail }})'>
