@@ -91,6 +91,13 @@
                     {% for i in 0..4 %}
                         {% set blog = blogs[i] %} #}
 
+												{% set hasBlogImage = FALSE %}
+												{% set blogImage = "" %}
+												{% if blogInfo.media['cover']['path'] is not empty %}
+												    {% set blogImage = blogInfo.media['cover']['path'] %}
+												    {% set hasBlogImage = TRUE %}
+												{% endif %}
+
 
 
 
@@ -101,7 +108,13 @@
 													{% for menuItem in menuItems %}
 													<li class="header__navigation-item header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }} {{activeClass}}">
 	                            <a href="{{menuItem.link |raw}}" class="header__navigation_blog-link {{menuItem.blogTitle|replace(' ', '_')|lower}}">
-	                                <img src="{{ blog.authorImage.first().url }}" alt="" class="header__navigation-image">
+																	{% set hasBlogThumbImage = FALSE %}
+																	{% set blogThumbImage = "" %}
+																	{% if blogInfo.media['thumb']['path'] is not empty %}
+																	    {% set blogThumbImage = _Media.getMediaUrl(blogInfo.media['thumb'], 100, 100, {radius:'max', crop: 'thumb', gravity: 'face'}) %}
+																	    {% set hasBlogThumbImage = TRUE %}
+																			<img src="{{blogThumbImage}}" alt="" class="header__navigation-image"/>
+																	{% endif %}
 	                                <div class="header__navigation-name">
 																		{% if menuItem.pageTitle == "" %}
                                         {{menuItem.blogTitle}}
