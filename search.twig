@@ -1,4 +1,5 @@
 {{ void(this.beginBlock('content')) }}
+{% set networkData = _Network.getNetworkData() %}
 
 {% set limit = 20 %}
 {% set articles = _Search.searchArticles({'limit': limit, 'offset': 0, 'search': search}) %}
@@ -7,9 +8,9 @@
 		<h1 class="search__heading">{{ articles|length }} Search results for:</h1>
 
 		<div class="search__form-big">
-			<form action="{{ url('search') }}">
+			<form action="{{blog.url}}/search" method="get">
 				<input type="text" class="header__search-text" placeholder="{{ articles|length }} Search result{% if articles|length > 1 %}s{% endif %} for " name="s" value="{{ s }}">
-				<button class="header__search-btn">{% include '/static/images/icons/search-magnifying-glass.svg' %}</button>
+				<button class="header__search-btn">{% include '{{networkData.templatePath}}/static/images/icons/search-magnifying-glass.svg' | raw %}</button>
 			</form>
 		</div>
 
