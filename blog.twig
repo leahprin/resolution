@@ -29,8 +29,7 @@
 		{% if blogInfo.owner['media'] is defined and blogInfo.owner['media'] | length > 0 %}
 		    {% set authorImage = _Media.getMediaUrl(blogInfo.owner['media'], 100, 100, {radius:'max', crop: 'thumb', gravity: 'face'}) %}
 		{% endif %}
-		{% set author = article.createdBy['displayName'] %}
-
+		{% set author = blogInfo.owner['name'] %}
 
 
         <div class="blog">
