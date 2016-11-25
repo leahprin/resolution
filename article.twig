@@ -12,6 +12,7 @@
   {% set authorBio = _User.getUser().bio | striptags[:100] ~ '...' %}
   {% set authorImage = _Media.getMediaUrl(article.createdBy['media'],104,104,{crop:'thumb', gravity:'face', radius:'max'} ) %}
 	{% set headline = article.title %}
+	{% set text = article.excerpt %}
 
 	<div class="article__body">
 		<div class="article article--{{ channel|lower }} {{ channelObject[channel|lower] }}">
