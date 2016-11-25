@@ -23,6 +23,7 @@
 
 		{% set blogTitle = blogInfo.title %}
 		{% set blogDescription = blogInfo.shortDescription %}
+		{% set blogAuthorBio = blogInfo.owner["bio"] %}
 
 
         <div class="blog">
@@ -43,8 +44,7 @@
                                     </span>
                                 </div>
                                                             <div class="blog__user-header__about">
-                                                                <p>Russell is a pioneer in multimedia and the internet industries. Has a science degree and studied law at the University of Melbourne. IBM gave him a sound knowledge of computer technology, management.</p>
-                                                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                                                                {{blogAuthorBio}}
                                                             </div>
 
                             </div>
