@@ -122,6 +122,10 @@
 													{% endfor %}
 
                 </ul>
+								{#
+
+								Hiding this for now. Waiting on Rohit.
+
                 <ul class="header__navigation-list header__navigation-list--right">
                     <li class="header__navigation-item dropdown">
                         <a href="#" class="header__navigation-link dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
@@ -129,7 +133,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown">
                             {% for blog in blogs %}
-                                <li class="header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }}"><a href="/blog/dev{# {{ blog.url }} #}" class="">{{ blog.title }}</a></li>
+                                <li class="header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }}"><a href="# {{ blog.url }}" class="">{{ blog.title }}</a></li>
                             {% endfor %}
                             <li class="header__navigation-item"><a href="/blog/dev" class="">Dev blog</a></li>
                         </ul>
@@ -147,7 +151,7 @@
                             <li class="header__navigation-item"><a href="/blog/dev" class="">Dev blog</a></li>
                         </ul>
                     </li>
-                </ul>
+                </ul> #}
             </div>
         </div>
     </div>
