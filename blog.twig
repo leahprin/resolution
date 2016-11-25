@@ -23,7 +23,7 @@
 
 		{% set blogTitle = blogInfo.title %}
 		{% set blogDescription = blogInfo.shortDescription %}
-		{% set blogAuthorBio = blogInfo.owner["bio"] | striptags[:220] ~ '...' %}
+		{% set blogAuthorBio = blogInfo.owner["bio"] | striptags[:50] ~ '...' %}
 
 
         <div class="blog">
