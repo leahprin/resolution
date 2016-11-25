@@ -72,8 +72,8 @@
 
                 <div class="header__heading--visible_desktop">
                     <div class="header__search">
-                        <form action="{{ url('search') }}">
-                            <input type="text" class="header__search-text" placeholder="Search" name="s" value="">
+                        <form action="{{blog.url}}/search" method="get">
+                            <input type="text" class="header__search-text" placeholder="Search" name="s" value="{{_AppHelper.getRequest('s')}}">
                             <button class="header__search-btn">
 																{{ this.render('svg/search-magnifying-glass.svg') | raw }}
                             </button>
