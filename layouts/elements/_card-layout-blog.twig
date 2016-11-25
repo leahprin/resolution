@@ -3,28 +3,28 @@
         <div class="card__inset-wrap card-container">
             {% if articles[0] is defined %}
                 <div class="col-third">
-                    {% include 'elements/card.twig' with {article: articles[0]} %}
+                    {% include 'layouts/elements/card.twig' with {article: articles[0]} %}
                 </div>
             {% endif %}
             {% if articles[1] is defined %}
                 <div class="col-third">
-                    {% include 'elements/card.twig' with {article: articles[1]} %}
+                    {% include 'layouts/elements/card.twig' with {article: articles[1]} %}
                 </div>
             {% endif %}
             {% if articles[2] is defined %}
                 <div class="col-third">
-                    {% include 'elements/card.twig' with {article: articles[2]} %}
+                    {% include 'layouts/elements/card.twig' with {article: articles[2]} %}
                 </div>
             {% endif %}
         </div>
         {% if articles[4] is defined %}
             <div class="card__outset-wrap--top card-container">
                 <div class="col-half">
-                    {% include 'elements/card.twig' with {article: articles[4]} %}
+                    {% include 'layouts/elements/card.twig' with {article: articles[4]} %}
                 </div>
                 {% if articles[5] is defined %}
                     <div class="col-half">
-                        {% include 'elements/card.twig' with {article: articles[5]} %}
+                        {% include 'layouts/elements/card.twig' with {article: articles[5]} %}
                     </div>
                 {% endif %}
             </div>
@@ -37,24 +37,24 @@
             <div class="card__inset-wrap card-container">
                 {% if articles[0] is defined %}
                     <div class="col-third">
-                        {% include 'elements/card.twig' with {article: articles[0]} %}
+                        {% include 'layouts/elements/card.twig' with {article: articles[0]} %}
                     </div>
                 {% endif %}
                 {% if articles[1] is defined %}
                     <div class="col-third">
-                        {% include 'elements/card.twig' with {article: articles[1]} %}
+                        {% include 'layouts/elements/card.twig' with {article: articles[1]} %}
                     </div>
                 {% endif %}
                 {% if articles[2] is defined and articles[3] is defined and articles[4] is defined %}
                     <div class="col-third-container">
                         <div class="col-third">
-                            {% include 'elements/card.twig' with {article: articles[1]} %}
+                            {% include 'layouts/elements/card.twig' with {article: articles[1]} %}
                         </div>
                         <div class="col-third">
-                            {% include 'elements/card.twig' with {article: articles[3]} %}
+                            {% include 'layouts/elements/card.twig' with {article: articles[3]} %}
                         </div>
                         <div class="col-third">
-                            {% include 'elements/card.twig' with {article: articles[4]} %}
+                            {% include 'layouts/elements/card.twig' with {article: articles[4]} %}
                         </div>
                     </div>
                 {% endif %}
@@ -62,12 +62,12 @@
             <div class="card__outset-wrap--top card-container card__outset-wrap--special">
                 {% if articles[4] is defined %}
                     <div class="col-half">
-                        {% include 'elements/card.twig' with {article: articles[4]} %}
+                        {% include 'layouts/elements/card.twig' with {article: articles[4]} %}
                     </div>
                 {% endif %}
                 {% if articles[5] is defined %}
                     <div class="col-half">
-                        {% include 'elements/card.twig' with {article: articles[5]} %}
+                        {% include 'layouts/elements/card.twig' with {article: articles[5]} %}
                     </div>
                 {% endif %}
             </div>
