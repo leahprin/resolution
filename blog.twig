@@ -1,5 +1,10 @@
-{% block content %}
 {{ void(this.beginBlock('content')) }}
+	{% set blogInfo = _Blog.getBlog() %}
+	{% set networkData = _Network.getNetworkData() %}
+
+	{{ set(this, 'title', blogInfo.title) }}
+
+	{% set limit = 20 %}
 	{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
 	{% set articles = articlesArr.articles %}
     <div class="channel__container">
@@ -26,4 +31,3 @@
 
 
 		{{ void(this.endBlock()) }}
-{% endblock %}
