@@ -12,11 +12,17 @@
 	{% endif %}
 		{% set image = blogImage %}
 
+		{% set profileImg = false %}
+		{% if blogInfo.owner['media'] is defined and blogInfo.owner['media'] | length > 0 %}
+		    {% set profileImg = _Media.getMediaUrl(blogInfo.owner['media'], 100, 100, {radius:'max', crop: 'thumb', gravity: 'face'}) %}
+		{% endif %}
+
 		{% set limit = 20 %}
 		{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
 		{% set articles = articlesArr.articles %}
 
-	{% set blogTitle = blogInfo.title %}
+		{% set blogTitle = blogInfo.title %}
+		{% set blogDescription = blogInfo.shortDescription %}
 
 
         <div class="blog">
@@ -45,7 +51,7 @@
                         </div>
                         <div class="blog__title">
                             <h1 class="blog__heading">{{blogTitle}}</h1>
-                            <span class="blog__description">Blog Building a better technology leadership culture for companies and boards.</span>
+                            <span class="blog__description">{{blogDescription}}</span>
                         </div>
                     </div>
                 </div>
