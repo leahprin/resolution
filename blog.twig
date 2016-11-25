@@ -25,6 +25,9 @@
 		{% set blogDescription = blogInfo.shortDescription %}
 		{% set blogAuthorBio = blogInfo.owner["bio"] %}
 
+		{% set authorImage = _Media.getMediaUrl(article.createdBy['media'],104,104,{crop:'thumb', gravity:'face', radius:'max'} ) %}
+
+
 
         <div class="blog">
 
@@ -33,7 +36,7 @@
                     <div class="blog__container">
                         <div class="blog__user-header">
                             <div class="blog__user-header__display">
-                                <span class="blog__user-header__image" style="background-image: url('{{ user.photoUrl }}');"></span>
+                                <span class="blog__user-header__image" style="background-image: url('{{ authorImage }}');"></span>
                                 <div class="blog__user-header__name">{{user}}</div>
                                 <div class="button-container">
                                     <a href="javascript:void(0)" class="button button__share">Share
