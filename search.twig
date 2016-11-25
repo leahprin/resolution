@@ -1,5 +1,7 @@
 {{ void(this.beginBlock('content')) }}
 {% set networkData = _Network.getNetworkData() %}
+{{ set(this, 'title', 'Search - ' ~ search) }}
+
 
 {% set limit = 20 %}
 {% set articles = _Search.searchArticles({'limit': limit, 'offset': 0, 'search': search}) %}
