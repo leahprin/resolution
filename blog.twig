@@ -1,5 +1,3 @@
-{% extends "layouts/main.twig" %}
-
 {% block content %}
 {{ void(this.beginBlock('content')) }}
 	{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
