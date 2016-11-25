@@ -105,7 +105,7 @@
 																	{% set blogThumbImage = "" %}
 																	<textarea style="color: green;">DUMP: {{ dump(blogData) }}</textarea>
 																	{% if blogData.media['thumb']['path'] is not empty %}
-																	    {% set blogThumbImage = _Media.getMediaUrl(blogInfo.media['thumb'], 100, 100, {radius:'max', crop: 'thumb', gravity: 'face'}) %}
+																	    {% set blogThumbImage = _Media.getMediaUrl(blogData.media['thumb'], 100, 100, {radius:'max', crop: 'thumb', gravity: 'face'}) %}
 																	    {% set hasBlogThumbImage = TRUE %}
 																			<img src="{{blogThumbImage}}" alt="" class="header__navigation-image" />
 																	{% endif %}
