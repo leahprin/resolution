@@ -19,7 +19,7 @@
 					{% include 'layouts/elements/_admin-actions.twig' %}
 					<div class="card__content">
 						<div class="card__channel-wrap">
-							{% if channel is defined %}<div class="card__channel">{{ channel }}</div>{% endif %}
+							{% if channel != 'NULL' %}<div class="card__channel">{{ channel }}</div>{% endif %}
 						</div>
 						{% if cardType == 'social' %}
 							{% if hasVideo == 'y' %}
