@@ -1,6 +1,3 @@
-{% extends "layouts/main.twig" %}
-
-{% block content %}
 {{ void(this.beginBlock('content')) }}
 	{% set blogInfo = _Blog.getBlog() %}
 	{% set networkData = _Network.getNetworkData() %}
@@ -96,4 +93,3 @@
     {% endif %}
 
 		{{ void(this.endBlock()) }}
-{% endblock %}
