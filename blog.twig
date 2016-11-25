@@ -25,7 +25,10 @@
 		{% set blogDescription = blogInfo.shortDescription %}
 		{% set blogAuthorBio = blogInfo.owner["bio"] %}
 
-		{% set authorImage = _Media.getMediaUrl(article.createdBy['media'],104,104,{crop:'thumb', gravity:'face', radius:'max'} ) %}
+		{% set authorImage = false %}
+		{% if blogInfo.owner['media'] is defined and blogInfo.owner['media'] | length > 0 %}
+		    {% set authorImage = _Media.getMediaUrl(blogInfo.owner['media'], 100, 100, {radius:'max', crop: 'thumb', gravity: 'face'}) %}
+		{% endif %}
 		{% set author = article.createdBy['displayName'] %}
 
 
