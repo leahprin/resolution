@@ -5,10 +5,11 @@
 	{{ set(this, 'title', blogInfo.title) }}
 <h2>I am blog.twig</h2>
 
+
     <div class="channel__container">
         <div class="col-full channel__header">
             <article class="card--channel {{ channelObject[category|lower] }}">
-                <a href="#" class="card card__no-image" style="background-image: url('/static/craft-media/russell-yardly-blog-bg.png');" {% if image is defined %}style="background-image: url('{{ image }}'); background-size: cover;"{% endif %}>
+                <a href="#" class="card card__no-image" style="background-image: url('{{blogInfo.media["path"]}}');" {% if image is defined %}style="background-image: url('{{ image }}'); background-size: cover;"{% endif %}>
                     <div class="card__overlay">
                         <div class="card__content_wrap">
                             <div class="card__content">
