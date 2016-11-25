@@ -103,7 +103,7 @@
 	                            <a href="{{menuItem.link |raw}}" class="header__navigation_blog-link {{menuItem.blogTitle|replace(' ', '_')|lower}}">
 																	{% set hasBlogThumbImage = FALSE %}
 																	{% set blogThumbImage = "" %}
-																	<textarea style="color: green;">DUMP: {{ dump(blogInfo) }}</textarea>
+																	<textarea style="color: green;">DUMP: {{ dump(blogData) }}</textarea>
 																	{% if blogInfo.media['thumb']['path'] is not empty %}
 																	    {% set blogThumbImage = _Media.getMediaUrl(blogInfo.media['thumb'], 100, 100, {radius:'max', crop: 'thumb', gravity: 'face'}) %}
 																	    {% set hasBlogThumbImage = TRUE %}
