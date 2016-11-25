@@ -5,11 +5,11 @@
 {% set articles = _Search.searchArticles({'limit': limit, 'offset': 0, 'search': search}) %}
 
 	<div class="search__container">
-		<h1 class="search__heading">{{ articles|length }} Search results for:</h1>
+		<h1 class="search__heading">{{ articles|length }} Search result{% if articles|length < 1 %}s{% endif %} for</h1>
 
 		<div class="search__form-big">
 			<form action="{{blog.url}}/search" method="get">
-				<input type="text" class="header__search-text" placeholder="{{ articles|length }} Search result{% if articles|length < 1 %}s{% endif %} for " name="s" value="{{ s }}">
+				<input type="text" class="header__search-text" placeholder=" " name="s" value="{{ s }}">
 				<button class="header__search-btn">
 					search
 					{# {% include '{{networkData.templatePath}}/static/images/icons/search-magnifying-glass.svg' | raw %} #}
