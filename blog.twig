@@ -19,12 +19,6 @@
 	{% set blogTitle = blogInfo.title %}
 
 
-    {# First, grab the username from the URI #}
-    {% set username = craft.request.segment(2) %}
-
-    {# Then, grab the user based on the username %}#}
-    {% set user = craft.users.username(username).first() %}
-    {% if user %}
         <div class="blog">
 
             <div class="blog__header">
@@ -56,36 +50,6 @@
                     </div>
                 </div>
             </div>
-            {# <div class="social-bar__container">
-                <div class="social-bar">
-                    <div class="social-bar__button-wrap">
-                        <a href="#" class="social-bar__button--twitter">
-                            <i class="fa fa-twitter"></i>
-                            <span>Twitter</span>
-                        </a>
-                        <a href="#" class="social-bar__button--twitter">
-                            <i class="fa fa-linkedin"></i>
-                            <span>Linkedin</span>
-                        </a>
-                    </div>
-                    <div class="blog__data">
-                        <div class="blog__followers">
-                            <strong>10</strong>
-                            <span>Followers</span>
-                        </div>
-                        <div class="blog__following">
-                            <strong>10</strong>
-                            <span>Following</span>
-                        </div>
-                        <div class="blog__articles">
-                            <strong>15</strong>
-                            <span>Articles</span>
-                        </div>
-                    </div>
-                </div>
-            </div> #}
-
-
 
 
             <div class="card-container">
