@@ -4,9 +4,7 @@
 
 	{{ set(this, 'title', blogInfo.title) }}
 
-	{% set limit = 20 %}
-	{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
-	{% set articles = articlesArr.articles %}
+
     <div class="channel__container">
         <div class="col-full channel__header">
             <article class="card--channel {{ channelObject[category|lower] }}">
@@ -23,6 +21,9 @@
             </article>
         </div>
         <div class="channel">
+					{% set limit = 20 %}
+					{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
+					{% set articles = articlesArr.articles %}
             {% if articles|length > 0 %}
                 {% include 'elements/_card-layout-blog.twig' with {articles: articles} %}
             {% endif %}
