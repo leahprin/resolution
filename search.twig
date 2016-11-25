@@ -11,7 +11,8 @@
 			<form action="{{blog.url}}/search" method="get">
 				<input type="text" class="header__search-text" placeholder="{{ articles|length }} Search result{% if articles|length > 1 %}s{% endif %} for " name="s" value="{{ s }}">
 				<button class="header__search-btn">
-					{% include '{{networkData.templatePath}}/static/images/icons/search-magnifying-glass.svg' | raw %}
+					search
+					{# {% include '{{networkData.templatePath}}/static/images/icons/search-magnifying-glass.svg' | raw %} #}
 				</button>
 			</form>
 		</div>
