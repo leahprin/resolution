@@ -7,7 +7,7 @@
 {% set articles = _Search.searchArticles({'limit': limit, 'offset': 0, 'search': search}) %}
 
 	<div class="search__container">
-		<h1 class="search__heading">{{ articles|length }} Search result{% if articles|length < 1 %}s{% endif %} for</h1>
+		<h1 class="search__heading">{{ articles|length }} Search result{% if articles|length < 1 %}s{% endif %} for {{ search }}</h1>
 
 		<div class="search__form-big">
 			<form action="{{blog.url}}/search" method="get">
