@@ -9,7 +9,7 @@
  	{# Need to move this to _helpers/cog-variables.twig #}
 	{% set author = article.createdBy['displayName'] %}
 	{% set authorLink = _AppHelper.getUserProfileUrl(article.createdBy['username']) %}
-  {% set authorBio = _User.getUser().bio | striptags[:140] ~ '...' %}
+  {% set authorBio = _User.getUser().bio | striptags[:100] ~ '...' %}
   {% set authorImage = _Media.getMediaUrl(article.createdBy['media'],104,104,{crop:'thumb', gravity:'face', radius:'max'} ) %}
 
 	<div class="article__body">
