@@ -3,7 +3,14 @@
         <span class="share-popup__title">Share:</span>
         <img class="share-popup__close" src="{{networkData.templatePath}}/static/images/icons/close-small.svg" alt="">
     </div>
-    <input type="text" name="share-link" value="{{ craft.request.getPath }}" readonly class="share-popup__share-link share-link">
+		{% if article.articleId > 0 %}
+			{# For articles #}
+			{% set shareLink = article.url %}
+		{% else %}
+			{# For social #}
+			{% set shareLink = %}
+		{% endif %}
+    <input type="text" name="share-link" value="{{ shareLink }}" readonly class="share-popup__share-link share-link">
     <div class="share-popup__social-wrap">
         <div class="social-icon_wrap--colored">
             <i class="fa fa-google-plus"></i>
