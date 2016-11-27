@@ -1,11 +1,9 @@
-{% extends "layouts/main.twig" %}
-
-{% block content %}
+{{ void(this.beginBlock('content')) }}
 	<div class="contact">
 		<div class="contact__container">
 			<div class="contact__content_wrap">
 				<div class="contact__content">
-					<h1 class="contact__headline">{{ entry.title }}</h1>
+					<h1 class="contact__headline">Contact Us</h1>
 					<div class="contact__text">{{ entry.contactText }}</div>
 				</div>
 			</div>
@@ -27,4 +25,4 @@
 			</div>
 		</div>
 	</div>
-{% endblock %}
+{{ void(this.endBlock()) }}
