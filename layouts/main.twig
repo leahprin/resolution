@@ -29,21 +29,21 @@
 
 <body>
 <div id="container">
-	{# {% set channels = craft.categories.group('channels') %}
+	{# {% set channels = blogData.blogHeaderMenu %}
 
 	{% set channelObject = [] %}
 
 	{% for channel in channels %}
 		{% set channelObject = channelObject|merge({(channel|lower ~ ''): ('channel-' ~ loop.index)})  %}
-	{% endfor %}
+	{% endfor %} #}
 
-	{% set blogs = craft.categories.group('blogs') %}
+	{% set blogs = blogData.blogHeaderMenu %}
 
 	{% set blogObject = [] %}
 
 	{% for blog in blogs %}
 		{% set blogObject = blogObject|merge({(blog.slug|lower ~ ''): ('blog-' ~ loop.index)})  %}
-	{% endfor %} #}
+	{% endfor %}
 
 	{{ this.render('elements/header.twig')| raw }}
 
