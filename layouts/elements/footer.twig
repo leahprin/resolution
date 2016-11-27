@@ -1,4 +1,4 @@
-{% set networkData = _Network.getNetworkData() %} 
+{% set networkData = _Network.getNetworkData() %}
 <footer class="footer">
     <div class="footer__container">
         <div class="footer__info-mobile">
@@ -17,19 +17,7 @@
                 <div class="footer__navigation">
                     <div class="header__navigation-row">
                         <ul class="header__navigation-list">
-                            {% set blogs = craft.categories.group('blogs') %}
-                            {% for i in 0..4 %}
-                                {% set blog = blogs[i] %}
-                                <li class="header__navigation-item header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }}">
-                                    <a href="/blog/dev" class="header__navigation_blog-link">
-                                        <img src="{{ blog.authorImage.first().url }}" alt="" class="header__navigation-image">
-                                        <div class="header__navigation-name">
-                                            <div class="header__navigation_first-name">{{ blog.authorFirstName }}</div>
-                                            <div class="header__navigation_last-name">{{ blog.authorLastName }}</div>
-                                        </div>
-                                    </a>
-                                </li>
-                            {% endfor %}
+                          {% include 'nav-items.twig' %}
                         </ul>
                     </div>
                 </div>
