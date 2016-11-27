@@ -3,7 +3,7 @@
 	 - TODO: set these with cogs specific code
    =============== #}
 {% set text = article.title %}
-{% set channel = 'blah2' %}
+{% set channel = 'set at the top' %}
 {% set image = social.media['path'] %}
 {% set link = article.url %}
 {% set authorImage = entry.author.photoUrl %}
@@ -42,14 +42,13 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 {% else %}
 	{% set cardType = 'social' %}
 	{% set social = article.social %}
-	{% set channel = 'blah' %}
 	{% set author = social.user['name'] %}
 	{% set network = social.source %}
 	{% set socialLink = social.url %}
 	{% set text = social.content %}
 	{% set thumbnail = social.media['path'] %}
 	{% set link = social.url %}
-	{% set channel = article.label %}
+	{% set channel = 'set below' %}
 
 
 {% endif %}
