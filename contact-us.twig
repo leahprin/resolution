@@ -7,20 +7,20 @@
 					<div class="contact__text">{{page.content | raw}}</div>
 				</div>
 			</div>
-			<div class="blogger__wrap">
+			{# <div class="blogger__wrap">
 				{% set blogs = craft.categories.group('blogs') %}
 				{% for blog in blogs %}
 					<img src="{{ blog.authorImage.first().url }}" alt="">
 				{% endfor %}
-			</div>
+			</div> #}
 			<div class="contact__form-title">{{ entry.contactNumber }}</div>
 			<div class="contact__form">
-				<form action="/">
-					<input type="text" placeholder="Name" class="contact__form--control">
-					<input type="text" placeholder="Email" class="contact__form--control">
+				<form action="{{_AppHelper.getContactFormUrl()}}" method="post">
+					<input type="text" placeholder="Name" class="contact__form--control" name="name">
+					<input type="text" placeholder="Email" class="contact__form--control" name="email">
 					<input type="text" placeholder="Phone" class="contact__form--control">
-					<textarea type="text" placeholder="Message" class="contact__form--control" id="contactMessage"></textarea>
-					<button type="submit" href="#" class="contact__submit">Submit</button>
+					<textarea type="text" placeholder="Message" name="message" class="contact__form--control" id="contactMessage"></textarea>
+					<button type="submit" class="contact__submit">Submit</button>
 				</form>
 			</div>
 		</div>
