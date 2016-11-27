@@ -1,6 +1,6 @@
 {% extends "layouts/main.twig" %}
 
-{% block content %}
+{{ void(this.beginBlock('content')) }}
     <div class="auth">
         <ul class="auth__tabs" role="tablist">
             <li role="presentation" class="active"><a class="" href="#signIn" aria-controls="signIn" role="tab" data-toggle="tab">Login</a></li>
@@ -94,4 +94,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
+{{ void(this.endBlock()) }}

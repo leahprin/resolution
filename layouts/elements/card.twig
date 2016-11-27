@@ -6,12 +6,14 @@
 
 {% block content  %}
 
+	{# {% set channel = 'blah' %} #}
+
 	{% set cardLinkClasses %}
 		card card--{{ channel|lower }} link
 		{% if cardType == 'social' %}card__{{ network|lower }}{% endif %}
 		{% if thumbnail == '' %} card__no-image{% endif %}
 	{% endset %}
-	{% set channel = 'blah' %}
+
 
 	<article class="card--{{ cardType }} {{ channelObject[channel|lower] }}">
 		<a href="{{link}}" data-slug="{{ slug }}" class="{{cardLinkClasses|replace({"\n":''})}} link">
