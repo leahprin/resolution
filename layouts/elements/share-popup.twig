@@ -8,7 +8,7 @@
 			{% set shareLink = article.url %}
 		{% else %}
 			{# For social #}
-			{% set shareLink = %}
+			{% set shareLink = '' %}
 		{% endif %}
     <input type="text" name="share-link" value="{{ shareLink }}" readonly class="share-popup__share-link share-link">
     <div class="share-popup__social-wrap">
