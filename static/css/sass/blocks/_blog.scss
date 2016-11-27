@@ -139,7 +139,7 @@
       &__name {
         text-align: left;
         @include text-sm($font-multiplier: 2, $color: #4A4A4A, $font-weight: 700);
-        font-family: "Playfair", serif !important;
+        font-family: "Playfair Display", serif !important;
         position: relative;
         margin-bottom: 10px;
         text-transform: capitalize;
