@@ -33,7 +33,10 @@
 				<div class="article__header_actions">
 					<a href="#comments" class="button button__comments header_actions header_actions__comments article__header-item">16 Comments</a>
 					<a href="javascript:void(0)" class="button button__share header_actions header_actions__share article__header-item">Share Article
-						{{ this.render('layouts/elements/share-popup.twig', {'shareMe' : data1, 'data2' : data2}) | raw }}
+						{# {{ this.render('layouts/elements/share-popup.twig', {'shareMe' : data1, 'data2' : data2}) | raw }} #}
+
+						{% include 'layouts/elements/share-popup.twig' with {shareMe: 'hello there'} %}
+
 
 						{# {% include ('layouts/elements/share-popup.twig', {'shareMe' : article.url}) | raw %} #}
 					</a>
@@ -104,8 +107,8 @@
 				{{article.content | raw}}
 
 				<h2 class="comments-header" id="comments"><span class="disqus-comment-count" data-disqus-url="{{link}}"></span>Comments</h2>
-				{# {% include "layouts/elements/disqus.twig" | raw %} #}
-				{{ this.render('layouts/elements/disqus.twig') | raw }}
+				{% include "layouts/elements/disqus.twig" | raw %}
+				{# {{ this.render('layouts/elements/disqus.twig') | raw }} #}
 			</div>
 
 
