@@ -7,7 +7,6 @@
 						{% for menuItem in menuItems %}
             	<a class="footer__additional-links" href="/contact">{{menuItem.pageTitle}}{{menuItem.blogTitle}}</a>
 						{% endfor %}
-HELLO
             {# <a class="footer__additional-links" href="/contact">Contact</a>
             <a class="footer__additional-links" href="/contact">Site map</a>
             <a class="footer__additional-links" href="#">Privacy Policy</a>
@@ -26,7 +25,14 @@ HELLO
                     </div>
                 </div>
                 <div class="footer__additional-links">
-                    <a class="footer__additional-links" href="/contact">About</a>
+									{% set menuItems = blog.blogFooterMenu %}
+									{% for menuItem in menuItems %}
+			            	<a class="footer__additional-links" href="/contact">{{menuItem.pageTitle}}{{menuItem.blogTitle}}</a>
+										<a class="footer__additional-links" href="/contact">{{menuItem.pageTitle}}{{menuItem.blogTitle}}</a>
+										<span class="footer__additional-links_separator">|</span>
+
+									{% endfor %}
+                    {# <a class="footer__additional-links" href="/contact">About</a>
                     <span class="footer__additional-links_separator">|</span>
                     <a class="footer__additional-links" href="/contact">Contact</a>
                     <span class="footer__additional-links_separator">|</span>
@@ -35,7 +41,7 @@ HELLO
                     <a class="footer__additional-links" href="#">Privacy Policy</a>
                     <span class="footer__additional-links_separator">|</span>
                     <a class="footer__additional-links" href="#">Terms & Conditions</a>
-                    <span class="footer__additional-links_separator">|</span>
+                    <span class="footer__additional-links_separator">|</span> #}
                     <div class="footer__additional-links footer__copyright">© All rights reserved 2016</div>
                 </div>
             </div>
