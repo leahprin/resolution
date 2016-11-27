@@ -87,4 +87,10 @@
         </div>
         <div class="card__outset-wrap--bottom"></div>
     </div>
+		{% if articles|length >= limit %}
+        <div class="section__content">
+            <div class="row ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}"></div>
+            <a class="section__link loadMoreArticles" href="#">Load more <i class="fa fa-refresh"></i></a>
+        </div>
+    {% endif %}
     {% include 'layouts/elements/deloit-banner.twig' | raw %}
