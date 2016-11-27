@@ -88,42 +88,7 @@
         <div class="container">
             <div class="header__navigation-row">
                 <ul class="header__navigation-list">
-                    {# {% set blogs = craft.categories.group('blogs') %}
-                    {% for i in 0..4 %}
-                        {% set blog = blogs[i] %} #}
-
-
-
-
-
-
-													{% set menuItems = blogData.blogHeaderMenu %}
-													{# <textarea style="color: pink;">DUMP: {{ dump(menuItems) }}</textarea> #}
-													{% for menuItem in menuItems %}
-													<li class="header__navigation-item header__navigation-item--blog-{{loop.index}} blog-{{loop.index}} {{activeClass}}">
-	                            <a href="{{menuItem.link |raw}}" class="header__navigation_blog-link {{menuItem.blogTitle|replace(' ', '_')|lower}}">
-																	{% set hasBlogThumbImage = FALSE %}
-																	{% set blogThumbImage = "" %}
-																	{% set menuBlogData = _Blog.getBlog({'guid': menuItem.blogGuid, 'network': networkData.id}) %}
-																	{# <textarea style="color: green;">DUMP: {{ dump(menuBlogData) }}</textarea> #}
-																	{# <textarea style="color: green;">blogObject: {{blogObject}}</textarea> #}
-																	{% if menuBlogData.media['thumb']['path'] is not empty %}
-																	    {% set blogThumbImage = _Media.getMediaUrl(menuBlogData.media['thumb'], 100, 100, {radius:'max', crop: 'thumb', gravity: 'face'}) %}
-																	    {% set hasBlogThumbImage = TRUE %}
-																			<img src="{{blogThumbImage}}" alt="" class="header__navigation-image" />
-																	{% endif %}
-	                                <div class="header__navigation-name">
-																		{% if menuItem.pageTitle == "" %}
-																				<div class="header__navigation_first-name">{{menuItem.blogTitle | split(' ')[0]}}</div>
-		                                    <div class="header__navigation_last-name">{{menuItem.blogTitle | split(' ')[1]}}</div>
-                                    {% else %}
-                                        {{menuItem.pageTitle}}
-                                    {% endif %}
-	                                </div>
-	                            </a>
-	                        </li>
-													{% endfor %}
-
+									{% include 'nav-items.twig' %}
                 </ul>
 								{#
 
