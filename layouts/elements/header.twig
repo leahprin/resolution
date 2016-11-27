@@ -112,7 +112,7 @@
 																	{% endif %}
 	                                <div class="header__navigation-name">
 																		{% if menuItem.pageTitle == "" %}
-																				<div class="header__navigation_first-name">{{menuItem.blogTitle | split(' ')[0]}}</div>
+																				<div class="header__navigation_first-name">{{menuItem.id}} | {{menuItem.blogTitle | split(' ')[0]}}</div>
 		                                    <div class="header__navigation_last-name">{{menuItem.blogTitle | split(' ')[1]}}</div>
                                     {% else %}
                                         {{menuItem.pageTitle}}
