@@ -1,4 +1,4 @@
-
+{% if article.userHasBlogAccess == '1' %}
 <div class="admin-actions">
     <div href="#" class="admin-actions__action admin-actions__action--move">
         <span>MOVE</span>
@@ -17,3 +17,4 @@
         <img src="{{networkData.templatePath}}/static/images/icons/editor/edit.svg" alt="edit card">
     </div>
 </div>
+{% endif %}
