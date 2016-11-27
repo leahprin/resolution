@@ -104,7 +104,8 @@
 																	{% set hasBlogThumbImage = FALSE %}
 																	{% set blogThumbImage = "" %}
 																	{% set menuBlogData = _Blog.getBlog({'guid': menuItem.blogGuid, 'network': networkData.id}) %}
-																	<textarea style="color: green;">DUMP: {{ dump(menuBlogData) }}</textarea>
+																	{# <textarea style="color: green;">DUMP: {{ dump(menuBlogData) }}</textarea> #}
+																	<textarea style="color: green;">blogObject: {{blogObject}}</textarea>
 																	{% if menuBlogData.media['thumb']['path'] is not empty %}
 																	    {% set blogThumbImage = _Media.getMediaUrl(menuBlogData.media['thumb'], 100, 100, {radius:'max', crop: 'thumb', gravity: 'face'}) %}
 																	    {% set hasBlogThumbImage = TRUE %}
