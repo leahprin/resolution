@@ -7,7 +7,7 @@
             <a href="#" class="footer__logo"><img src="{{networkData.templatePath}}/static/images/logo.svg"/></a>
 						{% set menuItems = blog.blogFooterMenu %}
 						{% for menuItem in menuItems %}
-            	<a class="footer__additional-links" href="/contact">{{menuItem.pageTitle}}{{menuItem.blogTitle}}</a>
+            	<a class="footer__additional-links" href="{{menuItem.url}}">{{menuItem.pageTitle}}</a>
 						{% endfor %}
             {# <a class="footer__additional-links" href="/contact">Contact</a>
             <a class="footer__additional-links" href="/contact">Site map</a>
