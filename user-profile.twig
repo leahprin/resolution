@@ -1,6 +1,4 @@
-{% extends "layouts/main.twig" %}
-
-{% block content %}
+{{ void(this.beginBlock('content')) }}
 
 	{# First, grab the username from the URI #}
 	{% set username = craft.request.segment(2) %}
@@ -67,4 +65,4 @@
 
 	{% endif %}
 
-{% endblock %}
+{{ void(this.endBlock()) }}
