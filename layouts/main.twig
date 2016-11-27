@@ -42,7 +42,7 @@
 	{% set blogObject = [] %}
 
 	{% for blog in blogs %}
-		{% set blogObject = blogObject|merge({(blog.slug|lower ~ ''): ('blog-' ~ loop.index)})  %}
+		{% set blogObject = blogObject|merge({(menuItem.id|lower ~ ''): ('blog-' ~ loop.index)})  %}
 	{% endfor %}
 
 	{{ this.render('elements/header.twig')| raw }}
