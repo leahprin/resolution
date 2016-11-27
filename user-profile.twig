@@ -1,11 +1,10 @@
 {{ void(this.beginBlock('content')) }}
 
-	{# First, grab the username from the URI #}
-	{% set username = craft.request.segment(2) %}
+{% set author = article.createdBy['displayName'] %}
+{% set authorLink = _AppHelper.getUserProfileUrl(article.createdBy['username']) %}
+{% set authorBio = _User.getUser().bio | striptags[:100] ~ '...' %}
+{% set authorImage =_Media.getMediaUrl(userDetails.media, 500, 500, {crop: 'thumb', gravity: 'face', type:'user'} )%}
 
-	{# Then, grab the user based on the username %}#}
-	{% set user = craft.users.username(username).first() %}
-	{% if user %}
 		<div class="profile">
 
 			<div class="profile__section">
@@ -63,6 +62,6 @@
 			</div>
 		</div>
 
-	{% endif %}
+
 
 {{ void(this.endBlock()) }}
