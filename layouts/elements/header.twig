@@ -99,12 +99,12 @@
 													{% set menuItems = blogData.blogHeaderMenu %}
 													{# <textarea style="color: pink;">DUMP: {{ dump(menuItems) }}</textarea> #}
 													{% for menuItem in menuItems %}
-													<li class="header__navigation-item header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }} {{activeClass}} BLAH">
+													<li class="header__navigation-item header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }} {{activeClass}}">
 	                            <a href="{{menuItem.link |raw}}" class="header__navigation_blog-link {{menuItem.blogTitle|replace(' ', '_')|lower}}">
 																	{% set hasBlogThumbImage = FALSE %}
 																	{% set blogThumbImage = "" %}
 																	{% set menuBlogData = _Blog.getBlog({'guid': menuItem.blogGuid, 'network': networkData.id}) %}
-																	{# <textarea style="color: green;">DUMP: {{ dump(menuBlogData) }}</textarea> #}
+																	<textarea style="color: green;">DUMP: {{ dump(menuBlogData) }}</textarea>
 																	{% if menuBlogData.media['thumb']['path'] is not empty %}
 																	    {% set blogThumbImage = _Media.getMediaUrl(menuBlogData.media['thumb'], 100, 100, {radius:'max', crop: 'thumb', gravity: 'face'}) %}
 																	    {% set hasBlogThumbImage = TRUE %}
