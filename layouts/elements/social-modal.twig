@@ -38,7 +38,7 @@
 				<div class="profile__button-wrap">
 					<a href="/user-posts/dev" class="button button-sm button__follow">Follow</a>
 					<a href="javascript:void(0)" class="button button-sm button__share">Share
-						{% include '_elements/share-popup.twig' %}
+						{% include 'elements/share-popup.twig' with {shareLink: social.url} %}
 					</a>
 				</div>
 			</div>

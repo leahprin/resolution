@@ -43,7 +43,7 @@
                                 <div class="blog__user-header__name">{{author}}</div>
                                 <div class="button-container">
                                     <a href="javascript:void(0)" class="button button__share">Share
-                                    {% include 'layouts/elements/share-popup.twig' %}
+																		{% include 'layouts/elements/share-popup.twig' with {shareLink: article.url} %}
                                     </a>
                                     <span class="button button__connect">
                                         Connect <a href="#" class="button__linkedin"></a><a href="#" class="button__twitter"></a>
@@ -71,5 +71,5 @@
             </div>
         </div>
 
-
+{{dump(blogInfo)}}
 		{{ void(this.endBlock()) }}
