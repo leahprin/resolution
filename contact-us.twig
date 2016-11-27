@@ -4,7 +4,7 @@
 			<div class="contact__content_wrap">
 				<div class="contact__content">
 					<h1 class="contact__headline">Contact Us</h1>
-					<div class="contact__text">{{ entry.contactText }}</div>
+					<div class="contact__text">{{page.content | raw}}</div>
 				</div>
 			</div>
 			<div class="blogger__wrap">
@@ -25,4 +25,5 @@
 			</div>
 		</div>
 	</div>
+	{{dump(page)}}
 {{ void(this.endBlock()) }}
