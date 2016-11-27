@@ -35,7 +35,7 @@
 					<a href="javascript:void(0)" class="button button__share header_actions header_actions__share article__header-item">Share Article
 						{# {{ this.render('layouts/elements/share-popup.twig', {'shareMe' : data1, 'data2' : data2}) | raw }} #}
 
-						{% include 'layouts/elements/share-popup.twig' with {shareMe: 'hello there'} %}
+						{% include 'layouts/elements/share-popup.twig' with {shareLink: article.url} %}
 
 
 						{# {% include ('layouts/elements/share-popup.twig', {'shareMe' : article.url}) | raw %} #}
