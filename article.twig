@@ -25,7 +25,14 @@
 					<div class="profile__author_wrap">
 						<div>
 							<span class="article__author">By {{ author }}</span>
-							<a href="{{_AppHelper.getUserProfileUrl(article.createdBy['username'])}}" class="button button-sm button-blue" style="background: red;">View profile</a>
+							{% set blogData = _Blog.getBlog() %}
+							{% set blogs = blogData.blogHeaderMenu %}
+							{% for blog in blogs %}
+									{# <li class="header__navigation-item--"><a href="{{ blog.link }}" class="">{{ blog.blogTitle }}</a></li> #}
+									<a href="{{ blog.link }}" class="button button-sm button-blue" style="background: red;">View profile</a>
+							{% endfor %}
+							{{dump(blogs)}}
+							{# <a href="{{_AppHelper.getUserProfileUrl(article.createdBy['username'])}}" class="button button-sm button-blue" style="background: red;">View profile</a> #}
 						</div>
 						<div class="profile__author-bio">{{ authorBio }}</div>
 					</div>
