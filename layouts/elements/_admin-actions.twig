@@ -1,20 +1,20 @@
 {% if article.userHasBlogAccess == '1' %}
-<div class="admin-actions">
-    <div href="#" class="admin-actions__action admin-actions__action--move">
-        <span>MOVE</span>
-        <img src="{{networkData.templatePath}}/static/images/icons/editor/move.svg" alt="move card">
+    <div class="admin-actions">
+        <div data-guid="{{article.guid}}" class="admin-actions__action admin-actions__action--move">
+            <span>MOVE</span>
+            <img src="{{networkData.templatePath}}/static/images/icons/editor/move.svg" alt="move card">
+        </div>
+        <div href="#" class="admin-actions__action admin-actions__action--hide HideBlogArticle" data-social="0">
+            <span>HIDE</span>
+            <img src="{{networkData.templatePath}}/static/images/icons/editor/hide.svg" alt="hide card">
+        </div>
+        <div href="#" class="admin-actions__action admin-actions__action--pin ">
+            <span>PIN</span>
+            <img src="{{networkData.templatePath}}/static/images/icons/editor/pin.svg" alt="pin card">
+        </div>
+        <div href="#" class="admin-actions__action admin-actions__action--edit editSocialPost">
+            <span>EDIT</span>
+            <img src="{{networkData.templatePath}}/static/images/icons/editor/edit.svg" alt="edit card">
+        </div>
     </div>
-    <div href="#" class="admin-actions__action admin-actions__action--hide">
-        <span>HIDE</span>
-        <img src="{{networkData.templatePath}}/static/images/icons/editor/hide.svg" alt="hide card">
-    </div>
-    <div href="#" class="admin-actions__action admin-actions__action--pin">
-        <span>PIN</span>
-        <img src="{{networkData.templatePath}}/static/images/icons/editor/pin.svg" alt="pin card">
-    </div>
-    <div href="#" class="admin-actions__action admin-actions__action--edit">
-        <span>EDIT</span>
-        <img src="{{networkData.templatePath}}/static/images/icons/editor/edit.svg" alt="edit card">
-    </div>
-</div>
 {% endif %}
