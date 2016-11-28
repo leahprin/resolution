@@ -87,36 +87,37 @@
                 <ul class="header__navigation-list">
 									{% include 'header-nav-items.twig' %}
                 </ul>
-								{#
+
 
 								Hiding this for now. Waiting on Rohit.
 
                 <ul class="header__navigation-list header__navigation-list--right">
-                    <li class="header__navigation-item dropdown">
+                    {# <li class="header__navigation-item dropdown">
                         <a href="#" class="header__navigation-link dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
                             Authors {{ this.render('svg/arrow-down.svg') | raw }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown">
-                            {% for blog in blogs %}
+														{% set sections = _Network.getNetworkSections({'networkId': <NETWORK_ID>}) %}
+                            {% for section in sections %}
                                 <li class="header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }}"><a href="# {{ blog.url }}" class="">{{ blog.title }}</a></li>
                             {% endfor %}
                             <li class="header__navigation-item"><a href="/blog/dev" class="">Dev blog</a></li>
                         </ul>
-                    </li>
+                    </li> #}
                     <li class="header__navigation-item dropdown">
                         <a href="#" class="header__navigation-link dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
                             Topics {{ this.render('svg/arrow-down.svg') | raw }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown">
-                            {% set channels = craft.categories.group('channels') %}
-
-                            {% for channel in channels %}
+                            {% set sections = _Network.getNetworkSections({'networkId': <NETWORK_ID>}) %}
+														{{dump(sections)}}
+                            {% for section in sections %}
                                 <li class="header__navigation-item--{{ channel.title|lower }} {{ channelObject[channel.title|lower] }}"><a href="{{ channel.url }}" class="">{{ channel.title }}</a></li>
                             {% endfor %}
                             <li class="header__navigation-item"><a href="/blog/dev" class="">Dev blog</a></li>
                         </ul>
                     </li>
-                </ul> #}
+                </ul>
             </div>
         </div>
     </div>
