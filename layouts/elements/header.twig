@@ -95,7 +95,7 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdown">
 														{% set authors = blogData.blogHeaderMenu %}
                             {% for author in authors %}
-                                <li class="header__navigation-item--"><a href="{{ author.profileUrl }}" class="">{{ author.firstname }} {{ author.lastname }}</a></li>
+                                <li class="header__navigation-item--"><a href="{{ author.link }}" class="">{{ author.blogTitle }}{{ author.pageTitle }}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
