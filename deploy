@@ -9,4 +9,4 @@ echo "$(tput setaf 2)$(tput bold)==============================================$
 git status
 git add -A
 git commit -m "Add minor frontend change"
-git push Github master
+git push origin master
