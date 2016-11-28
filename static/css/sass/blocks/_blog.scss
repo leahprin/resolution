@@ -19,6 +19,12 @@
       flex-direction: column;
       position: relative;
       height: 100%;
+			&:before {
+				background: rgba(0,0,0,0.4);
+				content: '';
+				height: 100%;
+				width: 100%;
+			}
       @include tablet-lg {
         padding: 30px;
         flex-direction: row;
