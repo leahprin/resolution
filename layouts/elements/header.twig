@@ -89,28 +89,28 @@
                 </ul>
 
                 <ul class="header__navigation-list header__navigation-list--right">
-                    	{# <li class="header__navigation-item dropdown">
+                    	<li class="header__navigation-item dropdown">
                         <a href="#" class="header__navigation-link dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
                             Authors {{ this.render('svg/arrow-down.svg') | raw }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown">
-														{% set sections = _Network.getNetworkSections({'networkId': <NETWORK_ID>}) %}
-                            {% for section in sections %}
-                                <li class="header__navigation-item--{{ blog.slug|lower }} {{ blogObject[blog.slug|lower] }}"><a href="# {{ blog.url }}" class="">{{ blog.title }}</a></li>
+														{% set authors = _Blog.getAuthors({'networkId': networkData.id, 'blogId' : blogData.id}) %}
+                            {% for author in authors %}
+                                <li class="header__navigation-item--"><a href="# {{ author.url }}" class="">{{ author.title }}</a></li>
                             {% endfor %}
-                            <li class="header__navigation-item"><a href="/blog/dev" class="">Dev blog</a></li>
+                            {# <li class="header__navigation-item"><a href="/blog/dev" class="">Dev blog</a></li> #}
                         </ul>
-                    </li>#}
+                    </li>
                     <li class="header__navigation-item dropdown">
                         <a href="#" class="header__navigation-link dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
                             Topics {{ this.render('svg/arrow-down.svg') | raw }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown">
 													{# Using sections as topics for this site #}
-													{# {% set sections = _Network.getNetworkSections({'networkId': networkData.id}) %}
+													{% set sections = _Network.getNetworkSections({'networkId': networkData.id}) %}
                           {% for section in sections %}
                               <li class="header__navigation-item--{{ section.title|lower }}"><a href="{{ section.url }}" class="">{{ section.title }}</a></li>
-                          {% endfor %} #}
+                          {% endfor %}
                         </ul>
                     </li>
                 </ul>
