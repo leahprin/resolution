@@ -1,10 +1,12 @@
 {% set networkData = _Network.getNetworkData() %}
 {% set blogData = _Blog.getBlog() %}
 
+
 {{ this.beginPage() }}
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+{{ this.head() }}
 <head>
 	<meta charset="utf-8" />
 	<title>{{Html.encode(this.title)}}</title>
