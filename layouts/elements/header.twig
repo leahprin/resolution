@@ -94,11 +94,9 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown">
 														{% set authors = _Blog.getAuthors({'networkId': networkData.id, 'blogId' : blogData.id}) %}
-														{{dump(authors)}}
                             {% for author in authors %}
-                                <li class="header__navigation-item--"><a href="# {{ author.url }}" class="">{{ author.title }}</a></li>
+                                <li class="header__navigation-item--"><a href="# {{ author.profileUrl }}" class="">{{ author.firstname }} {{ author.lastname }}</a></li>
                             {% endfor %}
-                            {# <li class="header__navigation-item"><a href="/blog/dev" class="">Dev blog</a></li> #}
                         </ul>
                     </li>
                     <li class="header__navigation-item dropdown">
