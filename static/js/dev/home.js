@@ -318,5 +318,3 @@ HomeController.Blog = (function ($) {
   };
 
 }(jQuery));
-
-HomeController.listing();
