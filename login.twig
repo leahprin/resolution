@@ -22,22 +22,37 @@
                     Don't have an account? <a href="#signUp" aria-controls="signUp" role="tab" data-toggle="tab">Sign Up</a>
                 </div> #}
 
-                <form name="loginForm" id="loginForm" class="login-form" action="/auth/login" method="post" autocomplete="off" novalidate="novalidate" _lpchecked="1">
+                <form name="loginForm" id="loginForm" class="login-form" action="{{_AppHelper.getLoginUrl()}}" method="post" novalidate="novalidate" _lpchecked="1">
 
-                    {#<input type="hidden" name="_csrf" value="MVN5Zm0wQ2NXNxYrPAEnL3YpCi4hVwE5RxErXxhkHAJ.MBssP2oHIQ==">#}
+										<input type="hidden" name="_csrf" value="{{_AppHelper.getCsrfToken()}}" />
+
 										<div class="login__form-title">Login with email</div>
-										<p class="form__error">Incorrect username or password.</p>
-                    <input type="text" class="form-control" name="username" value="" placeholder="Username or email" autocomplete="off">
-                    <input type="password" class="form-control" name="password" value="" placeholder="Password" autocomplete="off">
+
+										{% if errors | length > 0 %}
+											{% for errorArr in errors %}
+												{% for error in errorArr %}
+													<p class="form__error">{{error}}</p>
+												{% endfor %}
+											{% endfor %}
+                    {% endif %}
+
+                    {# <input type="text" class="form-control" name="username" value="" placeholder="Username or email" autocomplete="off"> #}
+										{{_AppForm.input({type:'text', name: 'username', value: form.username, class: 'form-control', placeholder: 'Username or email'}) | raw }}
+
+                    {# <input type="password" class="form-control" name="password" value="" placeholder="Password" autocomplete="off"> #}
+										{{_AppForm.input({type:'password', name: 'password', value: form.password, class: 'form-control', placeholder: 'Password'}) | raw }}
 
                     <div class="button-set">
                         <label class="button-set__left">
-                            <input type="checkbox" name="rememberMe" value="1" checked="checked">
+													{% set isRememberMeChecked = (form.rememberMe == 1) ? 'checked' : '' %}
+													{{_AppForm.input({type:'checkbox', name: 'rememberMe', value: form.rememberMe, 'checked': isRememberMeChecked}) | raw }}
+                            {# <input type="checkbox" name="rememberMe" value="1" checked="checked"> #}
                             <span><!-- fake checkbox --></span>Remember Me
                         </label>
                         <div class="button-set__left">
-                            <a href="forgot-password" class="button-set__forgot"><span class="green">Forgot Password?</span></a>
-                            <button type="submit" class="button-set__submit" name="submitLoginForm">Submit</button>
+                            <a href="{{_AppHelper.getForgotPasswordUrl()}}" class="button-set__forgot"><span class="green">Forgot Password?</span></a>
+                            {# <button type="submit" class="button-set__submit" name="submitLoginForm">Submit</button> #}
+														{{_AppForm.button({type:'submit', name: 'submitLoginForm', class: 'button green button-large'}) | raw }}
                         </div>
                     </div>
 
