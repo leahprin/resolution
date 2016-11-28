@@ -1,20 +1,51 @@
 {% if article.userHasBlogAccess == '1' %}
-    <div class="admin-actions">
-        <div data-guid="{{article.guid}}" class="admin-actions__action admin-actions__action--move">
-            <span>MOVE</span>
-            <img src="{{networkData.templatePath}}/static/images/icons/editor/move.svg" alt="move card">
+    {% set pinTitle = 'Pin Article' %}
+    {% set pinTxt = 'Pin' %}
+    {% if article.isPinned == 1 %}
+        {% set pinTitle = 'Un-Pin Article' %}
+        {% set pinTxt = 'Un-Pin' %}
+    {% endif %}
+    {% if isArticle == true %}
+        {% set pinClass = '' %}
+        {% if article.isPinned == 1 %}
+            {% set pinClass = 'selected' %}
+        {% endif %}
+        <div class="admin-actions">
+            <div class="admin-actions__action admin-actions__action--move">
+                <span>MOVE</span>
+                <img src="{{networkData.templatePath}}/static/images/icons/editor/move.svg" alt="move card">
+            </div>
+            <div data-guid="{{article.guid}}" class="admin-actions__action admin-actions__action--hide HideBlogArticle" data-social="0">
+                <span>HIDE</span>
+                <img src="{{networkData.templatePath}}/static/images/icons/editor/hide.svg" alt="hide card">
+            </div>
+            <div data-position="{{position}}" data-social="0" data-id="{{article.articleId}}" title="{{pinTitle}}" class="{{pinClass}} admin-actions__action admin-actions__action--pin" data-status="{{article.isPinned}}">
+                <span>{{pinTxt}}</span>
+                <img src="{{networkData.templatePath}}/static/images/icons/editor/pin.svg" alt="pin card">
+            </div>
+            <div class="admin-actions__action admin-actions__action--edit editSocialPost" onclick="window.location = '{{article.editUrl}}'; return false;">
+                <span>EDIT</span>
+                <img src="{{networkData.templatePath}}/static/images/icons/editor/edit.svg" alt="edit card">
+            </div>
         </div>
-        <div href="#" class="admin-actions__action admin-actions__action--hide HideBlogArticle" data-social="0">
-            <span>HIDE</span>
-            <img src="{{networkData.templatePath}}/static/images/icons/editor/hide.svg" alt="hide card">
+    {% else %}
+        <div class="admin-actions">
+            <div class="admin-actions__action admin-actions__action--move">
+                <span>MOVE</span>
+                <img src="{{networkData.templatePath}}/static/images/icons/editor/move.svg" alt="move card">
+            </div>
+            <div data-guid="{{social.guid}}" class="admin-actions__action admin-actions__action--hide HideBlogArticle" data-social="0">
+                <span>HIDE</span>
+                <img src="{{networkData.templatePath}}/static/images/icons/editor/hide.svg" alt="hide card">
+            </div>
+            <div data-position="{{position}}" data-social="0" data-id="{{article.socialId}}" title="{{pinTitle}}" data-status="{{article.isPinned}}" class="admin-actions__action admin-actions__action--pin PinArticleButton">
+                <span>{{pinTxt}}</span>
+                <img src="{{networkData.templatePath}}/static/images/icons/editor/pin.svg" alt="pin card">
+            </div>
+            <div class="admin-actions__action admin-actions__action--edit editSocialPost" data-url="/admin/social-funnel/update-social?guid={{social.blogGuid}}&socialguid={{social.guid}}">
+                <span>EDIT</span>
+                <img src="{{networkData.templatePath}}/static/images/icons/editor/edit.svg" alt="edit card">
+            </div>
         </div>
-        <div href="#" class="admin-actions__action admin-actions__action--pin ">
-            <span>PIN</span>
-            <img src="{{networkData.templatePath}}/static/images/icons/editor/pin.svg" alt="pin card">
-        </div>
-        <div class="admin-actions__action admin-actions__action--edit editSocialPost" onclick="window.location = '{{article.author.photoUrl}}'; return false;">
-            <span>EDIT</span>
-            <img src="{{networkData.templatePath}}/static/images/icons/editor/edit.svg" alt="edit card">
-        </div>
-    </div>
+    {% endif %}
 {% endif %}
