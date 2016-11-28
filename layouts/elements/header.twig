@@ -8,7 +8,7 @@
         {% set profileImage = _Media.getMediaUrl(user.profileMedia, 150, 150, {radius: 'max', gravity: 'face', 'crop': 'thumb'})%}
     {% endif %}
 {% endif %}
-
+{{dump(user)}}
 <header class="header">
     <div class="header__heading header__container">
         <div class="header__heading-highlight"></div>
