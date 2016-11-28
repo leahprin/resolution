@@ -13,8 +13,7 @@
 			<form action="{{blog.url}}/search" method="get">
 				<input type="text" class="header__search-text" placeholder=" " name="s" value="{{ search }}">
 				<button class="header__search-btn">
-					search
-					{# {% include '{{networkData.templatePath}}/static/images/icons/search-magnifying-glass.svg' | raw %} #}
+					{% include '{{networkData.templatePath}}/static/images/icons/search-magnifying-glass.svg' | raw %}
 				</button>
 			</form>
 		</div>
