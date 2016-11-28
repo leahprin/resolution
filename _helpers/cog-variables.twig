@@ -36,7 +36,6 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
   {% set link = article.url %}
   {% set authorImage = _Media.getMediaUrl(article.createdBy['media'],104,104,{crop:'thumb', gravity:'face', radius:'max'} ) %}
   {% set thumbnail = _Media.getMediaUrl(article.featuredMedia,1000,1000,{crop:'thumb', gravity:'face' } ) %}
-  {% set isArticle = true %}
 
 
 {# SOCIAL Variables #}
@@ -50,7 +49,6 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 	{% set thumbnail = social.media['path'] %}
 	{% set link = social.url %}
 	{% set channel = label %}
-    {% set isSocial = true %}
 
 {% endif %}
 

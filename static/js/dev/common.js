@@ -257,28 +257,28 @@
     // });
 
 
-    // /**
-    //  * Update Social Post From Listing
-    //  */
-    // $('.editSocialPost').on('click', function (e) {
-    //     e.preventDefault();
-    //     var elem = $(this);
-    //     var url = elem.data('url');
-    //     var popup = window.open(url, '_blank', 'toolbar=no,scrollbars=yes,resizable=false,width=360,height=450');
-    //     popup.focus();
-    //
-    //     var intervalId = setInterval(function () {
-    //         if (popup.closed) {
-    //             clearInterval(intervalId);
-    //             var socialId = elem.parents('a').data('id');
-    //             if($('#updateSocial'+socialId).data('update') == '1') {
-    //                 $().General_ShowNotification({message: 'Social Post(s) updated successfully.'});
-    //             }  
-    //         }
-    //     }, 50);
-    //
-    //     return;
-    // });
+    /**
+     * Update Social Post From Listing
+     */
+    $('.editSocialPost').on('click', function (e) {
+        e.preventDefault();
+        var elem = $(this);
+        var url = elem.data('url');
+        var popup = window.open(url, '_blank', 'toolbar=no,scrollbars=yes,resizable=false,width=360,height=450');
+        popup.focus();
+
+        var intervalId = setInterval(function () {
+            if (popup.closed) {
+                clearInterval(intervalId);
+                var socialId = elem.parents('a').data('id');
+                if($('#updateSocial'+socialId).data('update') == '1') {
+                    $().General_ShowNotification({message: 'Social Post(s) updated successfully.'});
+                }
+            }
+        }, 50);
+
+        return;
+    });
 
 }(jQuery));
 
