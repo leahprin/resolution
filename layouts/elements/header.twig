@@ -94,6 +94,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown">
 														{% set authors = _Blog.getAuthors({'networkId': networkData.id, 'blogId' : blogData.id}) %}
+														{{dump(authors)}}
                             {% for author in authors %}
                                 <li class="header__navigation-item--"><a href="# {{ author.url }}" class="">{{ author.title }}</a></li>
                             {% endfor %}
