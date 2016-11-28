@@ -12,7 +12,7 @@
             <span>PIN</span>
             <img src="{{networkData.templatePath}}/static/images/icons/editor/pin.svg" alt="pin card">
         </div>
-        <div href="#" class="admin-actions__action admin-actions__action--edit editSocialPost">
+        <div class="admin-actions__action admin-actions__action--edit editSocialPost" onclick="window.location = '{{article.editUrl}}'; return false;">
             <span>EDIT</span>
             <img src="{{networkData.templatePath}}/static/images/icons/editor/edit.svg" alt="edit card">
         </div>
