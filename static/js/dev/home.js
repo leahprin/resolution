@@ -12,7 +12,7 @@ var HomeController = (function ($) {
 HomeController.Listing = (function ($) {
 
   var bindPinUnpinArticle = function(e){
-    $('div.PinArticleBtn').Ajax_pinUnpinArticle({
+    $('.PinArticleBtn').Ajax_pinUnpinArticle({
       onSuccess: function(data, obj){
         var status = $(obj).data('status');
         (status == 1)
@@ -26,7 +26,7 @@ HomeController.Listing = (function ($) {
   };
 
   var bindDeleteHideArticle = function(){
-    $('div.HideBlogArticle').Ajax_deleteArticle({
+    $('.HideBlogArticle').Ajax_deleteArticle({
       onSuccess: function(data, obj){
         $(obj).closest('.card').parent('div').remove();
       }
