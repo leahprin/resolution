@@ -61,18 +61,20 @@
 
 			</div>
 			<div class="article__container--full-width">
-				<div class="article__banner-container">
-					<div class="article__banner_left">
-						<h3 class="article__banner_heading">Get an unfair advantage</h3>
-						<div class="article__banner_sub-heading">The best from The Resolution, delivered to your inbox every month.</div>
+				{% if article.media is not null %}
+					<div class="article__banner-container">
+						<div class="article__banner_left">
+							<h3 class="article__banner_heading">Get an unfair advantage</h3>
+							<div class="article__banner_sub-heading">The best from The Resolution, delivered to your inbox every month.</div>
+						</div>
+						<div class="article__banner_right">
+							<form class="newsletter-form" action="">
+								<input type="text" class="newsletter-form-text" placeholder="Email" name="s" value="">
+								<button class="newsletter-form__form-btn">Sign Up <i class="fa fa-envelope"></i></button>
+							</form>
+						</div>
 					</div>
-					<div class="article__banner_right">
-						<form class="newsletter-form" action="">
-							<input type="text" class="newsletter-form-text" placeholder="Email" name="s" value="">
-							<button class="newsletter-form__form-btn">Sign Up <i class="fa fa-envelope"></i></button>
-						</form>
-					</div>
-				</div>
+				{% endif %}
 
 				<div class="slides">
 					{% for image in article.media %}
