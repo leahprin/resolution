@@ -17,7 +17,7 @@
 		<a href="{{link}}" data-slug="{{ slug }}" class="{{cardLinkClasses|replace({"\n":''})}}" data-position="{{position}}">
 			<div class="card__overlay">
 				<div class="card__content_wrap">
-					{% include 'layouts/elements/_admin-actions.twig' with {article: article} %}
+					{% include 'layouts/elements/_admin-actions.twig' with {article: article} | raw %}
 					<div class="card__content">
 						<div class="card__channel-wrap">
 							{% if channel is not null %}<div class="card__channel">{{ channel }}</div>{% endif %}
