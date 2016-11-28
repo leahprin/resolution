@@ -105,9 +105,10 @@
                         <a href="#" class="header__navigation-link dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
                             Topics {{ this.render('svg/arrow-down.svg') | raw }}
                         </a>
+												{% set sections = _Network.getNetworkSections({'networkId': networkData.id}) %}
+												<p>Section dump: {{dump(sections)}}</p>
                         <ul class="dropdown-menu" aria-labelledby="dropdown">
-                            {% set sections = _Network.getNetworkSections({'networkId': networkData.id}) %}
-														<p>Section dump: {{dump(sections)}}</p>
+
                             {% for section in sections %}
                                 <li class="header__navigation-item--{{ channel.title|lower }} {{ channelObject[channel.title|lower] }}"><a href="{{ channel.url }}" class="">{{ channel.title }}</a></li>
                             {% endfor %}
