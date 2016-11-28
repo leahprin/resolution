@@ -12,6 +12,7 @@ var HomeController = (function ($) {
 HomeController.Listing = (function ($) {
 
   var bindPinUnpinArticle = function(e){
+    console.log('working')
     $('button.PinArticleBtn').Ajax_pinUnpinArticle({
       onSuccess: function(data, obj){
         var status = $(obj).data('status');
