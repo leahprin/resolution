@@ -95,10 +95,9 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdown">
 														{% set blogs = blogData.blogHeaderMenu %}
                             {% for blog in blogs %}
-                                <li class="header__navigation-item--"><a href="{{ blog.link }}" class="">{{ blog.blogTitle }}{{ blog.pageTitle }}</a></li>
+                                <li class="header__navigation-item--"><a href="{{ blog.link }}" class="">{{ blog.blogTitle }}</a></li>
                             {% endfor %}
                         </ul>
-												{{dump(blogs)}}
                     </li>
                     <li class="header__navigation-item dropdown">
                         <a href="#" class="header__navigation-link dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
