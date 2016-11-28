@@ -27,9 +27,12 @@
 							<span class="article__author">By {{ author }}</span>
 							{% set blogData = _Blog.getBlog() %}
 							{% set blogs = blogData.blogHeaderMenu %}
+
 							{% for blog in blogs %}
+								{% if blog.blogTitle == author %}
 									{# <li class="header__navigation-item--"><a href="{{ blog.link }}" class="">{{ blog.blogTitle }}</a></li> #}
 									<a href="{{ blog.link }}" class="button button-sm button-blue" style="background: red;">View profile</a>
+								{% endif %}
 							{% endfor %}
 							{{dump(blogs)}}
 							{# <a href="{{_AppHelper.getUserProfileUrl(article.createdBy['username'])}}" class="button button-sm button-blue" style="background: red;">View profile</a> #}
