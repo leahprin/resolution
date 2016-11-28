@@ -40,5 +40,5 @@ dwsync.xml
 logs/*
 node_modules
 .idea
-
+deploy
 /deploy.php
