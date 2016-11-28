@@ -13,8 +13,7 @@
     <div class="header__heading header__container">
         <div class="header__heading-highlight"></div>
 
-        {#<!--{% if not  _User.isGuest() %}-->#}
-        {#<!--{% set user = _User.getUser() %}-->#}
+
         <div id="header__menu">
             <div class="user-dropdown__container">
                 <div class="user-dropdown__menu">
@@ -30,7 +29,7 @@
                         </div>
                     </div>
                     <ul class="user-dropdown__menu-navigation">
-                        <li><a href="#" class="user-dropdown__menu-navigation-link">My News</a></li>
+                        {# <li><a href="#" class="user-dropdown__menu-navigation-link">My News</a></li> #}
                         {# <li><a class="user-dropdown__menu-navigation-link" href="#/profile/#">Profile</a></li> #}
                         {# <li><a class="user-dropdown__menu-navigation-link" href="http://#/user/edit-profile">Settings</a></li> #}
                         <li><a class="user-dropdown__menu-navigation-link sign-out" href="/auth/logoff">Sign Out</a></li>
@@ -38,15 +37,7 @@
                 </div>
             </div>
         </div>
-        {#<!--{% else %}-->#}
-        {#<!--<div id="header__menu">-->#}
-        {#<!--<div class="profile__menu">-->#}
-        {#<!--<ul class="profile__menu-navigation">-->#}
-        {#<!--<li><a class="profile__menu-navigation-link" href="{{_AppHelper.getLoginUrl()}}">Sign up/Login</a></li>-->#}
-        {#<!--</ul>-->#}
-        {#<!--</div>-->#}
-        {#<!--</div>-->#}
-        {#<!--{% endif %}-->#}
+
 
         <div class="header__heading-container">
             <div class="header__heading--left">
@@ -58,29 +49,18 @@
             </div>
             <div class="header__heading--right">
                 <div class="header__heading-link" id="login"><a href="/auth/login#login" class="login__link">Login</a> | <a href="/auth/login#sign-up" class="sign-up__link">Sign Up</a></div>
+								{% if not _User.isGuest()%}
                 <div class="header__heading-icons">
-                    {#<!--{% set profileImage = ''%}-->#}
-                    {#<!--{% if not _User.isGuest()%}-->#}
-                    {#<!--{% set user = _User.getUser()%}-->#}
-                    {#<!--{% if user.profileMedia | length > 0 and user.profileMedia.id != '' %}-->#}
-                    {#<!--{% set profileImage = _Media.getMediaUrl(user.profileMedia, 150, 150, {radius: 'max', gravity: 'face', 'crop': 'thumb'})%}-->#}
-                    {#<!--{% endif %}-->#}
-                    {#<!--{% endif %}-->#}
-
                     <a href="javascript:void(0)"
                        class="header__heading-link header__heading-link--profile"
                        id="profile">
 												{{ this.render('svg/cog.svg') | raw }}
-
-                        {#<!--{% if profileImage != ''%} style="background-image:url({{profileImage}})" {% endif %}-->#}
-                        {#<!--{% if _User.isGuest()%} style="background-image: none;" {% endif %}>-->#}
-                        {#<!--{% if _User.isGuest()%} Signup / Login {% endif %}-->#}
-                        <!--Signup / Login-->
                     </a>
 
                     <a href="javascript:void(0)" class="header__heading-link header__heading-link--responsive">
 												{{ this.render('svg/menu.svg') | raw }}
                     </a>
+									{% endif %}
                 </div>
 
                 <div class="header__heading--visible_desktop">
