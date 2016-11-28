@@ -3,6 +3,7 @@
 
 	{{ set(this, 'title', _Blog.getBlogTitle()) }}
     {{this.registerJs("HomeController.listing();")}}
+    {{ dump(_appJsConfig) }}
 	{% set limit = 20 %}
 	{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
 	{% set articles = articlesArr.articles %}
