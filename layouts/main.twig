@@ -37,13 +37,13 @@
 		{% set channelObject = channelObject|merge({(channel|lower ~ ''): ('channel-' ~ loop.index)})  %}
 	{% endfor %} #}
 
-	{% set blogs = blogData.blogHeaderMenu %}
+	{# {% set blogs = blogData.blogHeaderMenu %}
 
 	{% set blogObject = [] %}
 
 	{% for blog in blogs %}
 		{% set blogObject = blogObject|merge({(menuItem.id|lower ~ ''): ('blog-' ~ loop.index)})  %}
-	{% endfor %}
+	{% endfor %} #}
 
 	{{ this.render('elements/header.twig')| raw }}
 
