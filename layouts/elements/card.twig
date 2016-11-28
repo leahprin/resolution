@@ -7,17 +7,19 @@
 {% block content  %}
 
 	{% set cardLinkClasses %}
-		card card--{{ channel|lower }} link
+		card swap card--{{ channel|lower }} link
 		{% if cardType == 'social' %}card__{{ network|lower }}{% endif %}
 		{% if thumbnail == '' %} card__no-image{% endif %}
 	{% endset %}
 
 
-	<article class="card--{{ cardType }} {{ channelObject[channel|lower] }}">
-		<a href="{{link}}" data-slug="{{ slug }}" class="{{cardLinkClasses|replace({"\n":''})}} link">
+	<article class="card--{{ cardType }}  {{ channelObject[channel|lower] }}">
+		<a href="{{link}}" data-slug="{{ slug }}" class="{{cardLinkClasses|replace({"\n":''})}}" data-position="{{position}}">
 			<div class="card__overlay">
 				<div class="card__content_wrap">
-					{% include 'layouts/elements/_admin-actions.twig' %}
+                    {% if article.userHasBlogAccess == '1' %}
+						{% include 'layouts/elements/_admin-actions.twig' %}
+					{% endif %}
 					<div class="card__content">
 						<div class="card__channel-wrap">
 							{% if channel is not null %}<div class="card__channel">{{ channel }}</div>{% endif %}
