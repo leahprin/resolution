@@ -318,3 +318,5 @@ HomeController.Blog = (function ($) {
   };
 
 }(jQuery));
+
+HomeController();
