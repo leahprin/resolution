@@ -257,6 +257,12 @@
   // });
 
 
+  $('.PinArticleBtn').on('click', function (e) {
+    e.stopPropagation();
+  })
+  $('.HideBlogArticle').on('click', function (e) {
+    e.stopPropagation();
+  })
   /**
    * Update Social Post From Listing
    */
