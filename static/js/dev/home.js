@@ -319,4 +319,4 @@ HomeController.Blog = (function ($) {
 
 }(jQuery));
 
-HomeController();
+HomeController.Listing();
