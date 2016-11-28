@@ -1,6 +1,14 @@
 {% set networkData = _Network.getNetworkData() %}
 {% set blogData = _Blog.getBlog() %}
 {% set activeClass = (parentItem.link == _AppHelper.getServerUrl()) ? 'active' : ''%}
+{% set profileImage = ''%}
+{% if not _User.isGuest()%}
+    {% set user = _User.getUser()%}
+    {% if user.profileMedia | length > 0 and user.profileMedia.id != '' %}
+        {% set profileImage = _Media.getMediaUrl(user.profileMedia, 150, 150, {radius: 'max', gravity: 'face', 'crop': 'thumb'})%}
+    {% endif %}
+{% endif %}
+
 <header class="header">
     <div class="header__heading header__container">
         <div class="header__heading-highlight"></div>
@@ -11,7 +19,11 @@
             <div class="user-dropdown__container">
                 <div class="user-dropdown__menu">
                     <div class="user-dropdown__menu-profile">
-                        <div class="user-dropdown__menu-image" style="background-image:url('https://unsplash.it/80');background-position: 50% 50%;"></div>
+                        <div class="user-dropdown__menu-image"
+												{% if profileImage != ''%} style="background-image:url({{profileImage}})" {% endif %}>
+
+												</div>
+
                         <div class="user-dropdown__menu-content">
                             <div class="user-dropdown__menu-name">Amos Whitewolf</div>
                             <div class="user-dropdown__menu-email">amoswhitewolf@gmail.com</div>
@@ -19,9 +31,9 @@
                     </div>
                     <ul class="user-dropdown__menu-navigation">
                         <li><a href="#" class="user-dropdown__menu-navigation-link">My News</a></li>
-                        <li><a class="user-dropdown__menu-navigation-link" href="#/profile/#">Profile</a></li>
-                        <li><a class="user-dropdown__menu-navigation-link" href="http://#/user/edit-profile">Settings</a></li>
-                        <li><a class="user-dropdown__menu-navigation-link sign-out" href="#">Sign Out</a></li>
+                        {# <li><a class="user-dropdown__menu-navigation-link" href="#/profile/#">Profile</a></li> #}
+                        {# <li><a class="user-dropdown__menu-navigation-link" href="http://#/user/edit-profile">Settings</a></li> #}
+                        <li><a class="user-dropdown__menu-navigation-link sign-out" href="/auth/logoff">Sign Out</a></li>
                     </ul>
                 </div>
             </div>
