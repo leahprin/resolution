@@ -1,11 +1,11 @@
 {% if article.userHasBlogAccess == '1' %}
     {% set pinTitle = 'Pin Article' %}
-    {% set pinTxt = 'Pin' %}
+    {% set pinTxt = 'PIN' %}
     {% if article.isPinned == 1 %}
         {% set pinTitle = 'Un-Pin Article' %}
         {% set pinTxt = 'Un-Pin' %}
     {% endif %}
-    {% if isArticle == true %}
+    {% if cardType == 'article' %}
         {% set pinClass = '' %}
         {% if article.isPinned == 1 %}
             {% set pinClass = 'selected' %}
