@@ -107,10 +107,10 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown">
 													{# Using sections as topics for this site #}
-													{% set sections = _Network.getNetworkSections({'networkId': networkData.id}) %}
+													{# {% set sections = _Network.getNetworkSections({'networkId': networkData.id}) %}
                           {% for section in sections %}
                               <li class="header__navigation-item--{{ section.title|lower }}"><a href="{{ section.url }}" class="">{{ section.title }}</a></li>
-                          {% endfor %}
+                          {% endfor %} #}
                         </ul>
                     </li>
                 </ul>
