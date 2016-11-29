@@ -27,7 +27,11 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
 	{% set channel = article.label %}
   {% set cardType = 'article' %}
   {% set headline = article.title %}
-  {% set text = article.excerpt %}
+	{% if article.excerpt is not null %}
+  	{% set text = article.excerpt %}
+	{% else %}
+		{% set text = article.content|striptags[:200] %}
+	{% endif %}
   {% set author = article.createdBy['displayName'] %}
   {% set authorLink = _AppHelper.getUserProfileUrl(article.createdBy['username']) %}
   {% set authorBio = _User.getUser().bio %}
