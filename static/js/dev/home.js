@@ -142,7 +142,7 @@ HomeController.Listing = (function ($) {
                 }
               }
 
-              $(".card p, .card h1").dotdotdot();
+              
 
               initSwap();
             },
