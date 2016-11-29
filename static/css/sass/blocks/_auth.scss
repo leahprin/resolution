@@ -1,11 +1,12 @@
 .auth {
 	flex-direction: column;
 	padding: 0!important;
-	background: #73A0B3;
+	background: #383838;
 	max-width: 800px;
 	margin: auto auto -20px;
 	z-index: 999;
 	position: relative;
+	bottom: 112px;
 	.forgot-password .login__form-title {
 		margin-top: 0;
 		padding-top: 30px;
@@ -18,7 +19,7 @@
 			width: 50%;
 
 			&.active a {
-				background: #73A0B3;
+				background: #383838;
 				border: none;
 			}
 		}
