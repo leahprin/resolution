@@ -49,7 +49,7 @@
             <div class="header__heading--right">
                 <div class="header__heading-link" id="login">
 									{% if _User.isGuest()%}
-										<a href="/auth/login#login" class="login__link">Login</a> | <a href="/auth/login#sign-up" class="sign-up__link">Sign Up</a>
+										<a href="{{_AppHelper.getLoginUrl()}}#login" class="login__link">Login</a> | <a href="{{_AppHelper.getLoginUrl()}}#sign-up" class="sign-up__link">Sign Up</a>
 									{% else %}
 											<a href="{{_AppHelper.getLogoffUrl()}}" class="logout__link">Logout</a>
 									{% endif %}
