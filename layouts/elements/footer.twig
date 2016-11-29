@@ -1,13 +1,14 @@
 {% set networkData = _Network.getNetworkData() %}
 {% set blogData = _Blog.getBlog() %}
+{% set footerNav = blogData.blogFooterMenu %}
+
 
 <footer class="footer">
     <div class="footer__container">
         <div class="footer__info-mobile">
             <a href="#" class="footer__logo"><img src="{{networkData.templatePath}}/static/images/logo.svg"/></a>
-						{% set menuItems = blogData.blogFooterMenu %}
-						{% for menuItem in menuItems %}
-            	<a class="footer__additional-links" href="{{menuItem.url}}">{{menuItem.pageTitle}}</a>
+						{% for navItem in footerNav %}
+            	<a class="footer__additional-links" href="{{navItem.url}}">{{navItem.pageTitle}}</a>
 						{% endfor %}
             {# <a class="footer__additional-links" href="/contact">Contact</a>
             <a class="footer__additional-links" href="/contact">Site map</a>
@@ -27,13 +28,16 @@
                     </div>
                 </div>
                 <div class="footer__additional-links">
-									{% set menuItems = blog.blogFooterMenu %}
+									{% for navItem in footerNav %}
+			            	<a class="footer__additional-links" href="{{navItem.url}}">{{menuItem.pageTitle}}{{menuItem.blogTitle}}</a>
+									{% endfor %}
+									{# {% set menuItems = blog.blogFooterMenu %}
 									{% for menuItem in menuItems %}
 			            	<a class="footer__additional-links" href="/contact">{{menuItem.pageTitle}}{{menuItem.blogTitle}}</a>
 										<a class="footer__additional-links" href="/contact">{{menuItem.pageTitle}}{{menuItem.blogTitle}}</a>
 										<span class="footer__additional-links_separator">|</span>
 
-									{% endfor %}
+									{% endfor %} #}
                     {# <a class="footer__additional-links" href="/contact">About</a>
                     <span class="footer__additional-links_separator">|</span>
                     <a class="footer__additional-links" href="/contact">Contact</a>
