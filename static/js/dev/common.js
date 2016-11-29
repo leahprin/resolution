@@ -257,14 +257,11 @@
   // });
 
 
-  $('.PinArticleBtn').on('click', function (e) {
+  $('.admin-actions').on('click', function (e) {
     e.stopPropagation();
     e.preventDefault();
   })
-  $('.HideBlogArticle').on('click', function (e) {
-    e.stopPropagation();
-    e.preventDefault();
-  })
+
   /**
    * Update Social Post From Listing
    */
