@@ -29,7 +29,7 @@ gulp.task('styles', function(){
     .pipe(sourcemaps.init())
     .pipe(
       sass({
-        outputStyle: 'expanded',
+        outputStyle: 'compressed',
         debugInfo: true,
         lineNumbers: true,
         errLogToConsole: true,
