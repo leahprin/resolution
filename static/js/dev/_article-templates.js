@@ -157,4 +157,4 @@ var cardTemplate =
 							'</div>' +
 					'</a>' +
 			'</article>' +
-	'</div>';
+	'</div></div>';
