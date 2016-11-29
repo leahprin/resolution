@@ -7,14 +7,13 @@
 {% block content  %}
 
 	{% set cardLinkClasses %}
-		card swap card--{{ channel|lower }} link
 		{% if cardType == 'social' %}card__{{ network|lower }}{% endif %}
 		{% if thumbnail == '' %} card__no-image{% endif %}
 	{% endset %}
 
 
 	<article class="card--{{ cardType }}  {{ channelObject[channel|lower] }}">
-		<a href="{{link}}" data-slug="{{ slug }}" class="{{cardLinkClasses|replace({"\n":''})}}" data-position="{{position}}"
+		<a href="{{link}}" data-slug="{{ slug }}" class="card swap link {{cardLinkClasses|replace({"\n":''})}}" data-position="{{position}}"
 		   {% if cardType == 'article' %}
 		   data-article-text="{{Helper.htmlToText(headline, -1) | raw | escape('html')}}" data-id="{{article.articleId}}" data-social="0"
 				{% else %}

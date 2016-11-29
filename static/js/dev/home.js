@@ -185,7 +185,6 @@ HomeController.Listing = (function ($) {
                 data.articles[i]['blogClass']= data.articles[i].blog['title'].replace(' ', '').toLowerCase();
               }
 
-              data.articles[i]['thumbnail'] = $.image({media:data.articles[i]['featuredMedia'], mediaOptions:{width: 500 ,height:350, crop: 'limit'} });;
 
               data.articles[i]['userImageUrl'] = '';
               if (data.articles[i]['createdBy']['media']['id'] !== '') {
@@ -202,7 +201,7 @@ HomeController.Listing = (function ($) {
                 data.articles[i]['cardType'] = 'social';
                 data.articles[i]['hasSocialMediaClass'] = (data.articles[i].social.hasMedia == 1)? 'withImage__content' : 'without__image';
                 data.articles[i]['author'] = data.articles[i]['social']['user']['name'];
-                data.articles[i]['network'] = data.articles[i]['social']['source'];
+                data.articles[i]['network'] = data.articles[i]['social']['source'].toLowerCase();
                 data.articles[i]['socialLink'] = data.articles[i]['social']['url'];
                 data.articles[i]['text'] = data.articles[i]['social']['content'];
                 data.articles[i]['thumbnail'] = data.articles[i]['social']['media']['path'];
@@ -216,6 +215,11 @@ HomeController.Listing = (function ($) {
                 data.articles[i]['link'] = data.articles[i]['url'];
                 data.articles[i]['text'] = data.articles[i]['excerpt'];
                 data.articles[i]['channel']= data.articles[i]['label'];
+                data.articles[i]['thumbnail'] = $.image({media:data.articles[i]['featuredMedia'], mediaOptions:{width: 500 ,height:350, crop: 'limit'} });;
+              }
+
+              if (!(data.articles[i]['thumbnail'])) {
+
               }
               var articleTemplate = Handlebars.compile(cardTemplate);
               var article = articleTemplate(data.articles[i]);

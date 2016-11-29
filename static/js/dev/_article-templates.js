@@ -94,7 +94,7 @@ var socialCardTemplate =
 var cardTemplate =
 	'<div class="{{containerClass}}">' +
 			'<article class="card--{{ cardType }}">' +
-					'<a href="{{link}}" data-slug="{{ slug }}" class="{{cardLinkClasses}}" data-article-image="{{ thumbnail }}" data-position="{{position}}" {{#if isArticle}} data-article-text="{{headline}}" data-id="{{article.articleId}}" data-social="0"{{else}} data-article-text="{{text}}" data-id="{{article.socialId}}" data-social="1" {{/if}}>' +
+					'<a href="{{link}}" data-slug="{{ slug }}" class="card swap link {{#unless thumbnail}} card__no-image {{/unless}}{{#if isSocial}}card__{{network}}{{/if}}" data-article-image="{{ thumbnail }}" data-position="{{position}}" {{#if isArticle}} data-article-text="{{headline}}" data-id="{{article.articleId}}" data-social="0"{{else}} data-article-text="{{text}}" data-id="{{article.socialId}}" data-social="1" {{/if}}>' +
 							'<div class="card__overlay">' +
 									'<div class="card__content_wrap">' +
 											'<div class="card__content">' +
