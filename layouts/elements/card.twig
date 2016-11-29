@@ -14,11 +14,11 @@
 
 
 	<article class="card--{{ cardType }}  {{ channelObject[channel|lower] }}">
-		<a href="{{link}}" data-slug="{{ slug }}" class="{{cardLinkClasses|replace({"\n":''})}}" data-id="{{article.articleId}}" data-position="{{position}}"
+		<a href="{{link}}" data-slug="{{ slug }}" class="{{cardLinkClasses|replace({"\n":''})}}" data-position="{{position}}"
 		   {% if cardType == 'article' %}
-		   data-article-text="{{Helper.htmlToText(headline, -1) | raw | escape('html')}}" data-id="{{article.socialId}}"
+		   data-article-text="{{Helper.htmlToText(headline, -1) | raw | escape('html')}}" data-id="{{article.articleId}}"
 				{% else %}
-		   data-article-text="{{Helper.htmlToText(text, -1) | raw | escape('html')}}" data-id="{{article.articleId}}"
+		   data-article-text="{{Helper.htmlToText(text, -1) | raw | escape('html')}}" data-id="{{article.socialId}}"
 		   {% endif %}data-article-image="{{ thumbnail }}">
 			<div class="card__overlay">
 				<div class="card__content_wrap">
