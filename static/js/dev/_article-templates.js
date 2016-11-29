@@ -5,7 +5,7 @@
 var cardTemplate =
 	'<div class="{{containerClass}}">' +
 			'<article class="card--{{ cardType }}">' +
-					'<a href="{{link}}" data-slug="{{ slug }}" class="card swap link {{#unless thumbnail}} card__no-image {{/unless}}{{#if isSocial}}card__{{network}}{{/if}}" data-article-image="{{ thumbnail }}" data-position="{{position}}" {{#if isArticle}} data-article-text="{{headline}}" data-id="{{article.articleId}}" data-social="0"{{else}} data-article-text="{{text}}" data-id="{{article.socialId}}" data-social="1" {{/if}}>' +
+					'<a href="{{link}}" data-slug="{{ slug }}" class="card swap link {{#unless thumbnail}} card__no-image {{/unless}}{{#if isSocial}}card__{{network}}{{/if}}" data-article-image="{{ thumbnail }}" data-position="{{position}}" {{#if isArticle}} data-article-text="{{headline}}" data-id="{{articleId}}" data-social="0"{{else}} data-article-text="{{text}}" data-id="{{socialId}}" data-social="1" {{/if}}>' +
 							'<div class="card__overlay">' +
 									'<div class="card__content_wrap">' +
 											'{{#if isArticle}}' +
@@ -14,15 +14,15 @@ var cardTemplate =
 																	'<span>MOVE</span>' +
 																	'<img src="{{networkData.templatePath}}/static/images/icons/editor/move.svg" alt="move card">' +
 															'</div>' +
-															'<div data-guid="{{article.guid}}" class="admin-actions__action admin-actions__action--hide HideBlogArticle" data-social="0">' +
+															'<div data-guid="{{guid}}" class="admin-actions__action admin-actions__action--hide HideBlogArticle" data-social="0">' +
 																	'<span>HIDE</span>' +
 																	'<img src="{{networkData.templatePath}}/static/images/icons/editor/hide.svg" alt="hide card">' +
 															'</div>' +
-															'<div data-position="{{position}}" data-social="0" data-id="{{article.articleId}}" title="{{pinTitle}}" class="{{pinClass}} admin-actions__action admin-actions__action--pin PinArticleBtn" data-status="{{article.isPinned}}">' +
+															'<div data-position="{{position}}" data-social="0" data-id="{{articleId}}" title="{{pinTitle}}" class="{{pinClass}} admin-actions__action admin-actions__action--pin PinArticleBtn" data-status="{{isPinned}}">' +
 																	'<span>{{pinTxt}}</span>' +
 																	'<img src="{{networkData.templatePath}}/static/images/icons/editor/pin.svg" alt="pin card">' +
 															'</div>' +
-															'<div class="admin-actions__action admin-actions__action--edit editSocialPost" onclick="window.location = \'{{article.editUrl}}\'; return false;">' +
+															'<div class="admin-actions__action admin-actions__action--edit editSocialPost" onclick="window.location = \'{{editUrl}}\'; return false;">' +
 																	'<span>EDIT</span>' +
 																	'<img src="{{networkData.templatePath}}/static/images/icons/editor/edit.svg" alt="edit card">' +
 															'</div>' +
@@ -37,7 +37,7 @@ var cardTemplate =
 																	'<span>HIDE</span>' +
 																	'<img src="{{networkData.templatePath}}/static/images/icons/editor/hide.svg" alt="hide card">' +
 															'</div>' +
-															'<div data-position="{{position}}" data-social="0" data-id="{{article.socialId}}" title="{{pinTitle}}" data-status="{{article.isPinned}}" class="admin-actions__action admin-actions__action--pin PinArticleBtn">' +
+															'<div data-position="{{position}}" data-social="0" data-id="{{socialId}}" title="{{pinTitle}}" data-status="{{isPinned}}" class="admin-actions__action admin-actions__action--pin PinArticleBtn">' +
 																	'<span>{{pinTxt}}</span>' +
 																	'<img src="{{networkData.templatePath}}/static/images/icons/editor/pin.svg" alt="pin card">' +
 															'</div>' +
