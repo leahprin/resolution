@@ -67,6 +67,9 @@
     }
   }
 	&--channel {
+		.card__content {
+			z-index: 1;
+		}
 		&:after {
 			display: block;
 			position: absolute;
