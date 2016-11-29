@@ -87,12 +87,7 @@
         </div>
         <div class="card__outset-wrap--bottom"></div>
     </div>
-    {% if articles|length >= limit %}
-        <div class="section__content">
-            <div class="card-container ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}"></div>
-            <a class="section__link loadMoreArticles" href="#">Load more <i class="fa fa-refresh"></i></a>
-        </div>
-    {% endif %}
+
 
             {% set noDataCls = 'hide' %}
             {% if articles|length == 0 %}
@@ -102,3 +97,9 @@
         <p class="no-data text-center">No articles found.</p>
     </div>
     {% include 'layouts/elements/deloit-banner.twig' | raw %}
+		{% if articles|length >= limit %}
+        <div class="section__content">
+            <div class="card-container ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}"></div>
+            <a class="section__link loadMoreArticles" href="#">Load more <i class="fa fa-refresh"></i></a>
+        </div>
+    {% endif %}
