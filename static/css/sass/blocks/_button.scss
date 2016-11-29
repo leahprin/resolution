@@ -41,9 +41,12 @@
   }
 	&__load-more {
 		margin: auto;
-		margin-top: 40px;
-		margin-bottom: 40px;
-
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: block;
+    background: #000;
+    color: #fff;
+    border: none;
 	}
   &__comments, &__share {
     padding-left: 35px;
