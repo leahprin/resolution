@@ -12,10 +12,11 @@ var HomeController = (function ($) {
 HomeController.Listing = (function ($) {
 
   var bindPinUnpinArticle = function(){
+    $('div.PinArticleBtn').on('click', function (e) {
+      e.stopPropagation();
+    })
     $('div.PinArticleBtn').Ajax_pinUnpinArticle({
       onSuccess: function(data, obj){
-        obj.stopPropagation();
-        obj.preventDefault();
         var status = $(obj).data('status');
         (status == 1)
           ? $(obj).attr('title', 'Un-Pin Article')
@@ -30,8 +31,6 @@ HomeController.Listing = (function ($) {
   var bindDeleteHideArticle = function(){
     $('div.HideBlogArticle').Ajax_deleteArticle({
       onSuccess: function(data, obj){
-        obj.stopPropagation();
-        obj.preventDefault();
         $(obj).closest('.card').parent('div').remove();
       }
     });
