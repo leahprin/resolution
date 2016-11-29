@@ -181,7 +181,7 @@ HomeController.Listing = (function ($) {
               data.articles[i]['promotedClass'] = (data.articles[i].isPromoted == 1)? 'ad_icon' : '';
               data.articles[i]['hasArticleMediaClass'] = (data.articles[i].hasMedia == 1)? 'withImage__content' : 'without__image';
               data.articles[i]['channel']= '';
-              data.articles[i]['templatePath'] = _appJsConfig.baseHttpPath;
+              data.articles[i]['templatePath'] = _appJsConfig.cloudName;
               if(data.articles[i].blog['title'] !== null) {
                 data.articles[i]['blogClass']= data.articles[i].blog['title'].replace(' ', '').toLowerCase();
               }
