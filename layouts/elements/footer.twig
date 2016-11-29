@@ -7,9 +7,9 @@
     <div class="footer__container">
         <div class="footer__info-mobile">
             <a href="#" class="footer__logo"><img src="{{networkData.templatePath}}/static/images/logo.svg"/></a>
-						{# {% for navItem in footerNav %}
+						{% for navItem in footerNav %}
             	<a class="footer__additional-links" href="{{navItem.url}}">{{navItem.pageTitle}}</a>
-						{% endfor %} #}
+						{% endfor %}
             {# <a class="footer__additional-links" href="/contact">Contact</a>
             <a class="footer__additional-links" href="/contact">Site map</a>
             <a class="footer__additional-links" href="#">Privacy Policy</a>
@@ -28,9 +28,12 @@
                     </div>
                 </div>
                 <div class="footer__additional-links">
+									{% set footerNav = blogData.blogFooterMenu %}
+
 									{% for navItem in footerNav %}
 			            	<a class="footer__additional-links" href="{{navItem.url}}">{{menuItem.pageTitle}}{{menuItem.blogTitle}}</a>
 									{% endfor %}
+
 									{# {% set menuItems = blog.blogFooterMenu %}
 									{% for menuItem in menuItems %}
 			            	<a class="footer__additional-links" href="/contact">{{menuItem.pageTitle}}{{menuItem.blogTitle}}</a>
