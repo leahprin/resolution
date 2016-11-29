@@ -97,9 +97,6 @@
         <p class="no-data text-center">No articles found.</p>
     </div>
 		{% if articles|length >= limit %}
-        <div class="load-more">
-            <div class="card-container ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}"></div>
-						<button type="button" class="button button__load-more" aria-label="Close">Load more <i class="fa fa-refresh"></i></button>
-        </div>
+			{% include 'layouts/elements/load-more.twig' with {existingNonPinnedCount: articlesArr.existingNonPinnedCount } %}
     {% endif %}
     {% include 'layouts/elements/deloit-banner.twig' | raw %}
