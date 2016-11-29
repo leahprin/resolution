@@ -132,7 +132,7 @@ var cardTemplate =
 																			'</div>' +
 																	'{{/unless}}' +
 															'</div>' +
-															'<p class="card__text">{{ text }}</p>' +
+															'<p class="card__text">{{{ text }}}</p>' +
 															'<div class="author-profile">' +
 																	'<img src="{{ authorImage }}" alt="" class="author-profile__image">' +
 																	'<div class="author-profile__name">' +
