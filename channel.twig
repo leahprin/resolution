@@ -12,7 +12,7 @@
 	{% endif %}
 
 	{% set title = section.title %}
-	{% set blogImage =  section.media.cover["path"] %}
+	{% set blogImage =  section.media.cover.path %}
 	{% set shortDescription = section.shortDescription %}
 
     <div class="channel__container">
@@ -39,8 +39,8 @@
             {% endif %}
         </div>
     </div>
-		<textarea style="height: 400px; width: 100%;">section: {{dump(section)}}</textarea>
-		<textarea style="height: 400px; width: 100%;">articles: {{dump(articles)}}</textarea>
+		<textarea style="height: 200px; width: 100%;">section: {{dump(section)}}</textarea>
+		<textarea style="height: 200px; width: 100%;">articles: {{dump(articles)}}</textarea>
 
 		<h2>I am channel.twig</h2>
 
