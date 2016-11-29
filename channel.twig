@@ -11,7 +11,7 @@
 	    {% set hasBlogImage = TRUE %}
 	{% endif %}
 
-	{% set blogTitle = section.title %}
+	{% set title = section.title %}
 	{% set blogImage =  section.media.cover["path"] %}
 	{% set shortDescription = section.shortDescription %}
 
@@ -22,8 +22,8 @@
                     <div class="card__overlay">
                         <div class="card__content_wrap">
                             <div class="card__content">
-                                <h3 class="card__headline">{{ category }}</h3>
-                                <p class="card__text">{{shortDescription}}</p>
+                                <h3 class="card__headline">{{ title }}</h3>
+                                <p class="card__text">{{ shortDescription }}</p>
                             </div>
                         </div>
                     </div>
