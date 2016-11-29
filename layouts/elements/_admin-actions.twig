@@ -23,6 +23,7 @@
                 <span>{{pinTxt}}</span>
                 <img src="{{networkData.templatePath}}/static/images/icons/editor/pin.svg" alt="pin card">
             </div>
+						{# TODO: Trying to hide edit if not an article. Doesn't work : #}
 						{% if article.articleId > 0 %}
             <div class="admin-actions__action admin-actions__action--edit editSocialPost" onclick="window.location = '{{article.editUrl}}'; return false;">
                 <span>EDIT</span>
