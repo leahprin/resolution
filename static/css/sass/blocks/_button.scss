@@ -47,6 +47,10 @@
     background: #000;
     color: #fff;
     border: none;
+		@include text-sm($color: $white, $font-multiplier: 1.125, $font-weight: 400);
+		i {
+			margin-left: 10px;
+		}
 	}
   &__comments, &__share {
     padding-left: 35px;
