@@ -35,11 +35,11 @@ More info: http://twig.sensiolabs.org/doc/tags/set.html #}
   {% set articleBody = entry.articleBody %}
   {% set link = article.url %}
   {% set authorImage = _Media.getMediaUrl(article.createdBy['media'],104,104,{crop:'thumb', gravity:'face', radius:'max'} ) %}
-	{% if article.hasMedia is true %}
+	{# {% if article.hasMedia is true %}
   	{% set thumbnail = _Media.getMediaUrl(article.featuredMedia,1000,1000,{crop:'thumb', gravity:'face' } ) %}
 	{% else %}
 		{% set thumbnail = NULL %}
-	{% endif %}
+	{% endif %} #}
 
 
 {# SOCIAL Variables #}
