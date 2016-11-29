@@ -12,9 +12,6 @@ var HomeController = (function ($) {
 HomeController.Listing = (function ($) {
 
   var bindPinUnpinArticle = function(){
-    $('div.PinArticleBtn').on('click', function (e) {
-      e.stopPropagation();
-    })
     $('div.PinArticleBtn').Ajax_pinUnpinArticle({
       onSuccess: function(data, obj){
         var status = $(obj).data('status');
