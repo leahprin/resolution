@@ -100,6 +100,6 @@
 		{% if articles|length >= limit %}
         <div class="section__content">
             <div class="card-container ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}"></div>
-            <a class="section__link loadMoreArticles" href="#">Load more <i class="fa fa-refresh"></i></a>
+						<button type="button" class="load-more" aria-label="Close">Load more <i class="fa fa-refresh"></i></button>
         </div>
     {% endif %}
