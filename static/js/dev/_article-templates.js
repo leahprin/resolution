@@ -8,6 +8,45 @@ var cardTemplate =
 					'<a href="{{link}}" data-slug="{{ slug }}" class="card swap link {{#unless thumbnail}} card__no-image {{/unless}}{{#if isSocial}}card__{{network}}{{/if}}" data-article-image="{{ thumbnail }}" data-position="{{position}}" {{#if isArticle}} data-article-text="{{headline}}" data-id="{{article.articleId}}" data-social="0"{{else}} data-article-text="{{text}}" data-id="{{article.socialId}}" data-social="1" {{/if}}>' +
 							'<div class="card__overlay">' +
 									'<div class="card__content_wrap">' +
+											'{{#if isArticle}}' +
+													'<div class="admin-actions">' +
+															'<div class="admin-actions__action admin-actions__action--move">' +
+																	'<span>MOVE</span>' +
+																	'<img src="{{networkData.templatePath}}/static/images/icons/editor/move.svg" alt="move card">' +
+															'</div>' +
+															'<div data-guid="{{article.guid}}" class="admin-actions__action admin-actions__action--hide HideBlogArticle" data-social="0">' +
+																	'<span>HIDE</span>' +
+																	'<img src="{{networkData.templatePath}}/static/images/icons/editor/hide.svg" alt="hide card">' +
+															'</div>' +
+															'<div data-position="{{position}}" data-social="0" data-id="{{article.articleId}}" title="{{pinTitle}}" class="{{pinClass}} admin-actions__action admin-actions__action--pin PinArticleBtn" data-status="{{article.isPinned}}">' +
+																	'<span>{{pinTxt}}</span>' +
+																	'<img src="{{networkData.templatePath}}/static/images/icons/editor/pin.svg" alt="pin card">' +
+															'</div>' +
+															'<div class="admin-actions__action admin-actions__action--edit editSocialPost" onclick="window.location = \'{{article.editUrl}}\'; return false;">' +
+																	'<span>EDIT</span>' +
+																	'<img src="{{networkData.templatePath}}/static/images/icons/editor/edit.svg" alt="edit card">' +
+															'</div>' +
+													'</div>' +
+  										'{{else}}' +
+													'<div class="admin-actions">' +
+															'<div class="admin-actions__action admin-actions__action--move">' +
+																	'<span>MOVE</span>' +
+																	'<img src="{{networkData.templatePath}}/static/images/icons/editor/move.svg" alt="move card">' +
+															'</div>' +
+															'<div data-guid="{{social.guid}}" class="admin-actions__action admin-actions__action--hide HideBlogArticle" data-social="1">' +
+																	'<span>HIDE</span>' +
+																	'<img src="{{networkData.templatePath}}/static/images/icons/editor/hide.svg" alt="hide card">' +
+															'</div>' +
+															'<div data-position="{{position}}" data-social="0" data-id="{{article.socialId}}" title="{{pinTitle}}" data-status="{{article.isPinned}}" class="admin-actions__action admin-actions__action--pin PinArticleBtn">' +
+																	'<span>{{pinTxt}}</span>' +
+																	'<img src="{{networkData.templatePath}}/static/images/icons/editor/pin.svg" alt="pin card">' +
+															'</div>' +
+															'<div class="admin-actions__action admin-actions__action--edit editSocialPost" data-url="/admin/social-funnel/update-social?guid={{social.blogGuid}}&socialguid={{social.guid}}">' +
+																	'<span>EDIT</span>' +
+																	'<img src="{{networkData.templatePath}}/static/images/icons/editor/edit.svg" alt="edit card">' +
+															'</div>' +
+													'</div>' +
+  										'{{/if}}' +
 											'<div class="card__content">' +
 													'<div class="card__channel-wrap">' +
 															'{{#if channel}}<div class="card__channel">{{ channel }}</div>{{/if}}' +
