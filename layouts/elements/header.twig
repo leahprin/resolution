@@ -51,7 +51,7 @@
 									{% if _User.isGuest()%}
 										<a href="/auth/login#login" class="login__link">Login</a> | <a href="/auth/login#sign-up" class="sign-up__link">Sign Up</a>
 									{% else %}
-											<a href="/auth/logout" class="logout__link">Logout</a>
+											<a href="{{_AppHelper.getLogoffUrl()}}" class="logout__link">Logout</a>
 									{% endif %}
 								</div>
 								{% if not _User.isGuest()%}
