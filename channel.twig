@@ -12,13 +12,13 @@
 	{% endif %}
 
 	{% set title = section.title %}
-	{% set blogImage =  section.media.cover.path %}
+	{% set coverImage =  section.media.cover.path %}
 	{% set shortDescription = section.shortDescription %}
 
     <div class="channel__container">
         <div class="col-full channel__header">
             <article class="card--channel {{ channelObject[category|lower] }}">
-                <a href="#" class="card card__no-image" style="background-image: url('{{blogImage}}');" {% if image is defined %}style="background-image: url('{{ image }}'); background-size: cover;"{% endif %}>
+                <a href="#" class="card card__no-image" style="background-image: url('{{coverImage}}');" {% if image is defined %}style="background-image: url('{{ image }}'); background-size: cover;"{% endif %}>
                     <div class="card__overlay">
                         <div class="card__content_wrap">
                             <div class="card__content">
@@ -40,10 +40,10 @@
             {% endif %}
         </div>
     </div>
-		<textarea style="height: 200px; width: 100%;">section: {{dump(section)}}</textarea>
+		{# <textarea style="height: 200px; width: 100%;">section: {{dump(section)}}</textarea>
 		<textarea style="height: 200px; width: 100%;">articles: {{dump(articles)}}</textarea>
 
-		<h2>I am channel.twig</h2>
+		<h2>I am channel.twig</h2> #}
 
 
 		{{ void(this.endBlock()) }}
