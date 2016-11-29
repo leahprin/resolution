@@ -14,7 +14,7 @@
 
 
 	<article class="card--{{ cardType }}  {{ channelObject[channel|lower] }}">
-		<a href="{{link}}" data-slug="{{ slug }}" class="{{cardLinkClasses|replace({"\n":''})}}" data-position="{{position}}">
+		<a href="{{link}}" data-slug="{{ slug }}" class="{{cardLinkClasses|replace({"\n":''})}}" data-position="{{position}}" data-article-text="{% if cardType == 'article' %}{{Helper.htmlToText(headline, -1) | raw | escape('html')}}{% else %}{{Helper.htmlToText(text, -1) | raw | escape('html')}}{% endif %}" data-card-image="{{ thumbnail }}">
 			<div class="card__overlay">
 				<div class="card__content_wrap">
 					{% include 'layouts/elements/_admin-actions.twig' %}
