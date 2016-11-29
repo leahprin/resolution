@@ -134,7 +134,7 @@ var cardTemplate =
 																							'<img class="card__play-button" src="{{networkData.templatePath}}/static/images/icons/play-white.svg" alt="Play video button">' +
 																					'{{/if}}' +
 																			'</div>' +
-																	'{{/if}}' +
+																	'{{/unless}}' +
 															'</div>' +
 															'<p class="card__text">{{ text }}</p>' +
 															'<div class="author-profile">' +
