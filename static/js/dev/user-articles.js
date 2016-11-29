@@ -24,37 +24,55 @@ UserArticlesController.Load = (function ($) {
                             $(btnObj).css('display', 'none');
                         }
                         for (var i in data.articles) {
-                            data.articles[i]['containerClass'] = 'col-third';
-                           
-                            data.articles[i]['hasArticleMediaClass'] = (data.articles[i].hasMedia == 1)? 'withImage__content' : 'without__image';
-                            data.articles[i]['blogClass']= '';
-                            if(data.articles[i].blog['title'] !== null) {
-                                data.articles[i]['blogClass']= data.articles[i]['blog']['title'].replace(' ', '').toLowerCase();
-                            }
-                                    
-                            var ImageUrl = $.image({media:data.articles[i]['featuredMedia'], mediaOptions:{width: 500 ,height:350, crop: 'limit'} });
-                            data.articles[i]['imageUrl'] = ImageUrl;
-                            
-                            data.articles[i]['userImageUrl'] = '';
-                            if (data.articles[i]['createdBy']['media']['id'] !== '') {
-                                var userImageUrl = $.image({media: data.articles[i]['createdBy']['media'], mediaOptions: {width: 100, height: 100, crop: 'thumb', gravity: 'face', radius: 'max'}});
-                                data.articles[i]['userImageUrl'] = userImageUrl;
-                            }
-                            
-                            Handlebars.registerHelper('encode', function(options) {
-                                return encodeURIComponent(options.fn(this));
-                            });
-                            var articleId = parseInt(data.articles[i].articleId);
-                            var articleTemplate;
-                            if (isNaN(articleId) || articleId <= 0) {
-                                data.articles[i]['hasSocialMediaClass'] = (data.articles[i].social.hasMedia == 1)? 'withImage__content' : 'without__image';
-                                articleTemplate = Handlebars.compile(socialCardTemplate); 
-                            } else {
-                                articleTemplate = Handlebars.compile(systemCardTemplate);
-                            }
-                           
-                            var article = articleTemplate(data.articles[i]);
-                            $('.LoadMyArticles').append(article);
+                          data.articles[i]['containerClass'] = 'col-third';
+                          data.articles[i]['pinTitle'] = (data.articles[i].isPinned == 1) ? 'Un-Pin Article' : 'Pin Article';
+                          data.articles[i]['pinText'] = (data.articles[i].isPinned == 1) ? 'Un-Pin' : 'Pin';
+                          data.articles[i]['promotedClass'] = (data.articles[i].isPromoted == 1)? 'ad_icon' : '';
+                          data.articles[i]['hasArticleMediaClass'] = (data.articles[i].hasMedia == 1)? 'withImage__content' : 'without__image';
+                          data.articles[i]['channel']= '';
+                          if(data.articles[i].blog['title'] !== null) {
+                            data.articles[i]['blogClass']= data.articles[i].blog['title'].replace(' ', '').toLowerCase();
+                          }
+
+
+                          data.articles[i]['userImageUrl'] = '';
+                          if (data.articles[i]['createdBy']['media']['id'] !== '') {
+                            data.articles[i]['authorImage'] = $.image({media: data.articles[i]['createdBy']['media'], mediaOptions: {width: 100, height: 100, crop: 'thumb', gravity: 'face', radius: 'max'}});
+                          }
+
+                          Handlebars.registerHelper('encode', function(options) {
+                            return encodeURIComponent(options.fn(this));
+                          });
+
+                          var articleId = parseInt(data.articles[i].articleId);
+                          if (isNaN(articleId) || articleId <= 0) {
+                            data.articles[i]['isSocial'] = true;
+                            data.articles[i]['cardType'] = 'social';
+                            data.articles[i]['hasSocialMediaClass'] = (data.articles[i].social.hasMedia == 1)? 'withImage__content' : 'without__image';
+                            data.articles[i]['author'] = data.articles[i]['social']['user']['name'];
+                            data.articles[i]['network'] = data.articles[i]['social']['source'].toLowerCase();
+                            data.articles[i]['socialLink'] = data.articles[i]['social']['url'];
+                            data.articles[i]['text'] = data.articles[i]['social']['content'];
+                            data.articles[i]['thumbnail'] = data.articles[i]['social']['media']['path'];
+                            data.articles[i]['link'] = data.articles[i]['social']['url'];
+                          } else {
+                            data.articles[i]['cardType'] = 'article';
+                            data.articles[i]['isArticle'] = true;
+                            data.articles[i]['headline'] = data.articles[i]['title'];
+                            data.articles[i]['text'] = data.articles[i]['excerpt'];
+                            data.articles[i]['author'] = data.articles[i]['createdBy']['displayName'];
+                            data.articles[i]['link'] = data.articles[i]['url'];
+                            data.articles[i]['text'] = data.articles[i]['excerpt'];
+                            data.articles[i]['channel']= data.articles[i]['label'];
+                            data.articles[i]['thumbnail'] = $.image({media:data.articles[i]['featuredMedia'], mediaOptions:{width: 500 ,height:350, crop: 'limit'} });;
+                          }
+
+                          if (!(data.articles[i]['thumbnail'])) {
+
+                          }
+                          var articleTemplate = Handlebars.compile(cardTemplate);
+                          var article = articleTemplate(data.articles[i]);
+                          $('.LoadMyArticles').append(article);
                         }
                         
                         bindSocialShareButton();
@@ -99,34 +117,54 @@ UserArticlesController.Load = (function ($) {
                                 if (data.userArticles.length > 0) {
 
                                     for (var i in data.userArticles) {
-                                        data.userArticles[i]['containerClass'] = 'col-third';
-                                        
-                                        data.userArticles[i]['hasArticleMediaClass'] = (data.userArticles[i].hasMedia == 1)? 'withImage__content' : 'without__image';
-                                        data.userArticles[i]['blogClass']= '';
-                                        if(data.userArticles[i].blog['title'] !== null) {
-                                            data.userArticles[i]['blogClass']= data.userArticles[i]['blog']['title'].replace(' ', '').toLowerCase();
-                                        }
-                                        var ImageUrl = $.image({media:data.userArticles[i]['featuredMedia'], mediaOptions:{width: 500 ,height:350, crop: 'limit'} });
-                                        data.userArticles[i]['imageUrl'] = ImageUrl;
-                                        
-                                        data.userArticles[i]['userImageUrl'] = '';
-                                        if (data.userArticles[i]['createdBy']['media']['id'] !== '') {
-                                            var userImageUrl = $.image({media: data.userArticles[i]['createdBy']['media'], mediaOptions: {width: 100, height: 100, crop: 'thumb', gravity: 'face', radius: 'max'}});
-                                            data.userArticles[i]['userImageUrl'] = userImageUrl;
-                                        }
-                                        
-                                        Handlebars.registerHelper('encode', function (options) {
-                                            return encodeURIComponent(options.fn(this));
-                                        });
-                                        var articleId = parseInt(data.userArticles[i].articleId);
-                                        var articleTemplate;
-                                        if (isNaN(articleId) || articleId <= 0) {
-                                            data.userArticles[i]['hasSocialMediaClass'] = (data.userArticles[i].social.hasMedia == 1) ? 'withImage__content' : 'without__image';
-                                            articleTemplate = Handlebars.compile(socialCardTemplate);
-                                        } else {
-                                            articleTemplate = Handlebars.compile(systemCardTemplate);
-                                        }
-                                        var article = articleTemplate(data.userArticles[i]);
+                                      data.articles[i]['containerClass'] = 'col-third';
+                                      data.articles[i]['pinTitle'] = (data.articles[i].isPinned == 1) ? 'Un-Pin Article' : 'Pin Article';
+                                      data.articles[i]['pinText'] = (data.articles[i].isPinned == 1) ? 'Un-Pin' : 'Pin';
+                                      data.articles[i]['promotedClass'] = (data.articles[i].isPromoted == 1)? 'ad_icon' : '';
+                                      data.articles[i]['hasArticleMediaClass'] = (data.articles[i].hasMedia == 1)? 'withImage__content' : 'without__image';
+                                      data.articles[i]['channel']= '';
+                                      if(data.articles[i].blog['title'] !== null) {
+                                        data.articles[i]['blogClass']= data.articles[i].blog['title'].replace(' ', '').toLowerCase();
+                                      }
+
+
+                                      data.articles[i]['userImageUrl'] = '';
+                                      if (data.articles[i]['createdBy']['media']['id'] !== '') {
+                                        data.articles[i]['authorImage'] = $.image({media: data.articles[i]['createdBy']['media'], mediaOptions: {width: 100, height: 100, crop: 'thumb', gravity: 'face', radius: 'max'}});
+                                      }
+
+                                      Handlebars.registerHelper('encode', function(options) {
+                                        return encodeURIComponent(options.fn(this));
+                                      });
+
+                                      var articleId = parseInt(data.articles[i].articleId);
+                                      if (isNaN(articleId) || articleId <= 0) {
+                                        data.articles[i]['isSocial'] = true;
+                                        data.articles[i]['cardType'] = 'social';
+                                        data.articles[i]['hasSocialMediaClass'] = (data.articles[i].social.hasMedia == 1)? 'withImage__content' : 'without__image';
+                                        data.articles[i]['author'] = data.articles[i]['social']['user']['name'];
+                                        data.articles[i]['network'] = data.articles[i]['social']['source'].toLowerCase();
+                                        data.articles[i]['socialLink'] = data.articles[i]['social']['url'];
+                                        data.articles[i]['text'] = data.articles[i]['social']['content'];
+                                        data.articles[i]['thumbnail'] = data.articles[i]['social']['media']['path'];
+                                        data.articles[i]['link'] = data.articles[i]['social']['url'];
+                                      } else {
+                                        data.articles[i]['cardType'] = 'article';
+                                        data.articles[i]['isArticle'] = true;
+                                        data.articles[i]['headline'] = data.articles[i]['title'];
+                                        data.articles[i]['text'] = data.articles[i]['excerpt'];
+                                        data.articles[i]['author'] = data.articles[i]['createdBy']['displayName'];
+                                        data.articles[i]['link'] = data.articles[i]['url'];
+                                        data.articles[i]['text'] = data.articles[i]['excerpt'];
+                                        data.articles[i]['channel']= data.articles[i]['label'];
+                                        data.articles[i]['thumbnail'] = $.image({media:data.articles[i]['featuredMedia'], mediaOptions:{width: 500 ,height:350, crop: 'limit'} });;
+                                      }
+
+                                      if (!(data.articles[i]['thumbnail'])) {
+
+                                      }
+                                      var articleTemplate = Handlebars.compile(cardTemplate);
+                                      var article = articleTemplate(data.articles[i]);
                                         $('#userArticleContainer').append(article);
                                     }
                                     bindSocialShareButton();
