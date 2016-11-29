@@ -98,7 +98,7 @@ var cardTemplate =
 							'{{#if isArticle}}' +
 							'data-article-text="{{headline}}" data-id="{{article.articleId}}" data-social="0" ' +
 							'{{else}}' +
-							'data-article-text="{{text}}" data-id="{{article.socialId}}" data-social="1"/>' +
+							'data-article-text="{{text}}" data-id="{{article.socialId}}" data-social="1">' +
 							'<div class="card__overlay">' +
 									'<div class="card__content_wrap">' +
 											'<div class="card__content">' +
@@ -157,4 +157,4 @@ var cardTemplate =
 							'</div>' +
 					'</a>' +
 			'</article>' +
-	'</div>'
+	'</div>';
