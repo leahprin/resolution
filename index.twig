@@ -12,6 +12,21 @@
             {% if articles|length > 0 %}
                  {% include 'layouts/elements/_card-layout-home.twig' with {articles: articles} %}
             {% endif %}
+
+            {% if articles|length >= limit %}
+                <div class="section__content">
+                    <div class="row ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}"></div>
+                    <a class="section__link loadMoreArticles" href="#">Load more <i class="fa fa-refresh"></i></a>
+                </div>
+            {% endif %}
+
+            {% set noDataCls = 'hide' %}
+            {% if articles|length == 0 %}
+                {% set noDataCls = '' %}
+            {% endif %}
+            <div class="row text-center has-margin-bottom-20 has-margin-top-20 {{noDataCls}} NoArticlesMsg">
+                <p class="no-data text-center">No articles found.</p>
+            </div>
         </div>
     </div>
 
