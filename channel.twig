@@ -1,20 +1,19 @@
 {{ void(this.beginBlock('content')) }}
-	{% set blogInfo = _Blog.getBlog() %}
+	{% set section = _Blog.getBlog() %}
 	{% set networkData = _Network.getNetworkData() %}
 
-	{{ set(this, 'title', blogInfo.title) }}
+	{{ set(this, 'title', section.title) }}
 
 	{% set hasBlogImage = FALSE %}
 	{% set blogImage = "" %}
-	{% if blogInfo.media['cover']['path'] is not empty %}
-	    {% set blogImage = blogInfo.media['cover']['path'] %}
+	{% if section.media['cover']['path'] is not empty %}
+	    {% set blogImage = section.media['cover']['path'] %}
 	    {% set hasBlogImage = TRUE %}
 	{% endif %}
 
-	{% set blogTitle = blogInfo.title %}
-
-
-
+	{% set blogTitle = section.title %}
+	{% set blogImage =  section.media.cover["path"] %}
+	{% set shortDescription = section.shortDescription %}
 
     <div class="channel__container">
         <div class="col-full channel__header">
@@ -24,7 +23,7 @@
                         <div class="card__content_wrap">
                             <div class="card__content">
                                 <h3 class="card__headline">{{ category }}</h3>
-                                <p class="card__text">Vivamus mattis justo eget est molestie, tincidunt bibendum eros cursus. Nam convallis vulputate neque et rhoncus.</p>
+                                <p class="card__text">{{shortDescription}}</p>
                             </div>
                         </div>
                     </div>
@@ -40,10 +39,10 @@
             {% endif %}
         </div>
     </div>
-		<textarea style="height: 400px; width: 100%;">blogInfo: {{dump(blogInfo)}}</textarea>
+		<textarea style="height: 400px; width: 100%;">section: {{dump(section)}}</textarea>
 		<textarea style="height: 400px; width: 100%;">articles: {{dump(articles)}}</textarea>
 
-		<h2>I am blog.twig</h2>
+		<h2>I am channel.twig</h2>
 
 
 		{{ void(this.endBlock()) }}
