@@ -6,7 +6,6 @@
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
-{{ this.head() }}
 <head>
 	<meta charset="utf-8" />
 	<title>{{Html.encode(this.title)}}</title>
@@ -24,6 +23,7 @@
 			font-family: "Playfair Display", serif !important;
 		}
 	</style>
+    {{ this.head() }}
 	<script type="text/javascript" src="{{networkData.templatePath}}/static/js/index.js"></script>
 </head>
 
@@ -62,11 +62,14 @@
 </div>
 
 
-
-
-{{ this.endBody() }}
-
 {{ this.render('elements/javascript.twig', {network : networkData, blog: blogData}) | raw }}
+<div class="SwappingHelper" style="display:none">
+	<div style="width: 270px; height: 105px; padding: 3px; background-color: #FFF; max-width: 270px; max-height: 105px; overflow: hidden; z-index: 999 !important;">
+		<img class="article-image" src="{{networkData.placeHolder100x100}}" style="width:97px; height: 97px; float: left;" />
+		<p class="article-text" style="width: 165px; float: left; padding-left: 3px;color: #394659;font-size: 14px; font-family: Droid Serif,serif; line-height: 20px; margin-top:0px;">Dummy text  </p>
+	</div>
+</div>
+{{ this.endBody() }}
 </body>
 {{ this.endPage() }}
 </html>
