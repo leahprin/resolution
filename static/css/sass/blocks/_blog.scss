@@ -19,15 +19,6 @@
       flex-direction: column;
       position: relative;
       height: 100%;
-			&:after {
-				display: block;
-				position: absolute;
-				left: 0;
-				right: 0;
-				content: '';
-				height: 100%;
-				width: 100%;
-			}
       @include tablet-lg {
         padding: 30px;
         flex-direction: row;
@@ -58,6 +49,19 @@
     &__background {
       background-repeat: no-repeat;
       background-size: cover;
+			position: relative;
+			&:after {
+				display: block;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				content: '';
+				height: 100%;
+				width: 100%;
+				background: rgba(0,0,0,0.4);
+			}
     }
 
     &__heading {
