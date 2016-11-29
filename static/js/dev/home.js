@@ -177,7 +177,7 @@ HomeController.Listing = (function ($) {
             for (var i in data.articles) {
               data.articles[i]['containerClass'] = 'col-third';
               data.articles[i]['pinTitle'] = (data.articles[i].isPinned == 1) ? 'Un-Pin Article' : 'Pin Article';
-              data.articles[i]['pinText'] = (data.articles[i].isPinned == 1) ? 'Un-Pin' : 'Pin';
+              data.articles[i]['pinTxt'] = (data.articles[i].isPinned == 1) ? 'Un-Pin' : 'Pin';
               data.articles[i]['promotedClass'] = (data.articles[i].isPromoted == 1)? 'ad_icon' : '';
               data.articles[i]['hasArticleMediaClass'] = (data.articles[i].hasMedia == 1)? 'withImage__content' : 'without__image';
               data.articles[i]['channel']= '';

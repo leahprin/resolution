@@ -37,9 +37,9 @@
 				<span class="article__author">By @{{ author }}</span>
 				<div class="profile__button-wrap">
 					<a href="/user-posts/dev" class="button button-sm button__follow">Follow</a>
-					<a href="javascript:void(0)" class="button button-sm button__share">Share
+					<button class="button button-sm button__share">Share
 						{% include 'elements/share-popup.twig' with {shareLink: social.url} %}
-					</a>
+					</button>
 				</div>
 			</div>
 		</div>
@@ -60,9 +60,5 @@
 				{% endif %}
 			</div>
 		</div>
-		{#<p>#}
-		{#<span style="background-image: url('{{ authorImage }}'); height: 50px; width: 50px; background-size: cover; display: inline-block; border-radius: 50%;"></span>#}
-		{#<a href="{{ socialLink }}">{{ network }} @{{ author }}</a></p>#}
-		{#<p>{{ date }}</p>#}
 	{% endif %}
 {% endblock %}
