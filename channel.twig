@@ -34,6 +34,7 @@
 					{% set limit = 20 %}
 					{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
 					{% set articles = articlesArr.articles %}
+
             {% if articles|length > 0 %}
                 {% include 'elements/_card-layout-blog.twig' with {articles: articles} %}
             {% endif %}
