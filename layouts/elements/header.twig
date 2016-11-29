@@ -120,23 +120,20 @@
             <input type="text" class="side-navigation__search" placeholder="Search" name="s">
         </form>
         <ul class="side-navigation__list">
-            {% set entries = craft.categories.group('channels') %}
-            {% for i in 0..4 %}
-                {% set entry = entries[i] %}
-                <li class="side-navigation__item">
-                    <a href="{{ entry.url }}" class="side-navigation__link {{ channelObject[entry.title|lower] }}">
-                        {{ entry.title }}
+						{% for blog in blogs %}
+								<li class="side-navigation__item">
+                    <a href="{{ blog.link }}" class="side-navigation__link {{ channelObject[blog.blogTitle|lower] }}">
+                        {{ blog.blogTitle }}
                     </a>
                 </li>
-            {% endfor %}
-            {% set singles = craft.entries('singles') %}
-            {% for single in singles if single.displayInNav %}
-                <li class="side-navigation__item">
-                    <a href="{{ single.url }}" class="side-navigation__link">
-                        {{ single.title }}
+						{% endfor %}
+						{% for section in sections %}
+								<li class="side-navigation__item">
+                    <a href="{{ section.url }}" class="side-navigation__link">
+                        {{ section.title }}
                     </a>
                 </li>
-            {% endfor %}
+						{% endfor %}
         </ul>
     </div>
 </header>
