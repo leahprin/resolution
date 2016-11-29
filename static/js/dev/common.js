@@ -265,6 +265,7 @@
     e.stopPropagation();
     e.preventDefault();
   })
+
   /**
    * Update Social Post From Listing
    */
