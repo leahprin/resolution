@@ -71,6 +71,7 @@ HomeController.Listing = (function ($) {
           ui.helper.attr('class', '');
           var postImage = $(ui.helper).data('article-image');
           var postText = $(ui.helper).data('article-text');
+          console.log(postImage);
           if(postImage !== "") {
             $('div.SwappingHelper img.article-image').attr('src', postImage);
           }
