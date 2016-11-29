@@ -96,10 +96,10 @@
     <div class="row text-center has-margin-bottom-20 has-margin-top-20 {{noDataCls}} NoArticlesMsg">
         <p class="no-data text-center">No articles found.</p>
     </div>
-    {% include 'layouts/elements/deloit-banner.twig' | raw %}
 		{% if articles|length >= limit %}
         <div class="load-more">
             <div class="card-container ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}"></div>
 						<button type="button" class="button button__load-more" aria-label="Close">Load more <i class="fa fa-refresh"></i></button>
         </div>
     {% endif %}
+    {% include 'layouts/elements/deloit-banner.twig' | raw %}
