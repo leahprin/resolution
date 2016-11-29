@@ -23,7 +23,7 @@
                 <span>{{pinTxt}}</span>
                 <img src="{{networkData.templatePath}}/static/images/icons/editor/pin.svg" alt="pin card">
             </div>
-						{% if cardType != 'social' %}
+						{% if article.articleId > 0 %}
             <div class="admin-actions__action admin-actions__action--edit editSocialPost" onclick="window.location = '{{article.editUrl}}'; return false;">
                 <span>EDIT</span>
                 <img src="{{networkData.templatePath}}/static/images/icons/editor/edit.svg" alt="edit card">
