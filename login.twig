@@ -90,8 +90,7 @@
                     <input type="text" class="form-control" name="username" value="" placeholder="Username">
 
                     <div class="controls-full captcha">
-                        {# <span class="help-block">This is how you'll be known on The Resolution</span> #}
-                        <img id="w0-image" src="{{networkData.templatePath}}/static/images/captcha-test.jpg" alt=""> <input type="text" id="w0" class="form-control" name="captcha" placeholder="Please enter tha captcha text above">
+                        {{_AppForm.captcha({class: 'form-control', placeholder: 'Enter the captcha text'}) | raw }}
                     </div>
 
                     <div class="button-set">
