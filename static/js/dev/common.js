@@ -111,9 +111,7 @@
       data: postData,
       dataType: 'json',
       success: function(data){
-        if(data.success) {
           console.log(data);
-        }
       },
       error: function(jqXHR, textStatus, errorThrown){
       },
