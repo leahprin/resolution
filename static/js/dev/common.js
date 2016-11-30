@@ -117,6 +117,8 @@
         data['author'] = data['name'];
         data['image'] = data['media']['path'];
         data['video'] = data['media']['videoUrl'];
+        data['templatePath'] = _appJsConfig.templatePath;
+        data['shareLink'] = data['url'];
         if ( data['image'] !== '' ) {
           data['hasImage'] = true;
         }

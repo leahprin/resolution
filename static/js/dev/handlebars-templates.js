@@ -127,7 +127,7 @@ var modalTemplate =
 											'<div class="share-popup">' +
 													'<div class="share-popup__title-wrap">' +
 															'<span class="share-popup__title">Share:</span>' +
-															'<img class="share-popup__close" src="{{networkData.templatePath}}/static/images/icons/close-small.svg" alt="" />' +
+															'<img class="share-popup__close" src="{{templatePath}}/static/images/icons/close-small.svg" alt="" />' +
 													'</div>' +
 													'<input type="text" name="share-link" value="{{ shareLink }}" readonly class="share-popup__share-link share-link">' +
 													'<div class="share-popup__social-wrap">' +
