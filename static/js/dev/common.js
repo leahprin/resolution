@@ -98,6 +98,8 @@
     e.stopPropagation();
     var socialCard = $(this);
     var socialFeedGuid = $(this).data('guid');
+    var blogGuid = $(this).data('blog-guid');
+
     var postData = {
       guid: socialFeedGuid
     }
