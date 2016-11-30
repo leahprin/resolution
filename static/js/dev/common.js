@@ -97,7 +97,11 @@
     e.preventDefault();
     e.stopPropagation();
     var socialCard = $(this);
-    console.log(socialCard);
+    var socialFeedGuid = $(this).data('guid');
+    var postData = {
+      guid: socialFeedGuid
+    }
+
     // $.ajax({
     //   url: _appJsConfig.baseHttpPath + '/api/social/get-social-post',
     //   type: 'post',

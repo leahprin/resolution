@@ -17,7 +17,7 @@
 		   {% if cardType == 'article' %}
 		   data-article-text="{{Helper.htmlToText(headline, -1) | raw | escape('html')}}" data-id="{{article.articleId}}" data-social="0" data-guid="{{article.guid}}"
 				{% else %}
-		   data-article-text="{{Helper.htmlToText(text, -1) | raw | escape('html')}}" data-id="{{article.socialId}}" data-social="1" data-guid="{{social.guid}}"
+		   data-article-text="{{Helper.htmlToText(text, -1) | raw | escape('html')}}" data-id="{{article.socialId}}" data-social="1" data-guid="{{social.guid}}" data-blog-guid="{{social.blog.guid}}"
 		   {% endif %}data-article-image="{{ thumbnail }}">
 			<div class="card__overlay">
 				<div class="card__content_wrap">
