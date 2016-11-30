@@ -60,6 +60,9 @@
 				}
 			}
 		}
+		@supports (object-fit: contain) {
+			background-image: none!important;
+		}
 		width:100%;
 		background-repeat: no-repeat;
 		background-position: 50%, 50%;
