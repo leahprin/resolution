@@ -114,7 +114,7 @@
         console.log(data);
         data['text'] = data['content'];
         data['authorImage'] = data['user']['media']['path'];
-        data['author'] = data['name'];
+        data['author'] = data['user']['name'];
         data['image'] = data['media']['path'];
         data['video'] = data['media']['videoUrl'];
         data['templatePath'] = _appJsConfig.templatePath;
