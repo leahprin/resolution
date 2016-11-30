@@ -98,23 +98,23 @@
     e.stopPropagation();
     var socialCard = $(this);
     console.log(socialCard);
-    $.ajax({
-      url: _appJsConfig.baseHttpPath + '/api/social/get-social-post',
-      type: 'post',
-      data: postData,
-      dataType: 'json',
-      success: function(data){
-        if(data.success) {
-
-        }
-      },
-      error: function(jqXHR, textStatus, errorThrown){
-      },
-      beforeSend: function(jqXHR, settings) {
-      },
-      complete: function(jqXHR, textStatus) {
-      }
-    });
+    // $.ajax({
+    //   url: _appJsConfig.baseHttpPath + '/api/social/get-social-post',
+    //   type: 'post',
+    //   data: postData,
+    //   dataType: 'json',
+    //   success: function(data){
+    //     if(data.success) {
+    //
+    //     }
+    //   },
+    //   error: function(jqXHR, textStatus, errorThrown){
+    //   },
+    //   beforeSend: function(jqXHR, settings) {
+    //   },
+    //   complete: function(jqXHR, textStatus) {
+    //   }
+    // });
   });
 
   // $('.card--social a').on('click', function (e) {
