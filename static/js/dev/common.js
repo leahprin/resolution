@@ -111,6 +111,7 @@
       data: postData,
       dataType: 'json',
       success: function(data){
+        console.log(modalTemplate);
         data['text'] = data['content'];
         data['authorImage'] = data['user']['media']['path'];
         data['author'] = data['name'];
@@ -125,8 +126,8 @@
         if (data['hasVideo'] !== '' || data['hasVideo'] !== '') {
           data['hasImageVideo'] = true;
         }
-        var modalTemplate = Handlebars.compile(modalTemplate);
-        var modal = modalTemplate(data);
+        var socialModal = Handlebars.compile(modalTemplate);
+        var modal = socialModal(data);
         $('.modal .modal-content').append(modal);
         $('.modal').modal('show');
       },
