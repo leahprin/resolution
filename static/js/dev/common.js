@@ -93,18 +93,40 @@
     draggable();
   });
 
-  $('.card--social a').on('click', function (e) {
+  $('.card--social a').on('click', function(e){
     e.preventDefault();
-    var dataSlug = $(e.target).closest('a').attr('data-slug')
-    $( '.modal .modal-content' ).load('/posts/' + dataSlug);
-    $('.modal').modal('show');
+    e.stopPropagation();
+    var socialCard = $(this);
+    console.log(socialCard);
+    $.ajax({
+      url: _appJsConfig.baseHttpPath + '/api/social/get-social-post',
+      type: 'post',
+      data: postData,
+      dataType: 'json',
+      success: function(data){
+        if(data.success) {
+
+        }
+      },
+      error: function(jqXHR, textStatus, errorThrown){
+      },
+      beforeSend: function(jqXHR, settings) {
+      },
+      complete: function(jqXHR, textStatus) {
+      }
+    });
   });
+
+  // $('.card--social a').on('click', function (e) {
+  //   e.preventDefault();
+  //   var dataSlug = $(e.target).closest('a').attr('data-slug')
+  //   $( '.modal .modal-content' ).load('/posts/' + dataSlug);
+  //   $('.modal').modal('show');
+  // });
 
   $('.modal').on('hidden.bs.modal', function () {
     $( '.modal .modal-content *' ).remove();
   });
-
-
 
   $(document).on('click', '.social-modal', function (e) {
     $('.modal').modal('hide');
