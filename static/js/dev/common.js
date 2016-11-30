@@ -111,7 +111,7 @@
       data: postData,
       dataType: 'json',
       success: function(data){
-        console.log(modalTemplate);
+        console.log(data);
         data['text'] = data['content'];
         data['authorImage'] = data['user']['media']['path'];
         data['author'] = data['name'];
