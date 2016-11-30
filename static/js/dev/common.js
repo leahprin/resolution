@@ -97,13 +97,15 @@
     e.preventDefault();
     e.stopPropagation();
     var socialCard = $(this);
-    var socialFeedGuid = $(this).data('guid');
-    var blogGuid = $(this).data('blog-guid');
+    var socialFeedGuid = socialCard.data('guid');
+    var blogGuid = socialCard.data('blog-guid');
 
     var postData = {
-      guid: socialFeedGuid
+      guid: socialFeedGuid,
+      blog_guid: blogGuid
     }
 
+    console.log(postData);
     // $.ajax({
     //   url: _appJsConfig.baseHttpPath + '/api/social/get-social-post',
     //   type: 'post',
