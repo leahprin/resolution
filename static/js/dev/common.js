@@ -78,7 +78,12 @@
   draggable();
 
   $('.newsletter-form').ajaxChimp({
-    url: 'http://russellyardley.us12.list-manage.com/subscribe/post?u=395ec0269b61a677432f83703&amp;id=0afbd1c72a'
+    url: 'http://russellyardley.us12.list-manage.com/subscribe/post?u=395ec0269b61a677432f83703&amp;id=0afbd1c72a',
+    callback: function callbackFunction (resp) {
+      if (resp.result === 'success') {
+        console.log('working');
+      }
+    }
   });
 
   $(window).resize(function(){
