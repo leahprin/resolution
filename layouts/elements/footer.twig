@@ -32,6 +32,7 @@
 
 									{% for navItem in footerNav %}
 			            	<a class="footer__additional-links" href="{{navItem.url}}">{{navItem.pageTitle}}{{navItem.blogTitle}}</a>
+										<p>{{dump(navItem)}}</p>
 									{% endfor %}
 
 									{# {% set menuItems = blog.blogFooterMenu %}
