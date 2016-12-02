@@ -8,13 +8,9 @@
         <div class="footer__info-mobile">
             <a href="#" class="footer__logo"><img src="{{networkData.templatePath}}/static/images/logo.svg"/></a>
 						{% for navItem in footerNav %}
-            	<a class="footer__additional-links" href="{{navItem.url}}">{{navItem.pageTitle}}</a>
+            	<a class="footer__additional-links" href="{{navItem.link}}">{{navItem.pageTitle}}</a>
 						{% endfor %}
-            {# <a class="footer__additional-links" href="/contact">Contact</a>
-            <a class="footer__additional-links" href="/contact">Site map</a>
-            <a class="footer__additional-links" href="#">Privacy Policy</a>
-            <a class="footer__additional-links" href="#">Terms & Conditions</a>
-            <div class="footer__additional-links footer__copyright">© All rights reserved 2016</div> #}
+            <div class="footer__additional-links footer__copyright">© All rights reserved {{ "now"|date("Y") }}</div>
         </div>
 
         <div class="footer__desktop">
@@ -28,11 +24,8 @@
                     </div>
                 </div>
                 <div class="footer__additional-links">
-									{% set footerNav = blogData.blogFooterMenu %}
-
 									{% for navItem in footerNav %}
 			            	<a class="footer__additional-links" href="{{navItem.link}}">{{navItem.pageTitle}}{{navItem.blogTitle}}</a>
-										{# <p>{{dump(navItem)}}</p> #}
 									{% endfor %}
 
 									{# {% set menuItems = blog.blogFooterMenu %}
