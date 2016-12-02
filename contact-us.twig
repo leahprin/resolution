@@ -25,5 +25,7 @@
 			</div>
 		</div>
 	</div>
-	<p>Page dump: {{dump(page)}}</p>
+	{% set businessDetails = _Blog.getHomeBlogSettings() %}
+
+	<p>Page dump: {{dump(businessDetails)}}</p>
 {{ void(this.endBlock()) }}
